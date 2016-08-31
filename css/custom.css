@@ -36,6 +36,9 @@ You're the boss, so have fun editing!
   display: none;
 }
 
+#members-dir-list .update {
+  display: none;
+}
 
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
