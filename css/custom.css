@@ -40,36 +40,6 @@ You're the boss, so have fun editing!
   display: none;
 }
 
-/*
-Hack the text color in the titlebar because display was white on white.
-*/
-
-.header-inner .left-col .header-navigation ul li a {
-    color: #000000 !important;
-}
-
-.header-inner .left-col .header-navigation ul li a:hover {
-    color: #680048 !important;
-}
-
-/*
-Hack these because hover was white.
-*/
-#dashboard-links a:hover, #adminbar-links a:hover, .header-notifications.all-notifications .pop a:hover {
-    color: #680048 !important;
-}
-
-/*
-Hack these because they were black!
-*/
-.header-account-login a.user-link {
-    color: #ffffff !important;
-}
-
-.header-notifications a.notification-link {
-    color: #ffffff !important;
-}
-
 /*--------------------------------------------------------------
 
 2.0 - Responsive media queries (mobile styles)
