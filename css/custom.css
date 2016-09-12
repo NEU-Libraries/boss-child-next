@@ -58,6 +58,12 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   display: none;
 }
 
+/* compensate for hiding activity messages by expanding width of member meta */
+#primary #friend-list li .item,
+#primary #members-stream li .item,
+#primary #members-list li .item {
+  width: 55%;
+}
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
 --------------------------------------------------------------*/
