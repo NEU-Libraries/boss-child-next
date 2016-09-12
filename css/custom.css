@@ -45,6 +45,12 @@ You're the boss, so have fun editing!
   width: 125px;
 }
 
+/* intended to target counts of members, groups, etc. inside tabbed subnav */
+body.activity:not(.bp-user)  .item-list-tabs ul li a span,
+.dir-form .item-list-tabs ul li a span {
+  display: none;
+}
+
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
 --------------------------------------------------------------*/
