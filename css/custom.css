@@ -44,6 +44,10 @@ html {
   display: none;
 }
 
+#members-stream li .action div.generic-button a,
+#members-list li .action div.generic-button a,
+#buddypress ul#groups-stream div.action .group-button a,
+#buddypress ul#groups-list div.action .group-button a,
 #buddypress div.generic-button a {
   width: 125px;
 }
