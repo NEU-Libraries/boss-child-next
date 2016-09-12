@@ -57,5 +57,11 @@ add_action( 'wp_enqueue_scripts', 'boss_child_theme_scripts_styles', 9999 );
 // Add your own custom functions here
 
 
+function boss_child_theme_enqueue_typekit() {
+	wp_enqueue_script( 'typekit', '//use.typekit.net/bgx6tpq.js', array(), null );
+	wp_add_inline_script( 'typekit', 'try{Typekit.load();}catch(e){};' );
+}
+add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_typekit' );
+
 
 ?>

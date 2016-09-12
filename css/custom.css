@@ -32,6 +32,9 @@ You're the boss, so have fun editing!
 }
 */
 
+html {
+  font-family: proxima-nova, Verdana, sans-serif !important;
+}
 
 .my-profile #item-nav {
   display: none;
