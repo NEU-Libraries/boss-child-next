@@ -41,6 +41,10 @@ You're the boss, so have fun editing!
   display: none;
 }
 
+#buddypress div.generic-button a {
+  width: 125px;
+}
+
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
 --------------------------------------------------------------*/
