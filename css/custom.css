@@ -64,6 +64,12 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #primary #members-list li .item {
   width: 55%;
 }
+
+/* resolve conflict between boss & buddypress-group-email-subscriptions: always hide options by default (toggled w/js) */
+.item-list li .action .action-wrap .group-subscription-options {
+  display: none;
+}
+
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
 --------------------------------------------------------------*/
