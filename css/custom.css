@@ -3,10 +3,10 @@
 ----------------------------------------------------------------
 1.0 - Global Styles
 2.0 - Responsive media queries (mobile styles)
-	2.1 - MAXIMUM width of 720 pixels (phones landscape)
-	2.2 - MAXIMUM width of 350 pixels (phones portrait)
-	2.3 - MINIMUM width of 721 pixels (tablets+)
-	2.4 - MINIMUM width of 1040 pixels (desktops and laptops)
+2.1 - MAXIMUM width of 720 pixels (phones landscape)
+2.2 - MAXIMUM width of 350 pixels (phones portrait)
+2.3 - MINIMUM width of 721 pixels (tablets+)
+2.4 - MINIMUM width of 1040 pixels (desktops and laptops)
 3.0 - Invite Anyone plugin style overrides
 --------------------------------------------------------------*/
 
@@ -15,15 +15,15 @@
 --------------------------------------------------------------*/
 
 html {
-	font-family: proxima-nova, Verdana, sans-serif !important;
+  font-family: proxima-nova, Verdana, sans-serif !important;
 }
 
 .my-profile #item-nav {
-	display: none;
+  display: none;
 }
 
 #members-dir-list .update {
-	display: none;
+  display: none;
 }
 
 #members-stream li .action div.generic-button a,
@@ -31,143 +31,143 @@ html {
 #buddypress ul#groups-stream div.action .group-button a,
 #buddypress ul#groups-list div.action .group-button a,
 #buddypress div.generic-button a {
-	width: 125px;
+  width: 125px;
 }
 
 /* intended to target counts of members, groups, etc. inside tabbed subnav */
 body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 .dir-form .item-list-tabs ul li a span {
-	display: none;
+  display: none;
 }
 
 /* compensate for hiding activity messages by expanding width of member meta */
 #primary #friend-list li .item,
 #primary #members-stream li .item,
 #primary #members-list li .item {
-	width: 55%;
+  width: 55%;
 }
 
 /* resolve conflict between boss & buddypress-group-email-subscriptions: always hide options by default (toggled w/js) */
 .item-list li .action .action-wrap .group-subscription-options {
-	display: none;
+  display: none;
 }
 
 /* hide my-account on wp-toolbar */
 #wp-admin-bar-top-secondary #wp-admin-bar-my-account, #wp-admin-bar-top-secondary #wp-admin-bar-bp-notifications {
-	display: none;
+  display: none;
 }
 
 /* hide update notifications on masthead */
 #masthead .header-notifications.updates {
-	display: none;
+  display: none;
 }
 
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
 --------------------------------------------------------------*/
 
-	/*--------------------------------------------------------------
-	2.1 - MAXIMUM width of 720 pixels (phones landscape)
-	--------------------------------------------------------------*/
-	@media screen and (max-width: 720px) {
+/*--------------------------------------------------------------
+2.1 - MAXIMUM width of 720 pixels (phones landscape)
+--------------------------------------------------------------*/
+@media screen and (max-width: 720px) {
 
 
-		/*
-		.just_an_example {
-			color: black;
-		}
-		*/
+  /*
+  .just_an_example {
+  color: black;
+  }
+   */
 
 
-	}/* don't delete this closing bracket */
+}/* don't delete this closing bracket */
 
 
-	/*--------------------------------------------------------------
-	2.2 - MAXIMUM width of 350 pixels (phones portrait)
-	--------------------------------------------------------------*/
-	@media screen and (max-width: 350px) {
+/*--------------------------------------------------------------
+2.2 - MAXIMUM width of 350 pixels (phones portrait)
+--------------------------------------------------------------*/
+@media screen and (max-width: 350px) {
 
 
-		/*
-		.just_an_example {
-			color: black;
-		}
-		*/
+  /*
+  .just_an_example {
+  color: black;
+  }
+   */
 
 
-	}/* don't delete this closing bracket */
+}/* don't delete this closing bracket */
 
 
-	/*--------------------------------------------------------------
-	2.3 - MINIMUM width of 721 pixels (tablets+)
-	--------------------------------------------------------------*/
-	@media screen and (min-width: 721px)  {
+/*--------------------------------------------------------------
+2.3 - MINIMUM width of 721 pixels (tablets+)
+--------------------------------------------------------------*/
+@media screen and (min-width: 721px)  {
 
 
-		/*
-		.just_an_example {
-			color: black;
-		}
-		*/
+  /*
+  .just_an_example {
+  color: black;
+  }
+   */
 
 
-	}/* don't delete this closing bracket */
+}/* don't delete this closing bracket */
 
 
-	/*--------------------------------------------------------------
-	2.4 - MINIMUM width of 1040 pixels (desktops and laptops)
-	--------------------------------------------------------------*/
-	@media screen and (min-width: 1040px)  {
+/*--------------------------------------------------------------
+2.4 - MINIMUM width of 1040 pixels (desktops and laptops)
+--------------------------------------------------------------*/
+@media screen and (min-width: 1040px)  {
 
-		/* reduce padding on menu items to prevent offscreen overflow */
-		body.left-menu-open #nav-menu > ul > li > a,
-		body.left-menu-open .menu-panel .menupop > a,
-		.menu-panel ul li a,
-		.menu-panel ul li div.ab-item,
-		.menu-panel #header-menu ul .sub-menu-wrap a {
-			padding: 5px 10px;
-		}
+  /* reduce padding on menu items to prevent offscreen overflow */
+  body.left-menu-open #nav-menu > ul > li > a,
+  body.left-menu-open .menu-panel .menupop > a,
+  .menu-panel ul li a,
+  .menu-panel ul li div.ab-item,
+  .menu-panel #header-menu ul .sub-menu-wrap a {
+    padding: 5px 10px;
+  }
 
-		/* no padding on submenu wrappers to save some more space */
-		.header-account-login .pop .network-menu,
-		.header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account) > .ab-sub-wrapper,
-		.menu-panel #nav-menu .sub-menu-wrap .sub-menu {
-			margin: 0;
-			padding: 0;
-		}
+  /* no padding on submenu wrappers to save some more space */
+  .header-account-login .pop .network-menu,
+  .header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account) > .ab-sub-wrapper,
+  .menu-panel #nav-menu .sub-menu-wrap .sub-menu {
+    margin: 0;
+    padding: 0;
+  }
 
-		/* reduce padding/margin of various menu edge cases to be consistent with overall reduced menu padding */
-		.header-account-login .pop #dashboard-links {
-			padding-bottom: 0;
-			padding-top: 0;
-		}
-		.header-account-login .pop #adminbar-links {
-			padding-top: 0;
-		}
-		.header-account-login .pop .logout {
-			margin-top: 0;
-		}
+  /* reduce padding/margin of various menu edge cases to be consistent with overall reduced menu padding */
+  .header-account-login .pop #dashboard-links {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .header-account-login .pop #adminbar-links {
+    padding-top: 0;
+  }
+  .header-account-login .pop .logout {
+    margin-top: 0;
+  }
 
-		/* adjust submenu arrow to fit reduced padding */
-		body.left-menu-open .menu-panel .sub-menu-wrap:before,
-		body.left-menu-open .ab-sub-wrapper:before,
-		body.left-menu-open .sub-menu-wrap:after,
-		body.left-menu-open .ab-sub-wrapper:after {
-			top: 8px;
-		}
+  /* adjust submenu arrow to fit reduced padding */
+  body.left-menu-open .menu-panel .sub-menu-wrap:before,
+  body.left-menu-open .ab-sub-wrapper:before,
+  body.left-menu-open .sub-menu-wrap:after,
+  body.left-menu-open .ab-sub-wrapper:after {
+    top: 8px;
+  }
 
-		/* with the menu icons it doesn't make sense to push this to the right, so left-align the separator */
-		body.left-menu-open #nav-menu > ul > li > a:after,
-		body.left-menu-open #left-panel .menupop > a:after {
-			left: 0;
-		}
+  /* with the menu icons it doesn't make sense to push this to the right, so left-align the separator */
+  body.left-menu-open #nav-menu > ul > li > a:after,
+  body.left-menu-open #left-panel .menupop > a:after {
+    left: 0;
+  }
 
-	}/* don't delete this closing bracket */
+}/* don't delete this closing bracket */
 
 
 /*--------------------------------------------------------------
 3.0 - Invite Anyone plugin style overrides
 --------------------------------------------------------------*/
 #group-create-body .left-menu, #send-invite-form .left-menu {
-	display: none;
+  display: none;
 }
