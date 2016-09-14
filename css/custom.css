@@ -119,7 +119,42 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 	--------------------------------------------------------------*/
 	@media screen and (min-width: 1040px)  {
 
-		/* reduce padding on menus to prevent offscreen overflow */
+		/* reduce padding on menu items to prevent offscreen overflow */
+		body.left-menu-open #nav-menu > ul > li > a,
+		body.left-menu-open .menu-panel .menupop > a,
+		.menu-panel ul li a,
+		.menu-panel ul li div.ab-item,
+		.menu-panel #header-menu ul .sub-menu-wrap a {
+			padding: 5px 10px;
+		}
+
+		/* no padding on submenu wrappers to save some more space */
+		.header-account-login .pop .network-menu,
+		.header-account-login .pop .bp_components .menupop:not(#wp-admin-bar-my-account) > .ab-sub-wrapper,
+		.menu-panel #nav-menu .sub-menu-wrap .sub-menu {
+			margin: 0;
+			padding: 0;
+		}
+
+		/* reduce padding/margin of various menu edge cases to be consistent with overall reduced menu padding */
+		.header-account-login .pop #dashboard-links {
+			padding-bottom: 0;
+			padding-top: 0;
+		}
+		.header-account-login .pop #adminbar-links {
+			padding-top: 0;
+		}
+		.header-account-login .pop .logout {
+			margin-top: 0;
+		}
+
+		/* adjust submenu arrow to fit reduced padding */
+		body.left-menu-open .menu-panel .sub-menu-wrap:before,
+		body.left-menu-open .ab-sub-wrapper:before,
+		body.left-menu-open .sub-menu-wrap:after,
+		body.left-menu-open .ab-sub-wrapper:after {
+			top: 8px;
+		}
 
 	}/* don't delete this closing bracket */
 
