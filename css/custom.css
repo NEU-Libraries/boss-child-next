@@ -70,6 +70,16 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   display: none;
 }
 
+/* hide my-account on wp-toolbar */
+#wp-admin-bar-top-secondary #wp-admin-bar-my-account, #wp-admin-bar-top-secondary #wp-admin-bar-bp-notifications {
+  display: none;
+}
+
+/* hide update notifications on masthead */
+#masthead .header-notifications.updates {
+  display: none;
+}
+
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
 --------------------------------------------------------------*/
