@@ -1,15 +1,4 @@
 /*--------------------------------------------------------------
-This is your custom stylesheet.
-
-Add your own styles here to make theme updates easier.
-To override any styles from other stylesheets, simply copy them into here and edit away.
-
-Make sure to respect the media queries! Otherwise you may
-accidentally add desktop styles to the mobile layout.
-
-You're the boss, so have fun editing!
-
---------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.0 - Global Styles
@@ -18,30 +7,23 @@ You're the boss, so have fun editing!
 	2.2 - MAXIMUM width of 350 pixels (phones portrait)
 	2.3 - MINIMUM width of 721 pixels (tablets+)
 	2.4 - MINIMUM width of 1040 pixels (desktops and laptops)
-3.0 - Invite Anyone plugin style overrides 
+3.0 - Invite Anyone plugin style overrides
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 1.0 - Global Styles
 --------------------------------------------------------------*/
 
-
-
-/*
-.just_an_example {
-	color: black;
-}
-*/
-
 html {
-  font-family: proxima-nova, Verdana, sans-serif !important;
+	font-family: proxima-nova, Verdana, sans-serif !important;
 }
 
 .my-profile #item-nav {
-  display: none;
+	display: none;
 }
 
 #members-dir-list .update {
-  display: none;
+	display: none;
 }
 
 #members-stream li .action div.generic-button a,
@@ -49,35 +31,35 @@ html {
 #buddypress ul#groups-stream div.action .group-button a,
 #buddypress ul#groups-list div.action .group-button a,
 #buddypress div.generic-button a {
-  width: 125px;
+	width: 125px;
 }
 
 /* intended to target counts of members, groups, etc. inside tabbed subnav */
 body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 .dir-form .item-list-tabs ul li a span {
-  display: none;
+	display: none;
 }
 
 /* compensate for hiding activity messages by expanding width of member meta */
 #primary #friend-list li .item,
 #primary #members-stream li .item,
 #primary #members-list li .item {
-  width: 55%;
+	width: 55%;
 }
 
 /* resolve conflict between boss & buddypress-group-email-subscriptions: always hide options by default (toggled w/js) */
 .item-list li .action .action-wrap .group-subscription-options {
-  display: none;
+	display: none;
 }
 
 /* hide my-account on wp-toolbar */
 #wp-admin-bar-top-secondary #wp-admin-bar-my-account, #wp-admin-bar-top-secondary #wp-admin-bar-bp-notifications {
-  display: none;
+	display: none;
 }
 
 /* hide update notifications on masthead */
 #masthead .header-notifications.updates {
-  display: none;
+	display: none;
 }
 
 /*--------------------------------------------------------------
@@ -137,19 +119,13 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 	--------------------------------------------------------------*/
 	@media screen and (min-width: 1040px)  {
 
-
-		/*
-		.just_an_example {
-			color: black;
-		}
-		*/
-
+		/* reduce padding on menus to prevent offscreen overflow */
 
 	}/* don't delete this closing bracket */
 
 
 /*--------------------------------------------------------------
-3.0 - Invite Anyone plugin style overrides 
+3.0 - Invite Anyone plugin style overrides
 --------------------------------------------------------------*/
 #group-create-body .left-menu, #send-invite-form .left-menu {
 	display: none;
