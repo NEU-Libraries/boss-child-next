@@ -30,7 +30,8 @@ html {
 #members-list li .action div.generic-button a,
 #buddypress ul#groups-stream div.action .group-button a,
 #buddypress ul#groups-list div.action .group-button a,
-#buddypress div.generic-button a {
+#buddypress div.generic-button a,
+a.button {
   width: 125px;
 }
 
