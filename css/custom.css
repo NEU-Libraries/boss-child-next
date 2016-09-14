@@ -156,6 +156,12 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 			top: 8px;
 		}
 
+		/* with the menu icons it doesn't make sense to push this to the right, so left-align the separator */
+		body.left-menu-open #nav-menu > ul > li > a:after,
+		body.left-menu-open #left-panel .menupop > a:after {
+			left: 0;
+		}
+
 	}/* don't delete this closing bracket */
 
 
