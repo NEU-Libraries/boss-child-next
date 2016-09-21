@@ -73,6 +73,12 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   height: 37px !important;
   line-height: 37px !important;
 }
+#right-panel {
+  margin-top: 37px !important;
+}
+body:not(.left-menu-open)[data-logo="1"] .site-header .left-col .table {
+  height: 37px !important;
+}
 
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
@@ -200,6 +206,9 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #wp-admin-bar-shortcode-secondary .ab-sub-wrapper,
 .header-notifications .pop, .header-account-login .pop {
   top: 37px;
+}
+body #mastlogo {
+  min-height: 37px;
 }
 /* end of top menubar height reduction */
 
