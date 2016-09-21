@@ -90,6 +90,13 @@ body:not(.left-menu-open)[data-logo="1"] .site-header .left-col .table {
 .header-account-login .pop .logout a {
   padding-bottom: 8px; /* because of odd (non-even) padding-top, there's a 1px bottom gap without this */
 }
+body:not(.left-menu-open)[data-logo="1"] #search-open,
+body:not(.left-menu-open)[data-logo="1"] .header-account-login,
+body:not(.left-menu-open)[data-logo="1"] #wp-admin-bar-shortcode-secondary .menupop,
+body:not(.left-menu-open)[data-logo="1"] .header-notifications {
+  height: 37px !important;
+  line-height: 37px !important;
+}
 
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
