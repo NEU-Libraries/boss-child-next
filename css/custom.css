@@ -63,6 +63,17 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   display: none;
 }
 
+/**
+ * part of shorter top menu.
+ * !important required because of hard css tied to logo dimensions in
+ * boss/buddyboss-inc/buddyboss-framework/options/custom-css.php
+ */
+.is-desktop #header-menu > ul > li,
+#search-open {
+  height: 37px !important;
+  line-height: 37px !important;
+}
+
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
 --------------------------------------------------------------*/
@@ -162,6 +173,35 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   body.left-menu-open #left-panel .menupop > a:after {
     left: 0;
   }
+
+/* reduce top menubar height */
+.site-header .left-col .table {
+  height: 37px;
+}
+.header-links {
+  height: 37px;
+}
+.header-navigation > div > ul {
+  height: 37px;
+}
+#wp-admin-bar-shortcode-secondary .menupop,
+.header-notifications {
+  height: 37px;
+  line-height: 37px;
+}
+.header-account-login {
+  height: 37px;
+  line-height: 37px;
+}
+.header-account-login img {
+  width: 25px;
+  height: 25px;
+}
+#wp-admin-bar-shortcode-secondary .ab-sub-wrapper,
+.header-notifications .pop, .header-account-login .pop {
+  top: 37px;
+}
+/* end of top menubar height reduction */
 
 }/* don't delete this closing bracket */
 
