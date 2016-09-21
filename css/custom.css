@@ -79,6 +79,17 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 body:not(.left-menu-open)[data-logo="1"] .site-header .left-col .table {
   height: 37px !important;
 }
+.widget-area .widget .bp-login-widget-register-link a,
+.widget-area .widget a.sidebar-wp-register,
+.widget-area .widget_bp_core_login_widget a.logout,
+.widget-area .widget_tag_cloud a,
+.widget-area .widget #sidebarme ul.sidebarme-quicklinks li.sidebarme-profile a,
+.bbp-logged-in a.button,
+.right-col .register,
+.right-col .login,
+.header-account-login .pop .logout a {
+  padding-bottom: 8px; /* because of odd (non-even) padding-top, there's a 1px bottom gap without this */
+}
 
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
