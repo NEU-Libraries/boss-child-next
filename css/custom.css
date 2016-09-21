@@ -203,6 +203,11 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 }
 /* end of top menubar height reduction */
 
+/* try not to truncate user name in top menubar */
+.header-account-login .user-link span.name {
+  width: auto;
+}
+
 }/* don't delete this closing bracket */
 
 
