@@ -198,42 +198,43 @@ body:not(.left-menu-open)[data-logo="1"] .header-notifications {
     left: 0;
   }
 
-/* reduce top menubar height */
-.site-header .left-col .table {
-  height: 37px;
-}
-.header-links {
-  height: 37px;
-}
-.header-navigation > div > ul {
-  height: 37px;
-}
-#wp-admin-bar-shortcode-secondary .menupop,
-.header-notifications {
-  height: 37px;
-  line-height: 37px;
-}
-.header-account-login {
-  height: 37px;
-  line-height: 37px;
-}
-.header-account-login img {
-  width: 25px;
-  height: 25px;
-}
-#wp-admin-bar-shortcode-secondary .ab-sub-wrapper,
-.header-notifications .pop, .header-account-login .pop {
-  top: 37px;
-}
-body #mastlogo {
-  min-height: 37px;
-}
-/* end of top menubar height reduction */
+  /* reduce top menubar height */
+  .site-header .left-col .table {
+    height: 37px;
+  }
+  .header-links {
+    height: 37px;
+  }
+  .header-navigation > div > ul {
+    height: 37px;
+  }
+  #wp-admin-bar-shortcode-secondary .menupop,
+  .header-notifications {
+    height: 37px;
+    line-height: 37px;
+  }
+  .header-account-login {
+    height: 37px;
+    line-height: 37px;
+  }
+  .header-account-login img {
+    width: 25px;
+    height: 25px;
+  }
+  #wp-admin-bar-shortcode-secondary .ab-sub-wrapper,
+  .header-notifications .pop,
+  .header-account-login .pop {
+    top: 37px;
+  }
+  body #mastlogo {
+    min-height: 37px;
+  }
+  /* end of top menubar height reduction */
 
-/* try not to truncate user name in top menubar */
-.header-account-login .user-link span.name {
-  width: auto;
-}
+  /* try not to truncate user name in top menubar */
+  .header-account-login .user-link span.name {
+    width: auto;
+  }
 
 }/* don't delete this closing bracket */
 
