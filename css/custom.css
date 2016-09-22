@@ -325,6 +325,14 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
   #left-panel-inner #scroll-area {
     width: 75px;
   }
+  #mastlogo,
+  #left-panel *,
+  #right-panel-inner {
+    -webkit-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -o-transition-property: none !important;
+    transition-property: none !important;
+  }
 
 }/* don't delete this closing bracket */
 
