@@ -27,9 +27,11 @@ $elem = ( is_front_page() && is_home() ) ? 'h1' : 'h2';
 	<?php } else { ?>
 		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 	<?php } ?>
-		<?php echo $logo_large; ?>
-		<?php echo $logo_small; ?>
-	</a>
+			<?php echo $logo_small; ?>
+		</a>
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+			<?php echo $logo_large; ?>
+		</a>
 
 	</<?php echo $elem; ?>>
 

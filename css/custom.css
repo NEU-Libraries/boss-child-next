@@ -79,6 +79,22 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 body:not(.left-menu-open)[data-logo="1"] .site-header .left-col .table {
   height: 37px !important;
 }
+body:not(.left-menu-open)[data-logo="1"] #search-open,
+body:not(.left-menu-open)[data-logo="1"] .header-account-login,
+body:not(.left-menu-open)[data-logo="1"] #wp-admin-bar-shortcode-secondary .menupop,
+body:not(.left-menu-open)[data-logo="1"] .header-notifications {
+  height: 37px !important;
+  line-height: 37px !important;
+}
+body.is-desktop.left-menu-open[data-logo="1"] #left-panel-inner {
+  padding-top: 75px !important;
+}
+/* end hard logo dimension override */
+
+body:not(.left-menu-open)[data-logo="1"] #mastlogo {
+  padding: 0;
+}
+
 .widget-area .widget .bp-login-widget-register-link a,
 .widget-area .widget a.sidebar-wp-register,
 .widget-area .widget_bp_core_login_widget a.logout,
@@ -89,13 +105,6 @@ body:not(.left-menu-open)[data-logo="1"] .site-header .left-col .table {
 .right-col .login,
 .header-account-login .pop .logout a {
   padding-bottom: 8px; /* because of odd (non-even) padding-top, there's a 1px bottom gap without this */
-}
-body:not(.left-menu-open)[data-logo="1"] #search-open,
-body:not(.left-menu-open)[data-logo="1"] .header-account-login,
-body:not(.left-menu-open)[data-logo="1"] #wp-admin-bar-shortcode-secondary .menupop,
-body:not(.left-menu-open)[data-logo="1"] .header-notifications {
-  height: 37px !important;
-  line-height: 37px !important;
 }
 
 /*--------------------------------------------------------------
@@ -162,6 +171,20 @@ body:not(.left-menu-open)[data-logo="1"] .header-notifications {
   .menu-panel ul li div.ab-item,
   .menu-panel #header-menu ul .sub-menu-wrap a {
     padding: 5px 10px;
+  }
+  .menu-panel #header-menu > ul li a,
+  #nav-menu > ul > li > a,
+  body:not(.left-menu-open) .menu-panel .sub-menu-wrap > a,
+  body:not(.left-menu-open) .menu-panel .ab-sub-wrapper > .ab-item,
+  .menu-panel #nav-menu > a,
+  .menu-panel .menupop > a {
+    padding: 5px 27px;
+  }
+  body:not(.left-menu-open) .menu-panel .sub-menu-wrap:before,
+  body:not(.left-menu-open) .ab-sub-wrapper:before,
+  body:not(.left-menu-open) .sub-menu-wrap:after,
+  body:not(.left-menu-open) .ab-sub-wrapper:after {
+    top: 8px;
   }
 
   /* no padding on submenu wrappers to save some more space */
@@ -234,6 +257,73 @@ body:not(.left-menu-open)[data-logo="1"] .header-notifications {
   /* try not to truncate user name in top menubar */
   .header-account-login .user-link span.name {
     width: auto;
+  }
+
+  /* show both small & large logos when left menu is expanded */
+  body[data-logo="1"] #mastlogo {
+    display: flex;
+  }
+  body.left-menu-open .site-title.small,
+  body.left-menu-open #mastlogo #logo img.small {
+    display: block;
+    padding: 0;
+  }
+  body.left-menu-open #mastlogo #logo .site-title a:first-child img {
+    width: 64px;
+  }
+  body.left-menu-open #mastlogo #logo .site-title a:last-child img {
+    width: 124px;
+  }
+  body[data-logo="1"] #mastlogo {
+    padding: 0;
+  }
+  div#logo {
+    height: 75px;
+    line-height: normal;
+    padding: 0 5px;
+  }
+  body:not(.left-menu-open)[data-logo="1"] div#logo {
+    padding: 0;
+  }
+  .header-outher {
+    margin-left: 75px;
+  }
+  #mastlogo {
+    width: 75px;
+  }
+  #mastlogo #logo img {
+    width: auto;
+  }
+  #mastlogo #logo .site-title {
+    display: inline;
+    vertical-align: top;
+  }
+  #mastlogo #logo .site-title a:first-child img,
+  #mastlogo #logo .site-title a:last-child img {
+    height: 65px;
+    padding: 5px;
+  }
+  body:not(.left-menu-open) .menu-panel #nav-menu > ul > li > a:after,
+  body:not(.left-menu-open) .menu-panel #header-menu > ul > li > a:after,
+  body:not(.left-menu-open) .menu-panel ul li .menupop > a:after {
+    left: 27px;
+  }
+  .menu-panel {
+    width: 75px;
+  }
+  body:not(.left-menu-open) .menu-panel #nav-menu .sub-menu-wrap,
+  body:not(.left-menu-open) .menu-panel #header-menu .sub-menu-wrap,
+  body:not(.left-menu-open) .bp_components ul li ul li.menupop .ab-sub-wrapper {
+    left: 75px;
+  }
+  body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner {
+    padding-top: 75px;
+  }
+  body:not(.left-menu-open) #right-panel-inner {
+    margin-left: 75px;
+  }
+  #left-panel-inner #scroll-area {
+    width: 75px;
   }
 
 }/* don't delete this closing bracket */
