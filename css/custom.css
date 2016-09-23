@@ -324,7 +324,11 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
     width: 75px;
   }
   #mastlogo,
+  .menu-panel,
+  .header-outher,
   #left-panel *,
+  #nav-menu > ul > li > a,
+  #left-panel-inner #scroll-area,
   #right-panel-inner {
     -webkit-transition-property: none !important;
     -moz-transition-property: none !important;
