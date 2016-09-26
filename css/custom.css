@@ -117,6 +117,12 @@ body.left-menu-open #left-panel #scroll-area, body:not(.left-menu-open) #left-pa
   /* border-bottom: 1px solid rgba(0,0,0,0.11); */
 }
 
+/* hide member dropdown in responsive adminbar */
+#wpadminbar li#wp-admin-bar-my-account {
+  display: none;
+}
+
+
 /*--------------------------------------------------------------
 2.0 - Responsive media queries (mobile styles)
 --------------------------------------------------------------*/
