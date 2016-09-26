@@ -224,7 +224,7 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
 
   /* reduce top menubar height */
   .site-header .left-col .table {
-    height: 37px;
+    height: 65px;
   }
   .header-links {
     height: 37px;
