@@ -88,7 +88,7 @@ body:not(.left-menu-open)[data-logo="1"] .header-notifications {
 }
 body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner,
 body.is-desktop.left-menu-open[data-logo="1"] #left-panel-inner {
-  padding-top: 75px !important;
+  padding-top: 65px !important;
 }
 /* end hard logo dimension override */
 
@@ -267,16 +267,16 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
     padding: 0;
   }
   body.left-menu-open #mastlogo #logo .site-title a:first-child img {
-    width: 64px;
+    width: 54px;
   }
   body.left-menu-open #mastlogo #logo .site-title a:last-child img {
-    width: 124px;
+    width: 105px;
   }
   body[data-logo="1"] #mastlogo {
     padding: 0;
   }
   div#logo {
-    height: 75px;
+    height: 65px;
     line-height: normal;
     padding: 0 5px;
   }
@@ -284,10 +284,10 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
     padding: 0;
   }
   .header-outher {
-    margin-left: 75px;
+    margin-left: 65px;
   }
   #mastlogo {
-    width: 75px;
+    width: 64px;
   }
   #mastlogo #logo img {
     width: auto;
@@ -298,7 +298,10 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
   }
   #mastlogo #logo .site-title a:first-child img,
   #mastlogo #logo .site-title a:last-child img {
-    height: 65px;
+    height: 55px;
+    padding: 5px 12px;
+  }
+  body:not(.left-menu-open) #mastlogo #logo .site-title a:first-child img {
     padding: 5px;
   }
   body:not(.left-menu-open) .menu-panel #nav-menu > ul > li > a:after,
@@ -307,21 +310,21 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
     left: 27px;
   }
   .menu-panel {
-    width: 75px;
+    width: 55px;
   }
   body:not(.left-menu-open) .menu-panel #nav-menu .sub-menu-wrap,
   body:not(.left-menu-open) .menu-panel #header-menu .sub-menu-wrap,
   body:not(.left-menu-open) .bp_components ul li ul li.menupop .ab-sub-wrapper {
-    left: 75px;
+    left: 65px;
   }
   body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner {
-    padding-top: 75px;
+    padding-top: 65px;
   }
   body:not(.left-menu-open) #right-panel-inner {
-    margin-left: 75px;
+    margin-left: 65px;
   }
   #left-panel-inner #scroll-area {
-    width: 75px;
+    width: 55px;
   }
   #mastlogo,
   .menu-panel,
