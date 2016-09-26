@@ -7,6 +7,7 @@
 2.2 - MAXIMUM width of 350 pixels (phones portrait)
 2.3 - MINIMUM width of 721 pixels (tablets+)
 2.4 - MINIMUM width of 1040 pixels (desktops and laptops)
+2.5 - MINIMUM width of 481 pixels (small desktops)
 3.0 - Invite Anyone plugin style overrides
 --------------------------------------------------------------*/
 
@@ -229,6 +230,15 @@ body.left-menu-open #left-panel #scroll-area, body:not(.left-menu-open) #left-pa
   body.left-menu-open #left-panel .menupop > a:after {
     left: 0;
   }
+
+}
+
+
+/*--------------------------------------------------------------
+2.5 - MINIMUM width of 481 pixels (small desktops)
+(for titlebar styles consistency on small desktop screens)
+--------------------------------------------------------------*/
+@media screen and (min-width: 481px)  {
 
   /* reduce top menubar height */
   .site-header .left-col .table {
