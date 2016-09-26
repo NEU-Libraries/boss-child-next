@@ -351,6 +351,10 @@ body.left-menu-open #left-panel #scroll-area, body:not(.left-menu-open) #left-pa
     transition-property: none !important;
   }
 
+  #titlebar-search {
+    display: none;
+  }
+
 }/* don't delete this closing bracket */
 
 
