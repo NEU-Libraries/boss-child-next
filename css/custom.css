@@ -77,7 +77,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   margin-top: 37px !important;
 }
 body:not(.left-menu-open)[data-logo="1"] .site-header .left-col .table {
-  height: 37px !important;
+  height: 65px !important;
 }
 body:not(.left-menu-open)[data-logo="1"] #search-open,
 body:not(.left-menu-open)[data-logo="1"] .header-account-login,
@@ -106,6 +106,14 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
 .right-col .login,
 .header-account-login .pop .logout a {
   padding-bottom: 8px; /* because of odd (non-even) padding-top, there's a 1px bottom gap without this */
+}
+
+/* replace box-shadow with border */
+#mastlogo,
+.header-outher,
+body.left-menu-open #left-panel #scroll-area, body:not(.left-menu-open) #left-panel {
+  box-shadow: none;
+  /* border-bottom: 1px solid rgba(0,0,0,0.11); */
 }
 
 /*--------------------------------------------------------------
@@ -179,7 +187,7 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
   body:not(.left-menu-open) .menu-panel .ab-sub-wrapper > .ab-item,
   .menu-panel #nav-menu > a,
   .menu-panel .menupop > a {
-    padding: 5px 27px;
+    padding: 5px 1.5em;
   }
   body:not(.left-menu-open) .menu-panel .sub-menu-wrap:before,
   body:not(.left-menu-open) .ab-sub-wrapper:before,
@@ -287,7 +295,7 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
     margin-left: 65px;
   }
   #mastlogo {
-    width: 64px;
+    width: 65px;
   }
   #mastlogo #logo img {
     width: auto;
@@ -324,7 +332,7 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
     margin-left: 65px;
   }
   #left-panel-inner #scroll-area {
-    width: 55px;
+    width: 65px;
   }
   #mastlogo,
   .menu-panel,
@@ -332,7 +340,11 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
   #left-panel *,
   #nav-menu > ul > li > a,
   #left-panel-inner #scroll-area,
-  #right-panel-inner {
+  #right-panel-inner,
+  .menu-panel #header-menu > ul li a:before,
+  .menu-panel #nav-menu > ul > li > a:not(.open-submenu):before,
+  .menu-panel .screen-reader-shortcut:before,
+  .menu-panel .bp_components ul li ul li > .ab-item:before {
     -webkit-transition-property: none !important;
     -moz-transition-property: none !important;
     -o-transition-property: none !important;
