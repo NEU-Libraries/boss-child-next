@@ -75,7 +75,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   line-height: 37px !important;
 }
 #right-panel {
-  margin-top: 37px !important;
+  margin-top: 65px !important;
 }
 body:not(.left-menu-open)[data-logo="1"] .site-header .left-col .table {
   height: 65px !important;
