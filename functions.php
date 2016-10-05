@@ -47,6 +47,17 @@ function boss_child_theme_scripts_styles() {
 	 * Styles
 	 */
 	wp_enqueue_style( 'boss-child-custom', get_stylesheet_directory_uri().'/css/custom.css' );
+
+	if (
+		class_exists( 'Humanities_Commons' ) &&
+		! empty( Humanities_Commons::$society_id ) &&
+		file_exists( get_stylesheet_directory() . '/css/' . Humanities_Commons::$society_id . '.css' )
+	) {
+		wp_enqueue_style(
+			'boss-child-' . Humanities_Commons::$society_id,
+			get_stylesheet_directory_uri() . '/css/' . Humanities_Commons::$society_id . '.css'
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'boss_child_theme_scripts_styles', 9999 );
 
