@@ -32,43 +32,25 @@ add_action( 'after_setup_theme', 'boss_child_theme_setup' );
  *
  * @since Boss Child Theme  1.0.0
  */
-function boss_child_theme_scripts_styles() {
-
-	/**
-	 * Scripts and Styles loaded by the parent theme can be unloaded if needed
-	 * using wp_deregister_script or wp_deregister_style.
-	 *
-	 * See the WordPress Codex for more information about those functions:
-	 * http://codex.wordpress.org/Function_Reference/wp_deregister_script
-	 * http://codex.wordpress.org/Function_Reference/wp_deregister_style
-	 */
-
-	/*
-	 * Styles
-	 */
+function boss_child_theme_echo_style_link() {
 
 	if (
 		class_exists( 'Humanities_Commons' ) &&
 		! empty( Humanities_Commons::$society_id ) &&
 		file_exists( get_stylesheet_directory() . '/css/' . Humanities_Commons::$society_id . '.css' )
 	) {
-		wp_enqueue_style(
-			'boss-child-' . Humanities_Commons::$society_id,
-			get_stylesheet_directory_uri() . '/css/' . Humanities_Commons::$society_id . '.css'
-		);
+		$href = get_stylesheet_directory_uri() . '/css/' . Humanities_Commons::$society_id . '.css';
+		echo '<link rel="stylesheet" id="boss-child-custom-css"  href="' . $href . '" type="text/css" media="all" />';
 	}
+
 }
-add_action( 'wp_enqueue_scripts', 'boss_child_theme_scripts_styles', 9999 );
+// echo <link> after inline dynamic styles rather than enqueueing the usual way,
+// so we don't have to resort to !important everywhere
+add_action( 'wp_head', 'boss_child_theme_echo_style_link', 151 );
 
 
-/****************************** CUSTOM FUNCTIONS ******************************/
-
-// Add your own custom functions here
 function boss_child_theme_enqueue_typekit() {
 	wp_enqueue_script( 'typekit', '//use.typekit.net/bgx6tpq.js', array(), null );
 	wp_add_inline_script( 'typekit', 'try{Typekit.load();}catch(e){};' );
 }
 add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_typekit' );
-
-
-?>
