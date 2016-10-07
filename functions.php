@@ -46,7 +46,6 @@ function boss_child_theme_scripts_styles() {
 	/*
 	 * Styles
 	 */
-	wp_enqueue_style( 'boss-child-custom', get_stylesheet_directory_uri().'/css/custom.css' );
 
 	if (
 		class_exists( 'Humanities_Commons' ) &&

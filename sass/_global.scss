@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
+0.0 - Boss Admin overrides (generally require !important)
 1.0 - Global Styles
 2.0 - Responsive media queries (mobile styles)
 2.1 - MAXIMUM width of 720 pixels (phones landscape)
@@ -12,12 +13,119 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1.0 - Global Styles
+1.0 - Boss Admin overrides
 --------------------------------------------------------------*/
 
 html {
-  font-family: proxima-nova, Verdana, sans-serif !important;
+  font-family: $font-family-body !important;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-header !important;
+  font-weight: 300 !important;
+}
+
+a {
+  color: $link-color !important;
+
+  &:hover {
+    color: $link-color-hover !important;
+    text-decoration: underline !important;
+  }
+}
+
+.btn,
+a.btn,
+button,
+input[type="submit"],
+input[type="button"]:not(.button-small),
+input[type="reset"],
+article.post-password-required input[type=submit],
+li.bypostauthor cite span,
+a.button,
+#create-group-form .remove,
+#buddypress ul.button-nav li a,
+#buddypress div.generic-button a,
+#buddypress .comment-reply-link,
+.entry-title a.button,
+span.create-a-group > a,
+#buddypress div.activity-comments form input[disabled],
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover,
+.right-col .register,
+.right-col .login {
+  background-color: $button-background-color !important;
+  color: $button-color !important;
+
+  &:hover {
+    background-color: darken($button-background-color, 1%) !important;
+
+    // ensure link hover styles don't override these
+    color: $button-color !important;
+    text-decoration: none !important;
+  }
+}
+
+
+/**
+ * menu panel
+ */
+
+.menu-panel,
+.menu-panel #nav-menu .sub-menu-wrap,
+.menu-panel #header-menu .sub-menu-wrap,
+.bp_components ul li ul li.menupop .ab-sub-wrapper,
+.menu-panel a {
+  background-color: $menu-panel-background-color !important; // must override boss admin style
+  color: $menu-panel-color !important; // must override link style
+}
+
+body:not(.tablet) .menu-panel #nav-menu > ul > li:hover,
+body:not(.tablet) .menu-panel #header-menu > ul > li:hover,
+body:not(.tablet) .menu-panel ul li .menupop:hover,
+body:not(.tablet) .menu-panel a:hover {
+  background-color: $menu-panel-background-color-hover !important; // must override boss admin style
+  color: $menu-panel-color-hover !important; // must override link style
+  text-decoration: none; // must override link style
+}
+
+body.left-menu-open .menu-panel #nav-menu > ul > li > a:not(.open-submenu):before,
+body.left-menu-open .menu-panel #header-menu > ul > li > a:not(.open-submenu):before,
+body.left-menu-open .menu-panel .bp_components ul li ul li > .ab-item:before,
+body.left-menu-open .menu-panel .screen-reader-shortcut:before,
+body .menu-panel .boss-mobile-porfile-menu ul a::before {
+  color: $menu-panel-icon-color !important;
+}
+
+
+/*--------------------------------------------------------------
+1.0 - Global Styles
+--------------------------------------------------------------*/
+
+.tablet .menu-panel #nav-menu > ul > li.dropdown > a:before,
+.tablet .menu-panel #header-menu > ul > li.dropdown > a:before,
+.tablet .menu-panel .bp_components ul li ul li.menupop.dropdown > a:before,
+body:not(.tablet) .menu-panel .screen-reader-shortcut:hover:before,
+body:not(.tablet) .menu-panel #nav-menu > ul > li:hover > a:before,
+body:not(.tablet) .menu-panel #header-menu > ul > li:hover > a:before,
+body:not(.tablet) .menu-panel .bp_components ul li ul li.menupop:hover > a:before {
+  color: $nav-icon-color;
+}
+
+
+
+
 
 .my-profile #item-nav {
   display: none;
@@ -122,32 +230,9 @@ body.left-menu-open #left-panel #scroll-area, body:not(.left-menu-open) #left-pa
   display: none;
 }
 
-
-.btn,
-button,
-input[type="submit"],
-input[type="button"]:not(.button-small),
-input[type="reset"],
-article.post-password-required input[type=submit],
-li.bypostauthor cite span,
-a.button,
-#create-group-form .remove,
-#buddypress ul.button-nav li a,
-#buddypress div.generic-button a,
-#buddypress .comment-reply-link,
-.entry-title a.button,
-span.create-a-group > a,
-#buddypress div.activity-comments form input[disabled],
-.woocommerce #respond input#submit.alt,
-.woocommerce a.button.alt,
-.woocommerce button.button.alt,
-.woocommerce input.button.alt,
-.woocommerce #respond input#submit.alt:hover,
-.woocommerce a.button.alt:hover,
-.woocommerce button.button.alt:hover,
-.woocommerce input.button.alt:hover {
-  background-color: #006ccc !important;
-  color: white !important;
+.site-header .header-inner .right-col {
+  background-color: white;
+  color: black;
 }
 
 /*--------------------------------------------------------------
@@ -158,48 +243,21 @@ span.create-a-group > a,
 2.1 - MAXIMUM width of 720 pixels (phones landscape)
 --------------------------------------------------------------*/
 @media screen and (max-width: 720px) {
-
-
-  /*
-  .just_an_example {
-  color: black;
-  }
-   */
-
-
-}/* don't delete this closing bracket */
+}
 
 
 /*--------------------------------------------------------------
 2.2 - MAXIMUM width of 350 pixels (phones portrait)
 --------------------------------------------------------------*/
 @media screen and (max-width: 350px) {
-
-
-  /*
-  .just_an_example {
-  color: black;
-  }
-   */
-
-
-}/* don't delete this closing bracket */
+}
 
 
 /*--------------------------------------------------------------
 2.3 - MINIMUM width of 721 pixels (tablets+)
 --------------------------------------------------------------*/
 @media screen and (min-width: 721px)  {
-
-
-  /*
-  .just_an_example {
-  color: black;
-  }
-   */
-
-
-}/* don't delete this closing bracket */
+}
 
 
 /*--------------------------------------------------------------
@@ -398,7 +456,7 @@ span.create-a-group > a,
     display: none;
   }
 
-}/* don't delete this closing bracket */
+}
 
 
 /*--------------------------------------------------------------
