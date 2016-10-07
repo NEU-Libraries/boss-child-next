@@ -34,41 +34,23 @@ a {
  */
 
 .btn,
-a.btn,
-button,
-input[type="submit"],
-input[type="button"]:not(.button-small),
-input[type="reset"],
-article.post-password-required input[type=submit],
-li.bypostauthor cite span,
-a.button,
-#create-group-form .remove,
-#buddypress ul.button-nav li a,
-#buddypress div.generic-button a,
-#buddypress .comment-reply-link,
-.entry-title a.button,
-span.create-a-group > a,
-#buddypress div.activity-comments form input[disabled],
-.woocommerce #respond input#submit.alt,
-.woocommerce a.button.alt,
-.woocommerce button.button.alt,
-.woocommerce input.button.alt,
-.woocommerce #respond input#submit.alt:hover,
-.woocommerce a.button.alt:hover,
-.woocommerce button.button.alt:hover,
-.woocommerce input.button.alt:hover,
 .right-col .register,
 .right-col .login {
-  background-color: $button-background-color;
-  color: $button-color;
+  background-color: $button-background-color !important;
+  color: $button-color !important;
+  font-weight: normal;
 
   &:hover {
-    background-color: darken($button-background-color, 1%) !important;
+    //background-color: darken($button-background-color, 1%) !important;
+    box-shadow: 0 2px 4px #ccc;
 
-    // ensure link hover styles don't override these
-    color: $button-color;
+    color: $button-color !important;
     text-decoration: none;
   }
+}
+
+.btn.long {
+  width: 100%;
 }
 
 /**
@@ -128,6 +110,22 @@ span.create-a-group > a,
  * end menu panel
  */
 
+/**
+ * widgets
+ */
+
+.panel-widget-style {
+  padding: 1em;
+
+}
+
+/**
+ * end widgets
+ */
+
+/**
+ * directory
+ */
 
 .my-profile #item-nav {
   display: none;
