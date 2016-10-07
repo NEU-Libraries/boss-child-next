@@ -17,10 +17,10 @@ h6 {
 }
 
 a {
-  color: $link-color;
+  color: $link-color !important;
 
   &:hover {
-    color: $link-color-hover;
+    color: $link-color-hover !important;
     text-decoration: underline;
   }
 }
@@ -33,10 +33,12 @@ a {
  * buttons
  */
 
+button,
 .btn,
 .generic-button a,
 .right-col .register,
-.right-col .login {
+.right-col .login,
+.right-col .logout a {
   background-color: $button-background-color !important;
   box-shadow: none !important;
   color: $button-color !important;
@@ -118,6 +120,25 @@ a {
  */
 
 /**
+ * profile menu
+ */
+
+#masthead {
+  a {
+    color: black !important;
+  }
+
+  .logout a {
+    color: $button-color !important;
+    font-weight: normal;
+  }
+}
+
+/**
+ * end profile menu
+ */
+
+/**
  * widgets
  */
 
@@ -167,6 +188,27 @@ a {
  */
 
 
+/**
+ * group page
+ */
+
+.bbp-topic-details .bbp-forum-data .post-num,
+.bbp-forum-details .bbp-forum-data .post-num,
+#bbpress-forums li.bbp-header,
+#bbpress-forums li.bbp-footer {
+  color: black;
+}
+
+.selected-tab,
+.btn.inverse,
+.buddyboss-select-inner {
+  border-color: $link-color !important;
+  color: $link-color !important;
+}
+
+/**
+ * end group page
+ */
 
 
 
