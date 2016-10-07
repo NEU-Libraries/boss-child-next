@@ -183,6 +183,16 @@ button,
   color: $link-color !important;
 }
 
+#friend-list li .action div.generic-button:nth-child(2n) a,
+#members-stream li .action div.generic-button:nth-child(2n) a,
+#members-list li .action div.generic-button:nth-child(2n) a {
+  border-color: $button-background-color;
+}
+
+#members-list .generic-button a {
+  margin-bottom: 5px;
+}
+
 /**
  * end directories
  */
