@@ -92,16 +92,22 @@ span.create-a-group > a,
       background-color: $menu-panel-background-color-hover !important;
       color: $menu-panel-color-hover !important;
       text-decoration: none;
+
+      :before {
+        color: $menu-panel-icon-color-hover !important;
+      }
+    }
+
+    &:before {
+      color: $menu-panel-icon-color !important;
+
     }
   }
 
-
-  a:not(.open-submenu):before {
-    color: $menu-panel-icon-color;
-  }
-
-  a:hover:not(.open-submenu):before {
-    color: $menu-panel-icon-color-hover;
+  // override for current-menu-item
+  // TODO would be nice to find a better way
+  li.current-menu-item a {
+    color: $menu-panel-color-hover !important;
   }
 
   /*
