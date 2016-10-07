@@ -34,18 +34,24 @@ a {
  */
 
 .btn,
+.generic-button a,
 .right-col .register,
 .right-col .login {
   background-color: $button-background-color !important;
+  box-shadow: none !important;
   color: $button-color !important;
   font-weight: normal;
 
   &:hover {
     //background-color: darken($button-background-color, 1%) !important;
-    box-shadow: 0 2px 4px #ccc;
-
+    background-color: $button-background-color !important;
+    box-shadow: 0 2px 4px #ccc !important;
     color: $button-color !important;
     text-decoration: none;
+
+    &:before {
+      content: none !important;
+    }
   }
 }
 
@@ -92,6 +98,7 @@ a {
     color: $menu-panel-color-hover !important;
   }
 
+  // TODO submenus
   /*
   #nav-menu .sub-menu-wrap {
     box-shadow: none;
@@ -124,8 +131,47 @@ a {
  */
 
 /**
- * directory
+ * directories
  */
+
+.buddypress:not(.error404) .entry-header {
+  display: block;
+  margin-bottom: 20px;
+  margin-left: 70px;
+  text-transform: uppercase;
+  font-size: 300%;
+}
+
+.item-list-tabs {
+  .buddyboss-select-inner {
+    border-color: black;
+    color: black;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+}
+
+// TODO be nice to find a way to do this without a separate block, and without important
+.logged-in .dir-form .item-list-tabs ul li,
+.logged-in .dir-form .item-list-tabs ul li a {
+  border-color: $link-color !important;
+  color: $link-color !important;
+}
+
+/**
+ * end directories
+ */
+
+
+
+
+
+
+
 
 .my-profile #item-nav {
   display: none;
