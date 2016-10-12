@@ -28,9 +28,18 @@ function boss_child_theme_setup() {
 add_action( 'after_setup_theme', 'boss_child_theme_setup' );
 
 /**
- * Enqueues scripts and styles for child theme front-end.
- *
- * @since Boss Child Theme  1.0.0
+ * removes dynamic css (set in boss options admin page) from page output entirely,
+ * since we include all necessary rules ourselves in this child theme
+ */
+function boss_child_theme_remove_dynamic_css( $reduxFramework ) {
+	// remove both instances of dynamic css: one from redux, one from boss
+	remove_action( 'wp_head', 'boss_generate_option_css', 99 );
+	remove_action( 'wp_head', array( $reduxFramework, '_output_css' ), 150 );
+}
+add_action( 'redux/loaded', 'boss_child_theme_remove_dynamic_css' );
+
+/**
+ * Enqueues styles for child theme front-end.
  */
 function boss_child_theme_echo_style_link() {
 
@@ -39,14 +48,12 @@ function boss_child_theme_echo_style_link() {
 		! empty( Humanities_Commons::$society_id ) &&
 		file_exists( get_stylesheet_directory() . '/css/' . Humanities_Commons::$society_id . '.css' )
 	) {
-		$href = get_stylesheet_directory_uri() . '/css/' . Humanities_Commons::$society_id . '.css';
-		echo '<link rel="stylesheet" id="boss-child-custom-css"  href="' . $href . '" type="text/css" media="all" />';
+		wp_enqueue_style( 'boss-child-custom', get_stylesheet_directory_uri() . '/css/' . Humanities_Commons::$society_id . '.css');
 	}
 
 }
-// echo <link> after inline dynamic styles rather than enqueueing the usual way,
-// so we don't have to resort to !important everywhere
-add_action( 'wp_head', 'boss_child_theme_echo_style_link', 151 );
+// priority 200 to ensure this loads after redux which uses 150
+add_action( 'wp_enqueue_scripts', 'boss_child_theme_echo_style_link', 200 );
 
 
 function boss_child_theme_enqueue_typekit() {
