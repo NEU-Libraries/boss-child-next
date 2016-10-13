@@ -460,6 +460,10 @@ body.activity:not(.bp-user) .item-list-tabs ul li a,
   margin: 0;
 }
 
+#buddypress div#item-nav .item-list-tabs ul li a {
+  text-transform: unset;
+}
+
 #buddypress div#item-nav .item-list-tabs ul li.current > a,
 #buddypress div#item-nav .item-list-tabs ul li:hover > a {
   color: $link-color-hover;
@@ -489,6 +493,16 @@ body:not(.boxed) #buddypress div#item-nav .item-list-tabs ul {
     border-width: 1px;
     font-weight: unset;
   }
+
+  li.bbp-header,
+  li.bbp-footer {
+    text-transform: unset;
+  }
+}
+
+li.bbp-forum-info a.bbp-forum-title,
+li.bbp-topic-title a.bbp-topic-permalink {
+  text-transform: unset;
 }
 
 /**
