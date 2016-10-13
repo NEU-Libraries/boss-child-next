@@ -125,7 +125,7 @@ span.create-a-group > a,
   padding: 10px;
 
   &:hover {
-    background-color: $button-background-color;
+    background-color: lighten($button-background-color, 5);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     color: $button-color;
     text-decoration: none;
