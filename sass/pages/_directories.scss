@@ -162,3 +162,8 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 .dir-list .action > div {
   display: inline-block;
 }
+
+#primary #groups-stream li .item-title a,
+#primary #groups-list li .item-title a {
+  text-transform: unset;
+}
