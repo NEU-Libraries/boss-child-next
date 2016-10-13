@@ -157,3 +157,8 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #primary #members-list li .item {
   width: 55%;
 }
+
+// inline directory action buttons
+.dir-list .action > div {
+  display: inline-block;
+}
