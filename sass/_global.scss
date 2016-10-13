@@ -48,6 +48,11 @@ textarea {
   background-color: white;
   border: 1px solid $menu-panel-background-color;
   box-shadow: unset;
+
+  &:focus {
+    background-color: white;
+    border-color: darken($menu-panel-background-color, 10);
+  }
 }
 
 input[type="radio"].styled + span,
@@ -542,6 +547,11 @@ body:not(.boxed) #buddypress div#item-nav .item-list-tabs ul {
 
   #crosspost-groups {
     margin-top: 1em;
+  }
+
+  #bbp_topic_title,
+  #bbp_topic_tags {
+    width: 100%;
   }
 }
 
