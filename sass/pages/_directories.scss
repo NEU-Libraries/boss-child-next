@@ -167,3 +167,27 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #primary #groups-list li .item-title a {
   text-transform: unset;
 }
+
+#buddypress .group-header-meta .group-subscription-options.generic-button,
+#buddypress #groups-dir-list .group-subscription-options.generic-button,
+#buddypress #groups-list .group-subscription-options.generic-button {
+  background-color: $menu-panel-background-color;
+  border-radius: 4px;
+  color: $menu-panel-color;
+  line-height: 1.5em;
+  padding: 15px;
+  width: unset;
+
+  a.group-sub {
+    margin-top: 1em;
+
+    &:first-child {
+      margin-top: unset;
+    }
+  }
+
+  a.group-subscription-close {
+    height: unset;
+    line-height: unset;
+  }
+}
