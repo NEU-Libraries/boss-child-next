@@ -248,15 +248,23 @@ body:not(.tablet) .menu-panel .bp_components ul li ul li.menupop:hover > a:befor
 .menu-panel #nav-menu .sub-menu-wrap,
 .menu-panel #header-menu .sub-menu-wrap,
 .bp_components ul li ul li.menupop .ab-sub-wrapper {
-  box-shadow: none;
+  //box-shadow: none;
   width: auto;
 }
 
-.sub-menu-wrap:before,
-.ab-sub-wrapper:before,
-.sub-menu-wrap:after,
-.ab-sub-wrapper:after {
-  display: none; // since submenu background is the same as main menu, arrow doesn't show anyway. hide it
+.menu-panel .sub-menu-wrap:before,
+.menu-panel .ab-sub-wrapper:before {
+  border-color: $menu-panel-background-color;
+  border-width: 6px;
+  box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.4);
+  transform: rotate(45deg);
+  position: absolute;
+  left: -6px;
+}
+
+.menu-panel .sub-menu-wrap:after,
+.menu-panel .ab-sub-wrapper:after {
+  display: none;
 }
 
 /**
