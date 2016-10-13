@@ -116,6 +116,11 @@ body:not(.left-menu-open) .menu-panel #nav-menu .current-menu-item:hover > .sub-
   box-shadow: $box-shadow-material;
 }
 
+body.left-menu-open #left-panel #scroll-area,
+body:not(.left-menu-open) #left-panel {
+  box-shadow: unset;
+}
+
 .menu-panel .sub-menu-wrap:after,
 .menu-panel .ab-sub-wrapper:after {
   display: none;
@@ -129,4 +134,27 @@ body:not(.left-menu-open) .menu-panel #nav-menu .current-menu-item:hover > .sub-
 // this makes some room for the box-shadow on the header bar. if that's not there anymore, this may not need to be either
 #nav-menu > ul {
   margin-top: 6px;
+}
+
+body:not(.left-menu-open) .menu-panel #nav-menu > ul > li > a:after,
+body:not(.left-menu-open) .menu-panel #header-menu > ul > li > a:after,
+body:not(.left-menu-open) .menu-panel ul li .menupop > a:after {
+  left: 27px;
+}
+.menu-panel {
+  width: 55px;
+}
+body:not(.left-menu-open) .menu-panel #nav-menu .sub-menu-wrap,
+body:not(.left-menu-open) .menu-panel #header-menu .sub-menu-wrap,
+body:not(.left-menu-open) .bp_components ul li ul li.menupop .ab-sub-wrapper {
+  left: 65px;
+}
+body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner {
+  padding-top: 65px;
+}
+body:not(.left-menu-open) #right-panel-inner {
+  margin-left: 65px;
+}
+#left-panel-inner #scroll-area {
+  width: 65px;
 }

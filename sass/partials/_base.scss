@@ -30,3 +30,18 @@ a {
 div#sitewide-notice #message.info {
   margin-top: 15px;
 }
+
+// fewer transitions
+#mastlogo,
+.menu-panel,
+.header-outher,
+#left-panel *,
+#nav-menu > ul > li > a,
+#left-panel-inner #scroll-area,
+#right-panel-inner,
+.menu-panel #header-menu > ul li a:before,
+.menu-panel #nav-menu > ul > li > a:not(.open-submenu):before,
+.menu-panel .screen-reader-shortcut:before,
+.menu-panel .bp_components ul li ul li > .ab-item:before {
+  transition-property: none;
+}

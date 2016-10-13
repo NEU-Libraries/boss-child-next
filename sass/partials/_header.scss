@@ -106,3 +106,90 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
   padding: 0;
 }
 
+// titlebar search is not wanted, hide it
+#titlebar-search {
+  display: none;
+}
+
+.header-outher {
+  margin-left: 65px;
+}
+#mastlogo {
+  width: 65px;
+}
+#mastlogo #logo img {
+  width: auto;
+}
+#mastlogo #logo .site-title {
+  display: inline;
+  vertical-align: top;
+}
+#mastlogo #logo .site-title a:first-child img,
+#mastlogo #logo .site-title a:last-child img {
+  height: 55px;
+  padding: 5px 12px;
+}
+body:not(.left-menu-open) #mastlogo #logo .site-title a:first-child img {
+  padding: 5px;
+}
+
+/* reduce top menubar height */
+.site-header .left-col .table {
+  height: 65px;
+}
+.header-links {
+  height: 37px;
+}
+.header-navigation > div > ul {
+  height: 37px;
+}
+#wp-admin-bar-shortcode-secondary .menupop,
+.header-notifications {
+  height: 37px;
+  line-height: 37px;
+}
+.header-account-login {
+  height: 37px;
+  line-height: 37px;
+}
+.header-account-login img {
+  width: 25px;
+  height: 25px;
+}
+#wp-admin-bar-shortcode-secondary .ab-sub-wrapper,
+.header-notifications .pop,
+.header-account-login .pop {
+  top: 37px;
+}
+body #mastlogo {
+  min-height: 37px;
+}
+/* end of top menubar height reduction */
+
+/* try not to truncate user name in top menubar */
+.header-account-login .user-link span.name {
+  width: auto;
+}
+
+/* show both small & large logos when left menu is expanded */
+body.left-menu-open .site-title.small,
+body.left-menu-open #mastlogo #logo img.small {
+  display: block;
+}
+body.left-menu-open #mastlogo #logo .site-title a:first-child img {
+  width: 54px;
+}
+body.left-menu-open #mastlogo #logo .site-title a:last-child img {
+  width: 105px;
+}
+body[data-logo="1"] #mastlogo {
+  padding: 0;
+}
+div#logo {
+  height: 65px;
+  line-height: normal;
+  padding: 0 5px;
+}
+body:not(.left-menu-open)[data-logo="1"] div#logo {
+  padding: 0;
+}

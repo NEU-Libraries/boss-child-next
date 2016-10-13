@@ -171,8 +171,11 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #buddypress .group-header-meta .group-subscription-options.generic-button,
 #buddypress #groups-dir-list .group-subscription-options.generic-button,
 #buddypress #groups-list .group-subscription-options.generic-button {
-  background-color: $menu-panel-background-color;
+  background-color: white;
+  border-color: $menu-panel-background-color;
   border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
   color: $menu-panel-color;
   line-height: 1.5em;
   padding: 15px;
