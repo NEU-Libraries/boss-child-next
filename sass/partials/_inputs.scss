@@ -17,6 +17,7 @@ textarea {
   border: 1px solid $menu-panel-background-color;
   box-shadow: unset;
 
+  &:hover,
   &:focus {
     background-color: white;
     border-color: darken($menu-panel-background-color, 10);
