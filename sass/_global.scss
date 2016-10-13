@@ -30,8 +30,32 @@ a {
   }
 }
 
+#buddypress #message.info,
+div#sitewide-notice #message.info {
+  margin-top: 15px;
+}
+
 /**
  * end general
+ */
+
+/**
+ * widgets
+ */
+
+.panel-grid-cell .widget {
+  border: 1px solid #fafafa;
+  border-radius: 10px;
+  padding: 15px;
+
+  .panel-widget-style {
+    // TODO can we prevent visual composer from adding inline styles in the first place?
+    padding: 0 !important; // override inline style.
+  }
+}
+
+/**
+ * end widgets
  */
 
 /**
@@ -94,6 +118,15 @@ span.create-a-group > a,
       content: none;
     }
   }
+}
+
+.header-account-login .pop #dashboard-links .menupop a span,
+.header-account-login .pop ul > li > .ab-sub-wrapper > ul li a span,
+#buddypress div#item-nav .item-list-tabs ul li a span,
+.item-list li .item-meta .count,
+body.activity:not(.bp-user)  .item-list-tabs ul li a span,
+.dir-form .item-list-tabs ul li a span {
+  background-color: $button-background-color;
 }
 
 /**
@@ -275,7 +308,8 @@ body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
 
   &.selected a {
     color: $link-color-hover;
-    text-decoration: underline;
+    font-weight: bold;
+    //text-decoration: underline;
   }
 }
 
@@ -362,6 +396,21 @@ body.activity:not(.bp-user) .item-list-tabs ul li a,
   }
 }
 
+.em-pagination strong,
+.em-pagination a,
+.search_results .navigation .wp-paginate a,
+.search_results .navigation .wp-paginate span,
+.pagination span,
+.pagination a,
+.bbp-pagination-links span,
+.bbp-pagination-links a,
+.em-pagination strong,
+.search_results .navigation .wp-paginate .current,
+.pagination .current,
+.bbp-pagination-links span:not(.dots) {
+  border: unset;
+}
+
 /**
  * end directories
  */
@@ -376,6 +425,26 @@ body.activity:not(.bp-user) .item-list-tabs ul li a,
 #bbpress-forums li.bbp-header,
 #bbpress-forums li.bbp-footer {
   color: black;
+}
+
+#buddypress div#item-nav .item-list-tabs ul li.current > a,
+#buddypress div#item-nav .item-list-tabs ul li:hover > a {
+  color: $link-color-hover;
+}
+
+#buddypress div#item-nav .item-list-tabs > ul > li.current,
+#buddypress div#item-nav .item-list-tabs > ul > li:not(.hideshow):hover {
+  border: unset;
+  color: $link-color-hover;
+  text-decoration: underline;
+}
+
+#buddypress div#item-nav .item-list-tabs ul li a {
+  padding: 5px 15px;
+}
+
+body:not(.boxed) #buddypress div#item-nav .item-list-tabs ul {
+  padding: 0;
 }
 
 /**
