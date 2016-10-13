@@ -1,0 +1,71 @@
+.btn,
+button,
+input[type="submit"],
+input[type="button"]:not(.button-small),
+input[type="reset"],
+article.post-password-required input[type=submit],
+li.bypostauthor cite span,
+a.button,
+#create-group-form .remove,
+#buddypress ul.button-nav li a,
+#buddypress div.generic-button a,
+#buddypress .comment-reply-link,
+.entry-title a.button,
+span.create-a-group > a,
+#buddypress div.activity-comments form input[disabled],
+#buddypress #groups-stream div.generic-button a,
+#buddypress #groups-list div.generic-button a,
+.btn.shadow,
+#masthead .right-col .register,
+#masthead .right-col .login,
+.header-account-login .pop .logout a,
+.bbp-topic-details #subscription-toggle a,
+.bbp-forum-details #subscription-toggle a,
+#members-stream li .action div.generic-button a,
+#members-list li .action div.generic-button a,
+#friend-list li .action div.generic-button:nth-child(2n) a,
+#members-stream li .action div.generic-button:nth-child(2n) a,
+#members-list li .action div.generic-button:nth-child(2n) a,
+#buddypress .activity-list li.load-more a,
+#buddypress .activity-list li.load-newest a {
+  background-color: $button-background-color;
+  border-color: darken($button-background-color, 5);
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: none;
+  color: $button-color;
+  font-weight: normal;
+  padding: 10px;
+  width: unset; // let button content decide the width. parent forces a width which breaks a few things
+
+  &:hover {
+    background-color: lighten($button-background-color, 5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    color: $button-color;
+    text-decoration: none;
+
+    &:before {
+      content: none;
+    }
+  }
+}
+
+#item-buttons button.more-items-btn,
+#main-button div {
+  box-shadow: none;
+}
+
+.btn.long {
+  width: 100%;
+}
+
+// not actually buttons yet. soon
+// TODO button-ize
+.header-account-login .pop #dashboard-links .menupop a span,
+.header-account-login .pop ul > li > .ab-sub-wrapper > ul li a span,
+#buddypress div#item-nav .item-list-tabs ul li a span,
+.item-list li .item-meta .count,
+body.activity:not(.bp-user)  .item-list-tabs ul li a span,
+.dir-form .item-list-tabs ul li a span {
+  background-color: $button-background-color;
+}

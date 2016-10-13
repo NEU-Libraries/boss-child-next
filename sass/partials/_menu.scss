@@ -1,0 +1,86 @@
+.menu-panel,
+.menu-panel #nav-menu .sub-menu-wrap,
+.menu-panel #header-menu .sub-menu-wrap,
+.bp_components ul li ul li.menupop .ab-sub-wrapper {
+  background-color: unset; // inherit body bg color instead
+}
+
+#scroll-area {
+  background-color: $menu-panel-background-color;
+}
+
+.menu-panel #header-menu > ul li a,
+#nav-menu > ul > li > a,
+body:not(.left-menu-open) .menu-panel .sub-menu-wrap > a,
+body:not(.left-menu-open) .menu-panel .ab-sub-wrapper > .ab-item,
+.menu-panel #nav-menu > a,
+.menu-panel .menupop > a,
+.menu-panel ul li a,
+.menu-panel ul li div.ab-item,
+.menu-panel #header-menu ul .sub-menu-wrap a {
+  background-color: $menu-panel-background-color;
+  color: $menu-panel-color;
+
+  &:hover {
+    background-color: $menu-panel-background-color-hover;
+    color: $menu-panel-color-hover;
+    text-decoration: none;
+  }
+}
+.left-menu-open .menu-panel #nav-menu .current-menu-item > a,
+.left-menu-open .menu-panel #header-menu .current-menu-item > a,
+.left-menu-open .menu-panel #nav-menu .current-menu-parent > a,
+.left-menu-open .menu-panel #header-menu .current-menu-parent > a,
+.left-menu-open .bp_components ul li ul li.menupop.active > a
+.menu-panel .screen-reader-shortcut:hover,
+.menu-panel ul li ul li:not(.menupop) a:hover,
+.menu-panel ul li ul li.active:not(.menupop) a,
+.menu-panel #nav-menu ul li ul li.current_page_item a,
+.menu-panel #header-menu ul li ul li.current_page_item a,
+.menu-panel #nav-menu ul li ul li.current-menu-item a,
+.menu-panel #header-menu ul li ul li.current-menu-item a,
+body:not(.tablet) .menu-panel #nav-menu > ul > li:hover,
+body:not(.tablet) .menu-panel #header-menu > ul > li:hover,
+body:not(.tablet) .menu-panel ul li .menupop:hover {
+    background-color: $menu-panel-background-color-hover;
+    color: $menu-panel-color-hover;
+}
+
+body.left-menu-open .menu-panel #nav-menu > ul > li > a:not(.open-submenu):before,
+body.left-menu-open .menu-panel #header-menu > ul > li > a:not(.open-submenu):before,
+body.left-menu-open .menu-panel .bp_components ul li ul li > .ab-item:before {
+  color: $menu-panel-icon-color;
+}
+.left-menu-open .menu-panel #nav-menu .current-menu-item > a:before,
+.left-menu-open .menu-panel #header-menu .current-menu-item > a:before,
+.left-menu-open .menu-panel #nav-menu .current-menu-parent > a:before,
+.left-menu-open .menu-panel #header-menu .current-menu-parent > a:before,
+.left-menu-open .bp_components ul li ul li.menupop.active > a:before,
+body:not(.tablet) .menu-panel #nav-menu > ul > li:hover > a:before,
+body:not(.tablet) .menu-panel #header-menu > ul > li:hover > a:before,
+body:not(.tablet) .menu-panel .bp_components ul li ul li.menupop:hover > a:before {
+  background-color: unset; // inherit #scroll-area bg color instead
+  color: $menu-panel-icon-color-hover !important; // TODO can we avoid !important? without it, previous block overrides this
+}
+
+.menu-panel #nav-menu .sub-menu-wrap,
+.menu-panel #header-menu .sub-menu-wrap,
+.bp_components ul li ul li.menupop .ab-sub-wrapper {
+  //box-shadow: none;
+  width: auto;
+}
+
+.menu-panel .sub-menu-wrap:before,
+.menu-panel .ab-sub-wrapper:before {
+  border-color: $menu-panel-background-color;
+  border-width: 6px;
+  box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.4);
+  transform: rotate(45deg);
+  position: absolute;
+  left: -6px;
+}
+
+.menu-panel .sub-menu-wrap:after,
+.menu-panel .ab-sub-wrapper:after {
+  display: none;
+}

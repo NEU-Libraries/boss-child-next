@@ -1,0 +1,32 @@
+body {
+  background-color: unset; // override parent theme color (#30445c) with default (white)
+  font-family: $font-family-body;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.page-title,
+.widget-title,
+.entry-content th,
+.comment-content th {
+  font-family: $font-family-header;
+  font-weight: 300;
+}
+
+a {
+  color: $link-color;
+
+  &:hover {
+    color: $link-color-hover;
+    text-decoration: underline;
+  }
+}
+
+#buddypress #message.info,
+div#sitewide-notice #message.info {
+  margin-top: 15px;
+}

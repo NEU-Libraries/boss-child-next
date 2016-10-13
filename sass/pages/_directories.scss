@@ -1,0 +1,159 @@
+.directory {
+  .entry-content li,
+  .comment-content li,
+  .mu_register li {
+    margin: 0; // fixes a bug in parent where filter <select> is erroneously indented
+  }
+}
+
+.groups-members-search input[type="text"],
+#buddypress div.dir-search input[type="text"],
+#bbpress-forums #bbp-search-index-form input#bbp_search,
+#buddypress #search-message-form input[type="text"] {
+  background-color: white;
+}
+
+#buddypress .groups-members-search input[type="submit"],
+#buddypress div.dir-search input[type="submit"],
+#bbpress-forums #bbp-search-index-form input#bbp_search_submit,
+#buddypress #search-message-form input#messages_search_submit {
+  background-color: white;
+  border: unset; // clear button rule
+}
+
+.buddypress .entry-header {
+  display: block;
+  margin-bottom: 20px;
+  margin-left: 70px;
+  text-transform: uppercase;
+  font-size: 300%;
+}
+
+body.activity:not(.bp-user) .item-list-tabs ul li,
+body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
+.dir-form .item-list-tabs ul li,
+.dir-form .item-list-tabs ul li:last-child {
+  border-color: $link-color;
+  border-width: 1px;
+
+  a {
+    color: $link-color;
+  }
+
+  &.selected a {
+    color: $link-color-hover;
+    font-weight: bold;
+    //text-decoration: underline;
+  }
+}
+
+.buddyboss-select-inner {
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.11); // dropdowns etc. are not quite links. match search border instead
+  border-width: 1px;
+  color: black;
+  text-transform: unset;
+}
+
+.selected-tab,
+.buddyboss-select-inner span,
+body.activity:not(.bp-user) .item-list-tabs ul li a,
+.dir-form .item-list-tabs ul li a {
+  font-weight: 300;
+  text-transform: unset;
+}
+
+.selected-tab:after,
+.buddyboss-select-inner:after {
+  color: rgba(0, 0, 0, 0.11);
+}
+
+#bbp-search-index-form,
+#search-message-form,
+.groups-members-search,
+#buddypress div.dir-search {
+  border-color: rgba(0, 0, 0, 0.11);
+}
+
+.groups-members-search input[type="text"],
+#buddypress div.dir-search input[type="text"],
+#bbpress-forums #bbp-search-index-form input#bbp_search,
+#buddypress #search-message-form input[type="text"] {
+  color: black;
+}
+
+.item-list-tabs ul {
+  list-style: none;
+  margin: 0;
+}
+
+#members-list .generic-button a {
+  margin-bottom: 5px;
+}
+
+.em-pagination strong,
+.search_results .navigation .wp-paginate .current,
+.pagination .current,
+.bbp-pagination-links span:not(.dots) {
+  border-color: black;
+  color: black;
+}
+
+.em-pagination strong,
+.em-pagination a,
+.search_results .navigation .wp-paginate a,
+.search_results .navigation .wp-paginate span,
+.pagination span,
+.pagination a,
+.bbp-pagination-links span,
+.bbp-pagination-links a {
+  border-color: $link-color;
+  color: $link-color;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+// fix undersized avatars on blogs dir to match sizes on members & groups dirs
+// TODO review & ensure this type of thing doesn't belong in hc-styles with badges
+#primary #blogs-list .item-avatar {
+  width: 95px;
+  position: relative;
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.em-pagination strong,
+.em-pagination a,
+.search_results .navigation .wp-paginate a,
+.search_results .navigation .wp-paginate span,
+.pagination span,
+.pagination a,
+.bbp-pagination-links span,
+.bbp-pagination-links a,
+.em-pagination strong,
+.search_results .navigation .wp-paginate .current,
+.pagination .current,
+.bbp-pagination-links span:not(.dots) {
+  border: unset;
+}
+
+/* intended to target counts of members, groups, etc. inside tabbed subnav */
+body.activity:not(.bp-user)  .item-list-tabs ul li a span,
+.dir-form .item-list-tabs ul li a span {
+  display: none;
+}
+
+/* compensate for hiding activity messages by expanding width of member meta */
+#primary #friend-list li .item,
+#primary #members-stream li .item,
+#primary #members-list li .item {
+  width: 55%;
+}

@@ -1,0 +1,91 @@
+.bbp-topic-details .bbp-forum-data .post-num,
+.bbp-forum-details .bbp-forum-data .post-num,
+#bbpress-forums li.bbp-header,
+#bbpress-forums li.bbp-footer {
+  color: black;
+}
+
+#buddypress div#item-nav {
+  margin: 0;
+}
+
+#buddypress div#item-nav .item-list-tabs ul li a {
+  text-transform: unset;
+}
+
+#buddypress div#item-nav .item-list-tabs ul li.current > a,
+#buddypress div#item-nav .item-list-tabs ul li:hover > a {
+  color: $link-color-hover;
+}
+
+#buddypress div#item-nav .item-list-tabs > ul > li.current,
+#buddypress div#item-nav .item-list-tabs > ul > li:not(.hideshow):hover {
+  border: unset;
+  color: $link-color-hover;
+  text-decoration: underline;
+}
+
+#buddypress div#item-nav .item-list-tabs ul li a {
+  padding: 5px 15px;
+}
+
+body:not(.boxed) #buddypress div#item-nav .item-list-tabs ul {
+  padding: 0;
+}
+
+#bbpress-forums li.bbp-header,
+#bbpress-forums li.bbp-footer {
+  border-color: $menu-panel-background-color;
+  background-color: $menu-panel-background-color;
+}
+
+#bbpress-forums {
+  h3 {
+    display: none; // these titles are invalid anyway due to bad data
+  }
+
+  .post-num {
+    border-width: 1px;
+    font-weight: unset;
+  }
+
+  li.bbp-header,
+  li.bbp-footer {
+    text-transform: unset;
+  }
+
+  .mce-panel {
+    border-color: $menu-panel-background-color;
+    border-style: solid;
+    border-width: 0 1px 1px;
+  }
+
+  #crosspost-groups {
+    margin-top: 1em;
+  }
+
+  #bbp_topic_title,
+  #bbp_topic_tags {
+    width: 100%;
+  }
+}
+
+li.bbp-forum-info a.bbp-forum-title,
+li.bbp-topic-title a.bbp-topic-permalink {
+  text-transform: unset;
+}
+
+// hide activity updates
+#members-dir-list .update {
+  display: none;
+}
+
+/* resolve conflict between boss & buddypress-group-email-subscriptions: always hide options by default (toggled w/js) */
+.item-list li .action .action-wrap .group-subscription-options {
+  display: none;
+}
+
+#group-create-body .left-menu,
+#send-invite-form .left-menu {
+  display: none;
+}
