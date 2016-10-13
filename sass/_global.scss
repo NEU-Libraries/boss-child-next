@@ -159,6 +159,7 @@ span.create-a-group > a,
   color: $button-color;
   font-weight: normal;
   padding: 10px;
+  width: unset; // let button content decide the width. parent forces a width which breaks a few things
 
   &:hover {
     background-color: lighten($button-background-color, 5);
@@ -577,15 +578,6 @@ li.bbp-topic-title a.bbp-topic-permalink {
 
 #members-dir-list .update {
   display: none;
-}
-
-#members-stream li .action div.generic-button a,
-#members-list li .action div.generic-button a,
-#buddypress ul#groups-stream div.action .group-button a,
-#buddypress ul#groups-list div.action .group-button a,
-#buddypress div.generic-button a,
-a.button {
-  width: 125px;
 }
 
 /* intended to target counts of members, groups, etc. inside tabbed subnav */
