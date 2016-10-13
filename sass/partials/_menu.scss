@@ -9,10 +9,11 @@
   background-color: $menu-panel-background-color;
 }
 
+.menu-panel #nav-menu .sub-menu-wrap > a,
 .menu-panel #header-menu > ul li a,
 #nav-menu > ul > li > a,
-body:not(.left-menu-open) .menu-panel .sub-menu-wrap > a,
-body:not(.left-menu-open) .menu-panel .ab-sub-wrapper > .ab-item,
+.menu-panel .sub-menu-wrap > a,
+.menu-panel .ab-sub-wrapper > .ab-item,
 .menu-panel #nav-menu > a,
 .menu-panel .menupop > a,
 .menu-panel ul li a,
@@ -20,6 +21,8 @@ body:not(.left-menu-open) .menu-panel .ab-sub-wrapper > .ab-item,
 .menu-panel #header-menu ul .sub-menu-wrap a {
   background-color: $menu-panel-background-color;
   color: $menu-panel-color;
+  padding: 5px 10px !important; // override responsive styles
+  z-index: 1; // ensure css arrow/pointer :before is underneath menu
 
   &:hover {
     background-color: $menu-panel-background-color-hover;
@@ -27,11 +30,30 @@ body:not(.left-menu-open) .menu-panel .ab-sub-wrapper > .ab-item,
     text-decoration: none;
   }
 }
+
+.menu-panel .menu-item {
+  padding: unset;
+}
+
+.menu-panel #header-menu > ul li a,
+#nav-menu > ul > li > a,
+body:not(.left-menu-open) .menu-panel .sub-menu-wrap > a,
+body:not(.left-menu-open) .menu-panel .ab-sub-wrapper > .ab-item,
+.menu-panel #nav-menu > a,
+.menu-panel .menupop > a {
+  padding: 5px 1.5em !important; // override left-menu-open & responsive styles
+}
+
 .left-menu-open .menu-panel #nav-menu .current-menu-item > a,
 .left-menu-open .menu-panel #header-menu .current-menu-item > a,
 .left-menu-open .menu-panel #nav-menu .current-menu-parent > a,
 .left-menu-open .menu-panel #header-menu .current-menu-parent > a,
-.left-menu-open .bp_components ul li ul li.menupop.active > a
+.left-menu-open .bp_components ul li ul li.menupop.active > a,
+.menu-panel #nav-menu .current-menu-item > a,
+.menu-panel #header-menu .current-menu-item > a,
+.menu-panel #nav-menu .current-menu-parent > a,
+.menu-panel #header-menu .current-menu-parent > a,
+.bp_components ul li ul li.menupop.active > a
 .menu-panel .screen-reader-shortcut:hover,
 .menu-panel ul li ul li:not(.menupop) a:hover,
 .menu-panel ul li ul li.active:not(.menupop) a,
@@ -39,33 +61,39 @@ body:not(.left-menu-open) .menu-panel .ab-sub-wrapper > .ab-item,
 .menu-panel #header-menu ul li ul li.current_page_item a,
 .menu-panel #nav-menu ul li ul li.current-menu-item a,
 .menu-panel #header-menu ul li ul li.current-menu-item a,
-body:not(.tablet) .menu-panel #nav-menu > ul > li:hover,
-body:not(.tablet) .menu-panel #header-menu > ul > li:hover,
-body:not(.tablet) .menu-panel ul li .menupop:hover {
+.menu-panel #nav-menu > ul > li:hover,
+.menu-panel #header-menu > ul > li:hover,
+.menu-panel ul li .menupop:hover {
     background-color: $menu-panel-background-color-hover;
     color: $menu-panel-color-hover;
 }
 
 body.left-menu-open .menu-panel #nav-menu > ul > li > a:not(.open-submenu):before,
 body.left-menu-open .menu-panel #header-menu > ul > li > a:not(.open-submenu):before,
-body.left-menu-open .menu-panel .bp_components ul li ul li > .ab-item:before {
+body.left-menu-open .menu-panel .bp_components ul li ul li > .ab-item:before,
+body.left-menu-open .menu-panel .screen-reader-shortcut:before,
+.menu-panel #nav-menu > ul > li > a:not(.open-submenu):before,
+.menu-panel #header-menu > ul > li > a:not(.open-submenu):before,
+.menu-panel .bp_components ul li ul li > .ab-item:before {
   color: $menu-panel-icon-color;
 }
-.left-menu-open .menu-panel #nav-menu .current-menu-item > a:before,
-.left-menu-open .menu-panel #header-menu .current-menu-item > a:before,
-.left-menu-open .menu-panel #nav-menu .current-menu-parent > a:before,
-.left-menu-open .menu-panel #header-menu .current-menu-parent > a:before,
-.left-menu-open .bp_components ul li ul li.menupop.active > a:before,
-body:not(.tablet) .menu-panel #nav-menu > ul > li:hover > a:before,
-body:not(.tablet) .menu-panel #header-menu > ul > li:hover > a:before,
-body:not(.tablet) .menu-panel .bp_components ul li ul li.menupop:hover > a:before {
+
+.menu-panel #nav-menu .current-menu-item > a:before,
+.menu-panel #header-menu .current-menu-item > a:before,
+.menu-panel #nav-menu .current-menu-parent > a:before,
+.menu-panel #header-menu .current-menu-parent > a:before,
+.bp_components ul li ul li.menupop.active > a:before,
+.menu-panel #nav-menu > ul > li:hover > a:before,
+.menu-panel #header-menu > ul > li:hover > a:before,
+.menu-panel .bp_components ul li ul li.menupop:hover > a:before {
   background-color: unset; // inherit #scroll-area bg color instead
   color: $menu-panel-icon-color-hover !important; // TODO can we avoid !important? without it, previous block overrides this
 }
 
 .menu-panel #nav-menu .sub-menu-wrap,
 .menu-panel #header-menu .sub-menu-wrap,
-.bp_components ul li ul li.menupop .ab-sub-wrapper {
+.bp_components ul li ul li.menupop .ab-sub-wrapper,
+body:not(.left-menu-open) .menu-panel #nav-menu .current-menu-item:hover > .sub-menu-wrap {
   //box-shadow: none;
   width: auto;
 }
@@ -74,13 +102,31 @@ body:not(.tablet) .menu-panel .bp_components ul li ul li.menupop:hover > a:befor
 .menu-panel .ab-sub-wrapper:before {
   border-color: $menu-panel-background-color;
   border-width: 6px;
-  box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.4);
+  //box-shadow: 2px 2px 11px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: $box-shadow-material;
   transform: rotate(45deg);
   position: absolute;
   left: -6px;
+  top: 12px !important; // override responsive styles
+}
+
+.menu-panel #nav-menu .sub-menu-wrap,
+.menu-panel #header-menu .sub-menu-wrap,
+.bp_components ul li ul li.menupop .ab-sub-wrapper {
+  box-shadow: $box-shadow-material;
 }
 
 .menu-panel .sub-menu-wrap:after,
 .menu-panel .ab-sub-wrapper:after {
   display: none;
+}
+
+.menu-panel #nav-menu .sub-menu-wrap .sub-menu {
+  margin: 0;
+  padding: 0;
+}
+
+// this makes some room for the box-shadow on the header bar. if that's not there anymore, this may not need to be either
+#nav-menu > ul {
+  margin-top: 6px;
 }

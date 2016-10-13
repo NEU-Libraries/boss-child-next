@@ -1,5 +1,5 @@
 body {
-  background-color: unset; // override parent theme color (#30445c) with default (white)
+  background-color: $menu-panel-background-color; // menu doesn't always extend to bottom of screen, this covers that space
   font-family: $font-family-body;
 }
 
