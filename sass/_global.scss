@@ -30,6 +30,35 @@ a {
   }
 }
 
+.gform_wrapper .ginput_container input[type=text],
+.ginput_container .gform_wrapper input[type=url],
+.ginput_container .gform_wrapper input[type=email],
+.gform_wrapper .ginput_container input[type=tel],
+.gform_wrapper .ginput_container input[type=number],
+.gform_wrapper .ginput_container input[type=password],
+.gform_wrapper .ginput_container textarea,
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+  background-color: white;
+  border: 1px solid $menu-panel-background-color;
+  box-shadow: unset;
+}
+
+input[type="radio"].styled + span,
+input[type="radio"].styled + label,
+input[type="radio"].styled + strong,
+input[type="checkbox"].styled + span,
+input[type="checkbox"].styled + label,
+input[type="checkbox"].styled + strong {
+  color: black;
+}
+
 #buddypress #message.info,
 div#sitewide-notice #message.info {
   margin-top: 15px;
@@ -484,6 +513,12 @@ body:not(.boxed) #buddypress div#item-nav .item-list-tabs ul {
   padding: 0;
 }
 
+#bbpress-forums li.bbp-header,
+#bbpress-forums li.bbp-footer {
+  border-color: $menu-panel-background-color;
+  background-color: $menu-panel-background-color;
+}
+
 #bbpress-forums {
   h3 {
     display: none; // these titles are invalid anyway due to bad data
@@ -497,6 +532,16 @@ body:not(.boxed) #buddypress div#item-nav .item-list-tabs ul {
   li.bbp-header,
   li.bbp-footer {
     text-transform: unset;
+  }
+
+  .mce-panel {
+    border-color: $menu-panel-background-color;
+    border-style: solid;
+    border-width: 0 1px 1px;
+  }
+
+  #crosspost-groups {
+    margin-top: 1em;
   }
 }
 
