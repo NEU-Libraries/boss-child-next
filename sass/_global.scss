@@ -172,6 +172,11 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   }
 }
 
+.header-inner .left-col a:hover i,
+#searchsubmit:hover i {
+  transform: unset;
+}
+
 /**
  * end header
  */
@@ -451,6 +456,10 @@ body.activity:not(.bp-user) .item-list-tabs ul li a,
   color: black;
 }
 
+#buddypress div#item-nav {
+  margin: 0;
+}
+
 #buddypress div#item-nav .item-list-tabs ul li.current > a,
 #buddypress div#item-nav .item-list-tabs ul li:hover > a {
   color: $link-color-hover;
@@ -469,6 +478,17 @@ body.activity:not(.bp-user) .item-list-tabs ul li a,
 
 body:not(.boxed) #buddypress div#item-nav .item-list-tabs ul {
   padding: 0;
+}
+
+#bbpress-forums {
+  h3 {
+    display: none; // these titles are invalid anyway due to bad data
+  }
+
+  .post-num {
+    border-width: 1px;
+    font-weight: unset;
+  }
 }
 
 /**
