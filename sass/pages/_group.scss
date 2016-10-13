@@ -11,6 +11,11 @@
 
 #buddypress div#item-nav .item-list-tabs ul li a {
   text-transform: unset;
+  font-weight: unset;
+
+  &:hover {
+    text-decoration: unset;
+  }
 }
 
 #buddypress div#item-nav .item-list-tabs ul li.current > a,
@@ -18,19 +23,22 @@
   color: $link-color-hover;
 }
 
-#buddypress div#item-nav .item-list-tabs > ul > li.current,
-#buddypress div#item-nav .item-list-tabs > ul > li:not(.hideshow):hover {
-  border: unset;
-  color: $link-color-hover;
-  text-decoration: underline;
+#buddypress div#item-nav .item-list-tabs > ul > li.current {
+  font-weight: 600;
 }
 
-#buddypress div#item-nav .item-list-tabs ul li a {
-  padding: 5px 15px;
+#buddypress div#item-nav .item-list-tabs > ul > li:not(.hideshow):hover {
+  color: $link-color-hover;
+  text-decoration: unset;
 }
 
 body:not(.boxed) #buddypress div#item-nav .item-list-tabs ul {
   padding: 0;
+}
+
+body:not(.boxed) #item-nav .item-list-tabs ul,
+body:not(.boxed) #item-nav .item-list-tabs .hideshow ul:before {
+  background-color: $menu-panel-background-color;
 }
 
 #bbpress-forums li.bbp-header,
@@ -88,4 +96,13 @@ li.bbp-topic-title a.bbp-topic-permalink {
 #group-create-body .left-menu,
 #send-invite-form .left-menu {
   display: none;
+}
+
+// minor position fix for numbers in circles
+// affects both header & group subnav...
+.header-account-login .pop #dashboard-links .menupop a span,
+.header-account-login .pop ul > li > .ab-sub-wrapper > ul li a span,
+#buddypress div#item-nav .item-list-tabs ul li a span {
+  line-height: 18px;
+  text-align: center;
 }
