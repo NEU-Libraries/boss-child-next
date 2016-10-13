@@ -141,7 +141,7 @@ body:not(.left-menu-open) .menu-panel #header-menu > ul > li > a:after,
 body:not(.left-menu-open) .menu-panel ul li .menupop > a:after {
   left: 27px;
 }
-.menu-panel {
+body:not(.is-mobile) .menu-panel {
   width: 55px;
 }
 body:not(.left-menu-open) .menu-panel #nav-menu .sub-menu-wrap,

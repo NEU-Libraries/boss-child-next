@@ -1,3 +1,4 @@
+#mobile-header, // parent theme applies a bg color directly here which overrides body. override it right back
 body {
   background-color: $menu-panel-background-color; // menu doesn't always extend to bottom of screen, this covers that space
   font-family: $font-family-body;
