@@ -40,6 +40,22 @@ div#sitewide-notice #message.info {
  */
 
 /**
+ * homepage
+ */
+
+#post-238 {
+  padding-top: 15px;
+}
+
+.panel-grid:first-child {
+  padding-top: 0;
+}
+
+/**
+ * end homepage
+ */
+
+/**
  * widgets
  */
 
@@ -138,7 +154,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
  */
 
 #mastlogo {
-  background-color: unset; // inherit body bg color instead
+  background-color: white;
 }
 
 #masthead {
