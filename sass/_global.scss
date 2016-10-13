@@ -148,7 +148,9 @@ span.create-a-group > a,
 #members-list li .action div.generic-button a,
 #friend-list li .action div.generic-button:nth-child(2n) a,
 #members-stream li .action div.generic-button:nth-child(2n) a,
-#members-list li .action div.generic-button:nth-child(2n) a {
+#members-list li .action div.generic-button:nth-child(2n) a,
+#buddypress .activity-list li.load-more a,
+#buddypress .activity-list li.load-newest a {
   background-color: $button-background-color;
   border-color: darken($button-background-color, 5);
   border-style: solid;
