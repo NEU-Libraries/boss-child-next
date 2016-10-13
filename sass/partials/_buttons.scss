@@ -29,18 +29,16 @@ span.create-a-group > a,
 #buddypress .activity-list li.load-more a,
 #buddypress .activity-list li.load-newest a {
   background-color: $button-background-color;
-  border-color: darken($button-background-color, 5);
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: none;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
   color: $button-color;
   font-weight: normal;
   padding: 10px;
   width: unset; // let button content decide the width. parent forces a width which breaks a few things
 
   &:hover {
-    background-color: lighten($button-background-color, 5);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    background-color: lighten($button-background-color, 10);
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
     color: $button-color;
     text-decoration: none;
 
