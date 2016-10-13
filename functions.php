@@ -41,8 +41,7 @@ add_action( 'redux/loaded', 'boss_child_theme_remove_dynamic_css' );
 /**
  * Enqueues styles for child theme front-end.
  */
-function boss_child_theme_echo_style_link() {
-
+function boss_child_theme_enqueue_style() {
 	if (
 		class_exists( 'Humanities_Commons' ) &&
 		! empty( Humanities_Commons::$society_id ) &&
@@ -53,7 +52,7 @@ function boss_child_theme_echo_style_link() {
 
 }
 // priority 200 to ensure this loads after redux which uses 150
-add_action( 'wp_enqueue_scripts', 'boss_child_theme_echo_style_link', 200 );
+add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_style', 200 );
 
 
 function boss_child_theme_enqueue_typekit() {
