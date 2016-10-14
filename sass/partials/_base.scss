@@ -13,7 +13,10 @@ h6,
 .page-title,
 .widget-title,
 .entry-content th,
-.comment-content th {
+.comment-content th,
+h1.main-title,
+.group-info li p:first-child,
+#item-statistics .numbers span p:first-child {
   font-family: $font-family-header;
   font-weight: 300;
 }
