@@ -56,7 +56,9 @@ input[type="checkbox"].styled + strong,
 .register-section .input[type="radio"],
 .register-section input[type="checkbox"],
 .message-check,
-#select-all-messages {
+#select-all-messages,
+input[type="checkbox"].styled,
+input[type="radio"].styled {
   opacity: 1;
 }
 
