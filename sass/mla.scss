@@ -1,9 +1,19 @@
 @import 'variables';
 
+$commons-orange: #f47f00;
+$commons-red: #b0061f;
+$mla-badge-red: #4f0617;
+
+
 $button-background-color: #006ccc;
 $button-color: white;
 
-$link-color: #006ccc;
-$link-color-hover: #006ccc;
+$menu-panel-color: #5d5d5d;
+//$menu-panel-color-hover: $;
+$menu-panel-color-hover: $commons-red;
+$menu-panel-background-color: #ececec;
+$menu-panel-background-color-hover: lighten($menu-panel-background-color, 5);
+$menu-panel-icon-color: $menu-panel-color;
+$menu-panel-icon-color-hover: $menu-panel-color-hover;
 
 @import 'global';

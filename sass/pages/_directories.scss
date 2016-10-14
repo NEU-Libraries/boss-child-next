@@ -33,17 +33,20 @@ body.activity:not(.bp-user) .item-list-tabs ul li,
 body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
 .dir-form .item-list-tabs ul li,
 .dir-form .item-list-tabs ul li:last-child {
-  border-color: $link-color;
+  background-color: white;
+  border-color: $menu-panel-background-color;
   border-width: 1px;
 
   a {
     color: $link-color;
   }
 
-  &.selected a {
-    color: $link-color-hover;
-    font-weight: bold;
-    //text-decoration: underline;
+  &.selected {
+    a {
+      color: black;
+      font-weight: bold;
+      //text-decoration: underline;
+    }
   }
 }
 
