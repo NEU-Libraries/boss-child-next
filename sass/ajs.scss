@@ -1,5 +1,16 @@
 @import 'variables';
 
-// put variable overrides here
+$button-background-color: orangered;
+$button-color: white;
+
+$menu-panel-color: black;
+$menu-panel-color-hover: white;
+$menu-panel-background-color: cadetblue;
+$menu-panel-background-color-hover: slateblue;
+$menu-panel-icon-color: red;
+$menu-panel-icon-color-hover: orange;
+
+$link-color: rebeccapurple;
+$link-color-hover: plum;
 
 @import 'global';

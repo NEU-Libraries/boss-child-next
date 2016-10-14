@@ -19,8 +19,7 @@
 .menu-panel ul li a,
 .menu-panel ul li div.ab-item,
 .menu-panel #header-menu ul .sub-menu-wrap a,
-.menu-panel .screen-reader-shortcut,
-#mobile-header a {
+.menu-panel .screen-reader-shortcut {
   background-color: $menu-panel-background-color;
   color: $menu-panel-color;
   padding: 5px 10px !important; // override responsive styles
@@ -157,11 +156,23 @@ body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner {
 body:not(.left-menu-open) #right-panel-inner {
   margin-left: 65px;
 }
-body:not(.is-mobile) #left-panel-inner #scroll-area {
+.is-desktop #left-panel-inner #scroll-area {
   width: 65px;
 }
 
 /* remove top margin on right panel menu to match left panel. mobile only */
 .menu-panel .bp_components a:not(:last-child) {
   margin-top: 0;
+}
+
+/* these <li>s are outside the container with the rest of the links, so need special attention */
+.menu-panel .screen-reader-shortcut.register-link,
+.menu-panel .screen-reader-shortcut.login-link,
+.menu-panel .screen-reader-shortcut.logout-link {
+  padding: 5px 25px !important;
+}
+
+/* for unknown reasons this element has an inline 'top' rule pushing it down the page. put it back at the top */
+body:not(.logged-in) #mobile-header {
+  top: 0 !important;
 }
