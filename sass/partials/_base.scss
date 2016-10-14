@@ -16,9 +16,11 @@ h6,
 .comment-content th,
 h1.main-title,
 .group-info li p:first-child,
-#item-statistics .numbers span p:first-child {
+#item-statistics .numbers span p:first-child,
+#bbpress-forums fieldset.bbp-form legend {
   font-family: $font-family-header;
   font-weight: 300;
+  text-transform: unset !important; // always sentence case everywhere!!
 }
 
 a {
