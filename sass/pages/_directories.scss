@@ -197,3 +197,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
     line-height: unset;
   }
 }
+
+.is-mobile .society-badge:before {
+  margin: 0 5px;
+}
