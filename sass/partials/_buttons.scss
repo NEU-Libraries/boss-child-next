@@ -43,6 +43,22 @@ span.create-a-group > a,
   width: 100%;
 }
 
+/* preserve tinymce default button styles */
+.wp-editor-wrap {
+  button,
+  input[type="button"] {
+    box-shadow: none;
+
+    &:hover {
+      background: #f5f5f5;
+      color: initial;
+    }
+  }
+}
+#bbpress-forums div.bbp-the-content-wrapper input {
+  margin: 0 2px;
+}
+
 // not actually buttons yet. soon
 // TODO button-ize
 .header-account-login .pop #dashboard-links .menupop a span,

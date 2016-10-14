@@ -32,7 +32,8 @@
 body.activity:not(.bp-user) .item-list-tabs ul li,
 body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
 .dir-form .item-list-tabs ul li,
-.dir-form .item-list-tabs ul li:last-child {
+.dir-form .item-list-tabs ul li:last-child,
+.directory #buddypress div.item-list-tabs ul li:not(#members-order-select):not(#groups-order-select):not(#blogs-order-select) {
   background-color: white;
   border-color: $menu-panel-background-color;
   border-width: 1px;
@@ -42,6 +43,8 @@ body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
   }
 
   &.selected {
+    border-color: darken($menu-panel-background-color, 10);
+
     a {
       color: black;
       font-weight: bold;
