@@ -24,8 +24,8 @@ do_action( 'bp_before_member_settings_template' ); ?>
 <h4>Current Login Method</h4>
 <p />
 <ul>
-<?php $login_method = $humanities_commons::hcommons_get_user_login_method();
-	echo '<li>' . strtoupper( $login_method ) . '</li>';
+<?php $identity_provider = $humanities_commons::hcommons_get_identity_provider();
+	echo '<li>' . strtoupper( $identity_provider ) . '</li>';
 ?>
 </ul>
 
