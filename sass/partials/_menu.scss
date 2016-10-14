@@ -18,7 +18,9 @@
 .menu-panel .menupop > a,
 .menu-panel ul li a,
 .menu-panel ul li div.ab-item,
-.menu-panel #header-menu ul .sub-menu-wrap a {
+.menu-panel #header-menu ul .sub-menu-wrap a,
+.menu-panel .screen-reader-shortcut,
+#mobile-header a {
   background-color: $menu-panel-background-color;
   color: $menu-panel-color;
   padding: 5px 10px !important; // override responsive styles
@@ -155,6 +157,11 @@ body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner {
 body:not(.left-menu-open) #right-panel-inner {
   margin-left: 65px;
 }
-#left-panel-inner #scroll-area {
+body:not(.is-mobile) #left-panel-inner #scroll-area {
   width: 65px;
+}
+
+/* remove top margin on right panel menu to match left panel. mobile only */
+.menu-panel .bp_components a:not(:last-child) {
+  margin-top: 0;
 }
