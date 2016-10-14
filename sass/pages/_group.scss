@@ -106,3 +106,34 @@ li.bbp-topic-title a.bbp-topic-permalink {
   line-height: 18px;
   text-align: center;
 }
+
+// these have explicit colors set by the parent. unset
+.entry-buddypress-content #group-create-body h4 {
+  color: unset;
+}
+
+// don't use our normal styles for these inputs
+#buddypress #create-group-form.standard-form textarea,
+#buddypress #create-group-form.standard-form input[type="text"] {
+  width: unset;
+}
+
+#buddypress #create-group-form {
+  #groupblog-details {
+    input[type="text"] {
+      margin: 5px;
+    }
+
+    label {
+      display: inline;
+    }
+  }
+
+  label {
+    margin-top: 10px;
+  }
+
+  .buddyboss-select {
+    vertical-align: middle;
+  }
+}

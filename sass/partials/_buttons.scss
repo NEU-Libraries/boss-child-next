@@ -59,6 +59,13 @@ span.create-a-group > a,
   margin: 0 2px;
 }
 
+// special snowflakes
+#buddypress .standard-form div.submit #group-creation-previous {
+  color: unset;
+  background-color: unset;
+  border: unset;
+}
+
 // not actually buttons yet. soon
 // TODO button-ize
 .header-account-login .pop #dashboard-links .menupop a span,

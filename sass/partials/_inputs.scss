@@ -33,6 +33,38 @@ input[type="radio"].styled + label,
 input[type="radio"].styled + strong,
 input[type="checkbox"].styled + span,
 input[type="checkbox"].styled + label,
-input[type="checkbox"].styled + strong {
+input[type="checkbox"].styled + strong,
+#buddypress .standard-form div.checkbox label,
+#buddypress .standard-form div.radio label {
   color: black;
+}
+
+// use browser default styles for checkboxes & radios rather than parent theme images
+#buddypress table.notifications input,
+#send_message_form input[type="checkbox"],
+#profile-edit-form input[type="checkbox"],
+#profile-edit-form input[type="radio"],
+#message-threads input,
+#settings-form input[type="radio"],
+#create-group-form input[type="radio"],
+#create-group-form input[type="checkbox"],
+#group-settings-form input[type="radio"],
+#group-settings-form input[type="checkbox"],
+#new-post input[type="checkbox"],
+.bbp-form input[type="checkbox"],
+.bbp-form .input[type="radio"],
+.register-section .input[type="radio"],
+.register-section input[type="checkbox"],
+.message-check,
+#select-all-messages {
+  opacity: 1;
+}
+
+// these are where the parent theme inserts image replacements for checkboxes/radios
+label strong:before,
+label strong:after,
+input[type="radio"].styled + span:before,
+input[type="radio"].styled + label:before,
+input[type="radio"].styled + strong:before {
+  opacity: 0;
 }
