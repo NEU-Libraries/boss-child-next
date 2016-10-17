@@ -9,15 +9,13 @@
 /** This action is documented in bp-templates/bp-legacy/buddypress/members/single/settings/profile.php */
 do_action( 'bp_before_member_settings_template' ); ?>
 
-<h4>Current Society Memberships</h4>
+<h4>Current Memberships</h4>
 <p />
 <ul>
 <?php global $humanities_commons;
 	$memberships = $humanities_commons::hcommons_get_user_memberships();
 	foreach ( $memberships['societies'] as $membership ) {
-		if ( 'hc' !== $membership ) {
-			echo '<li>' . strtoupper( $membership ) . '</li>';
-		}
+		echo '<li>' . strtoupper( $membership ) . '</li>';
 	} ?>
 </ul>
 <p />
