@@ -193,3 +193,16 @@ div#logo {
 body:not(.left-menu-open)[data-logo="1"] div#logo {
   padding: 0;
 }
+
+.menu-panel ul li a span.display-name {
+  color: unset;
+  line-height: 45px; // center vertically to fit avatar
+}
+
+a.sidebar-btn.fa:hover {
+  text-decoration: none;
+}
+
+.bp_components ul li ul li.menupop.active {
+  background-color: unset;
+}

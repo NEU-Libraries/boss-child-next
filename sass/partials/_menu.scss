@@ -176,3 +176,14 @@ body:not(.left-menu-open) #right-panel-inner {
 body:not(.logged-in) #mobile-header {
   top: 0 !important;
 }
+
+/* hide CORE font icons in menu items */
+li#deposits-groups-li a:before,
+li#deposits-personal-li a:before,
+#user-deposits:before {
+content: '';
+}
+
+#buddypress #mobile-item-nav-wrap {
+  height: 108px; /* accommodate items with titles that wrap to two lines */
+}

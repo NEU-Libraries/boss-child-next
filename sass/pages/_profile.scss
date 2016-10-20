@@ -1,0 +1,8 @@
+.is-mobile.profile #item-header #item-header-content #item-meta {
+  height: unset;
+}
+
+// Hide others' followers count from one's own listing of followers
+.dir-list.members.follow.followers .item-meta span {
+  display: none;
+}

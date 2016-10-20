@@ -30,8 +30,14 @@ span.create-a-group > a,
 #buddypress .activity-list li.load-newest a,
 #buddypress .group-header-meta .group-subscription-options.generic-button a,
 #buddypress #groups-dir-list .group-subscription-options.generic-button a,
-#buddypress #groups-list .group-subscription-options.generic-button a {
+#buddypress #groups-list .group-subscription-options.generic-button a,
+div#buddypress div#subnav.item-list-tabs ul li a {
   @include button-material();
+}
+
+div#buddypress div#subnav.item-list-tabs ul li.selected a,
+div#buddypress div#subnav.item-list-tabs ul li.current a {
+  @include button-material-hover();
 }
 
 #item-buttons button.more-items-btn,

@@ -41,6 +41,11 @@ body:not(.boxed) #item-nav .item-list-tabs .hideshow ul:before {
   background-color: $menu-panel-background-color;
 }
 
+#buddypress div#item-nav .item-list-tabs > ul > li.current,
+#buddypress div#item-nav .item-list-tabs > ul > li:not(.hideshow):hover {
+  border-color: $link-color-hover;
+}
+
 #bbpress-forums li.bbp-header,
 #bbpress-forums li.bbp-footer {
   border-color: $menu-panel-background-color;
@@ -136,4 +141,11 @@ li.bbp-topic-title a.bbp-topic-permalink {
   .buddyboss-select {
     vertical-align: middle;
   }
+}
+
+.bbp-topics-front ul.super-sticky div.bbp-topic-title-content:before,
+.bbp-topics ul.super-sticky div.bbp-topic-title-content:before,
+.bbp-topics ul.sticky div.bbp-topic-title-content:before,
+.bbp-forum-content ul.sticky:before {
+  color: unset;
 }

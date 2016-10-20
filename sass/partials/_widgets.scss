@@ -8,3 +8,11 @@
     padding: 0 !important; // override inline style.
   }
 }
+
+.boxed #primary .widget-area #groups-list li .item-avatar img,
+.boxed #primary .widget-area #members-list li .item-avatar img,
+.secondary-inner #item-actions #group-mods img.avatar,
+.secondary-inner #item-actions #group-admins img.avatar,
+.widget-area .widget ul.item-list img.avatar {
+  border-width: 0;
+}

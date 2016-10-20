@@ -17,6 +17,17 @@ $link-color-hover: #006ccc;
 // a box-shadow that mimics material raised buttons
 $box-shadow-material: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 
+@mixin button-material-hover() {
+  background-color: lighten($button-background-color, 10);
+  box-shadow: $box-shadow-material;
+  color: $button-color;
+  text-decoration: none;
+
+  &:before {
+    content: none;
+  }
+}
+
 @mixin button-material() {
   background-color: $button-background-color;
   border-radius: 4px;
@@ -31,13 +42,6 @@ $box-shadow-material: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.11764
   width: unset; // let button content decide the width. parent forces a width which breaks a few things
 
   &:hover {
-    background-color: lighten($button-background-color, 10);
-    box-shadow: $box-shadow-material;
-    color: $button-color;
-    text-decoration: none;
-
-    &:before {
-      content: none;
-    }
+    @include button-material-hover();
   }
 }
