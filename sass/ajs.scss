@@ -1,16 +1,8 @@
 @import 'variables';
 
-$button-background-color: orangered;
-$button-color: white;
+$button-background-color: #023136;
 
-$menu-panel-color: black;
-$menu-panel-color-hover: white;
-$menu-panel-background-color: cadetblue;
-$menu-panel-background-color-hover: slateblue;
-$menu-panel-icon-color: red;
-$menu-panel-icon-color-hover: orange;
-
-$link-color: rebeccapurple;
-$link-color-hover: plum;
+$menu-panel-color-hover: #0a97b2;
+$menu-panel-icon-color-hover: $menu-panel-color-hover;
 
 @import 'global';

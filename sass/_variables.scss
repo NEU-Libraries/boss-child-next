@@ -1,13 +1,13 @@
 $font-family-body: proxima-nova, Verdana, sans-serif;
 $font-family-header: lexia, serif;
 
-$button-background-color: red;
+$button-background-color: #006650;
 $button-color: white;
 
 $menu-panel-color: #5d5d5d;
-$menu-panel-color-hover: #093a40;
+$menu-panel-color-hover: #031634;
 $menu-panel-background-color: #ececec;
-$menu-panel-background-color-hover: $menu-panel-background-color;
+$menu-panel-background-color-hover: lighten($menu-panel-background-color, 5);
 $menu-panel-icon-color: $menu-panel-color;
 $menu-panel-icon-color-hover: $menu-panel-color-hover;
 
