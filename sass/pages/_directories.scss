@@ -172,6 +172,9 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #primary #groups-list li .item {
   width: 70%; // TODO why is this different?
 }
+#primary #groups-list li .item-avatar {
+  width: 105px; // without this limit, avatars stretch and can make row inconsistent depending on visible buttons
+}
 
 // this is empty anyway but parent theme hiding it breaks layout by shifting name/desc over. restore table-cell display
 .directory.groups #primary #buddypress .item-list li .action.bb-hide-elem {
