@@ -98,4 +98,5 @@ if ( buddyboss_is_bp_active() && bp_is_active( 'notifications' ) ):
 		<?php do_action( "buddyboss_after_header_account_login_block" ); ?>
 
 	</div><!--.header-account-login-->
+
 <?php } ?>
