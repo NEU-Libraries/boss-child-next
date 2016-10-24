@@ -162,10 +162,18 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 }
 
 /* compensate for hiding activity messages by expanding width of member meta */
+/* and make all other directory listings consistent in terms of width */
+#primary #blogs-list .item,
+#primary #groups-list li .item,
 #primary #friend-list li .item,
 #primary #members-stream li .item,
 #primary #members-list li .item {
   width: 55%;
+}
+
+// this is empty anyway but parent theme hiding it breaks layout by shifting name/desc over. restore table-cell display
+.directory.groups #primary #buddypress .item-list li .action.bb-hide-elem {
+  display: table-cell;
 }
 
 // inline directory action buttons
