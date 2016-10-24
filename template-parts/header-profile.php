@@ -20,110 +20,8 @@ $boxed = boss_get_option( 'boss_layout_style' );
 	<div class="<?php echo ($rtl) ? 'left-col-inner' : 'right-col-inner'; ?>">
     <?php endif; ?>
 
-		<?php
-		if ( is_user_logged_in() ) {
-            $name_class = '';
-            $update_data = wp_get_update_data();
-
-            if ($update_data['counts']['total'] && current_user_can( 'update_core' ) && current_user_can( 'update_plugins' ) && current_user_can( 'update_themes' )) {
-                $name_class = 'has_updates';
-                ?>
-                <!-- Notification -->
-                <div class="header-notifications updates">
-                    <a class="notification-link fa fa-refresh" href="<?php echo network_admin_url( 'update-core.php' ); ?>">
-                       <span class="ab-label"><?php echo number_format_i18n( $update_data['counts']['total'] ); ?></span>
-                    </a>
-                </div><?php
-			}
-
-			if ( buddyboss_is_bp_active() && bp_is_active( 'notifications' ) ):
-
-				if ( function_exists( 'buddyboss_notification_bp_members_shortcode_bar_notifications_menu' ) ) {
-					echo do_shortcode( '[buddyboss_notification_bar]' );
-				} else {
-
-					$notifications	 = buddyboss_adminbar_notification();
-					$link			 = $notifications[ 0 ];
-					unset( $notifications[ 0 ] );
-					?>
-
-					<!-- Notification -->
-					<div class="header-notifications all-notifications">
-						<a class="notification-link fa fa-bell" href="<?php
-						if ( $link ) {
-							echo $link->href;
-						}
-						?>">
-							   <?php
-							   if ( $link ) {
-								   echo $link->title;
-							   }
-							   ?>
-						</a>
-
-						<div class="pop">
-							<?php
-							if ( $link ) {
-								foreach ( $notifications as $notification ) {
-									echo '<a href="' . $notification->href . '">' . $notification->title . '</a>';
-								}
-							}
-							?>
-						</div>
-					</div>
-
-					<?php
-				}
-				?>
-
-			<?php endif; ?>
-
-            <!-- Woocommerce Notification -->
-            <?php echo boss_cart_icon_html(); ?>
-
-			<?php if ( buddyboss_is_bp_active() ) { ?>
-
-				<!--Account details -->
-				<div class="header-account-login">
-
-					<?php do_action( "buddyboss_before_header_account_login_block" ); ?>
-
-					<a class="user-link" href="<?php echo bp_core_get_user_domain( get_current_user_id() ); ?>">
-						<span class="name <?php echo $name_class; ?>"><?php echo bp_core_get_user_displayname( get_current_user_id() ); ?></span>
-						<span>
-							<?php echo bp_core_fetch_avatar( array( 'item_id' => get_current_user_id(), 'type' => 'full', 'width' => '100', 'height' => '100' ) ); ?>                        </span>
-					</a>
-
-					<div class="pop">
-						<!-- Dashboard links -->
-						<?php
-						if ( boss_get_option( 'boss_dashboard' ) &&  current_user_can( 'read' ) ) :
-							get_template_part( 'template-parts/header-dashboard-links' );
-						endif;
-						?>
-
-						<!-- Adminbar -->
-						<div id="adminbar-links" class="bp_components">
-							<?php buddyboss_adminbar_myaccount(); ?>
-						</div>
-
-						<?php
-						if ( boss_get_option( 'boss_profile_adminbar' ) ) {
-							wp_nav_menu( array( 'theme_location' => 'header-my-account', 'fallback_cb' => '', 'menu_class' => 'links' ) );
-						}
-						?>
-
-						<span class="logout">
-							<a href="<?php echo wp_logout_url(); ?>"><?php _e( 'Logout', 'boss' ); ?></a>
-						</span>
-					</div>
-
-					<?php do_action( "buddyboss_after_header_account_login_block" ); ?>
-
-				</div><!--.header-account-login-->
-
-			<?php } ?>
-
+		<?php if ( is_user_logged_in() ) { ?>
+			<?php get_template_part( 'template-parts/header-profile-member' ); ?>
 		<?php } else { ?>
 
             <!-- Woocommerce Notification for guest users-->
@@ -131,51 +29,15 @@ $boxed = boss_get_option( 'boss_layout_style' );
 
 			<?php /* non-network-member menu. user is logged in to at least one other network, but not this one. */ ?>
 			<?php
-				if (
-					is_a( $humanities_commons, 'Humanities_Commons' ) &&
-					$humanities_commons->hcommons_non_member_active_session() &&
-					$session_user = get_user_by( 'login', $humanities_commons->hcommons_get_session_username() )
-				) :
-					wp_set_current_user( $session_user->ID );
+				if ( is_a( $humanities_commons, 'Humanities_Commons' ) && $humanities_commons->hcommons_non_member_active_session() ) :
+					$session_username = $humanities_commons->hcommons_get_session_username();
+					wp_set_current_user( null, $session_username );
 			?>
-				<!--Account details -->
-				<div class="header-account-login">
-
-					<?php do_action( "buddyboss_before_header_account_login_block" ); ?>
-
-					<a class="user-link" href="<?php echo bp_core_get_user_domain( get_current_user_id() ); ?>">
-						<span class="name <?php echo $name_class; ?>"><?php echo bp_core_get_user_displayname( get_current_user_id() ); ?></span>
-						<span>
-							<?php echo bp_core_fetch_avatar( array( 'item_id' => get_current_user_id(), 'type' => 'full', 'width' => '100', 'height' => '100' ) ); ?>                        </span>
-					</a>
-
-					<div class="pop">
-						<!-- Dashboard links -->
-						<?php
-						if ( boss_get_option( 'boss_dashboard' ) &&  current_user_can( 'read' ) ) :
-							get_template_part( 'template-parts/header-dashboard-links' );
-						endif;
-						?>
-
-						<!-- Adminbar -->
-						<div id="adminbar-links" class="bp_components">
-							<?php buddyboss_adminbar_myaccount(); ?>
-						</div>
-
-						<?php
-						if ( boss_get_option( 'boss_profile_adminbar' ) ) {
-							wp_nav_menu( array( 'theme_location' => 'header-my-account', 'fallback_cb' => '', 'menu_class' => 'links' ) );
-						}
-						?>
-
-						<span class="logout">
-							<a href="<?php echo wp_logout_url(); ?>"><?php _e( 'Logout', 'boss' ); ?></a>
-						</span>
-					</div>
-
-					<?php do_action( "buddyboss_after_header_account_login_block" ); ?>
-
-				</div><!--.header-account-login-->
+				<?php get_template_part( 'template-parts/header-profile-member' ); ?>
+				<?php
+						// restore default current user, which is logged out
+						wp_set_current_user( null );
+				?>
 			<!-- Register/Login links for logged out users -->
 			<?php elseif ( !is_user_logged_in() && buddyboss_is_bp_active() && !bp_hide_loggedout_adminbar( false ) ) : ?>
                 <?php if( '2' == boss_get_option('boss_header') ){ ?>
