@@ -6,3 +6,8 @@
 .dir-list.members.follow.followers .item-meta span {
   display: none;
 }
+
+// add spacing to left-column buttons on messaging pages
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li a {
+  margin-bottom: 10px;
+}
