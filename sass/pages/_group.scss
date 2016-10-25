@@ -155,3 +155,15 @@ li.bbp-topic-title a.bbp-topic-permalink {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+// docs overrides
+.site .doc-title, .site .directory-title:not(.empty) {
+  background-color: $menu-panel-background-color;
+  color: $menu-panel-color;
+}
+.site .doc-title .breadcrumb-current, h2.directory-title .breadcrumb-current {
+  border-color: $menu-panel-color;
+}
+.site #buddypress .plus-or-minus {
+  background-color: $button-background-color;
+}
