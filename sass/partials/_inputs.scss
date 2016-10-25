@@ -79,3 +79,9 @@ input[type="radio"].styled + label:before,
 input[type="radio"].styled + strong:before {
   opacity: 0;
 }
+
+// overrides for site (blog) creation using some inline form inputs
+.create-blog #buddypress #blogname {
+  display: inline;
+  width: unset;
+}
