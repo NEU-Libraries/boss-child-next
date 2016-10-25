@@ -16,3 +16,35 @@
 .widget-area .widget ul.item-list img.avatar {
   border-width: 0;
 }
+
+
+// sitewide-activity widget overrides
+.swa-activity-list  div.swa-activity-avatar img.avatar {
+  border-radius: 50%;
+}
+.swa-pagination {
+  display: none;
+}
+.swa-activity-list .swa-activity-header a:first-child,
+.swa-activity-list span.highlight {
+  background-color: unset;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.swa-activity-list .swa-activity-header a:first-child:hover,
+.swa-activity-list a {
+  // plugin uses !important for some reason so we have to as well
+  color: $link-color !important;
+  background-color: unset !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.swa-activity-list li.mini,
+ul.swa-activity-list li {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+}
