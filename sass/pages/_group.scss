@@ -149,3 +149,9 @@ li.bbp-topic-title a.bbp-topic-permalink {
 .bbp-forum-content ul.sticky:before {
   color: unset;
 }
+
+// there are enough buttons here to wrap onto multiple lines on most screens, add some vertical space so they don't get cramped
+.group-admin #buddypress div#subnav.item-list-tabs ul li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
