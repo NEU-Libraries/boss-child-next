@@ -31,7 +31,8 @@ span.create-a-group > a,
 #buddypress .group-header-meta .group-subscription-options.generic-button a,
 #buddypress #groups-dir-list .group-subscription-options.generic-button a,
 #buddypress #groups-list .group-subscription-options.generic-button a,
-div#buddypress div#subnav.item-list-tabs ul li a {
+div#buddypress div#subnav.item-list-tabs ul li a,
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li:first-child a {
   @include button-material();
 }
 
@@ -81,4 +82,13 @@ div#buddypress div#subnav.item-list-tabs ul li.current a {
 body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 .dir-form .item-list-tabs ul li a span {
   background-color: $button-background-color;
+}
+
+// some message buttons are not like the others...
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li.current a {
+  width: 158px; // since we unset width above, this just restores the default parent width
+
+  &:after {
+    display: none;
+  }
 }
