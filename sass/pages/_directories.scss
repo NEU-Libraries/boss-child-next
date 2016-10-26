@@ -41,7 +41,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
   border-width: 1px;
   color: $menu-panel-color;
   font-weight: 300;
-  text-transform: unset;
+  text-transform: none;
 
   a {
     color: $link-color;
@@ -62,7 +62,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
   border-color: rgba(0, 0, 0, 0.11); // dropdowns etc. are not quite links. match search border instead
   border-width: 1px;
   color: black;
-  text-transform: unset;
+  text-transform: none;
 }
 
 .selected-tab,
@@ -70,7 +70,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li:last-child,
 body.activity:not(.bp-user) .item-list-tabs ul li a,
 .dir-form .item-list-tabs ul li a {
   font-weight: 300;
-  text-transform: unset;
+  text-transform: none;
 }
 
 .selected-tab:after,
@@ -188,7 +188,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 
 #primary #groups-stream li .item-title a,
 #primary #groups-list li .item-title a {
-  text-transform: unset;
+  text-transform: none;
 }
 
 #buddypress .group-header-meta .group-subscription-options.generic-button,

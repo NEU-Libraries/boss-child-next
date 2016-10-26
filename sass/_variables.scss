@@ -38,7 +38,7 @@ $box-shadow-material: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.11764
   letter-spacing: unset;
   padding: 10px;
   text-align: center;
-  text-transform: unset;
+  text-transform: none;
   width: unset; // let button content decide the width. parent forces a width which breaks a few things
 
   &:hover {
