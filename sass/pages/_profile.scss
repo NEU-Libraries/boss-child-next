@@ -11,3 +11,8 @@
 .bp-user.messages #buddypress div#subnav.item-list-tabs ul li a {
   margin-bottom: 10px;
 }
+
+#buddypress #mobile-item-nav ul li#members-followers-personal-li,
+#buddypress div#item-nav .item-list-tabs ul li a#user-members-followers {
+  display: none;
+}
