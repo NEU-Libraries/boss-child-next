@@ -20,7 +20,7 @@ h1.main-title,
 #bbpress-forums fieldset.bbp-form legend {
   font-family: $font-family-header;
   font-weight: 300;
-  text-transform: unset !important; // always sentence case everywhere!!
+  text-transform: none !important; // always sentence case everywhere!!
 }
 
 a {
