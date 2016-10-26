@@ -167,3 +167,10 @@ li.bbp-topic-title a.bbp-topic-permalink {
 .site #buddypress .plus-or-minus {
   background-color: $button-background-color;
 }
+
+.groups.single-item .secondary-inner img.avatar {
+  background-color: inherit;
+  border: none;
+  border-radius: 50%;
+  box-shadow: none;
+}
