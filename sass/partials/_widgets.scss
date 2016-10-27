@@ -48,6 +48,14 @@ ul.swa-activity-list li {
   margin-left: 0;
   padding-left: 0;
 }
-#swa-whats-new-options > div {
-  display: inline;
+#swa-whats-new-options {
+  line-height: 38px; // match select height so label is vertically aligned to middle
+
+  > div {
+    display: inline;
+  }
+
+  #whats-new-submit {
+    float: right;
+  }
 }
