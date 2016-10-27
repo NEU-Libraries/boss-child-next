@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Boss. v2.1.3\n"
 "Report-Msgid-Bugs-To: http://www.buddyboss.com/contact/\n"
 "POT-Creation-Date: 2016-08-01 20:24:12+00:00\n"
-"PO-Revision-Date: 2016-10-27 12:25-0400\n"
+"PO-Revision-Date: 2016-10-27 12:26-0400\n"
 "Last-Translator: BuddyBoss <support@buddyboss.com>\n"
 "Language-Team: BuddyBoss <support@buddyboss.com>\n"
 "Language: en\n"
@@ -4488,7 +4488,7 @@ msgstr ""
 
 #: buddypress/groups/single/invite-anyone.php:103
 msgid "Send invitations by email"
-msgstr ""
+msgstr "Send invitations by e-mail"
 
 #: buddypress/members/index.php:16
 msgid "Newest Registered"
