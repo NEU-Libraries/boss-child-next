@@ -12,21 +12,23 @@ do_action( 'bp_before_member_settings_template' ); ?>
 <h4>Current Memberships</h4>
 <p />
 <ul>
-<?php global $humanities_commons;
-	$memberships = $humanities_commons::hcommons_get_user_memberships();
-	foreach ( $memberships['societies'] as $membership ) {
-		echo '<li>' . strtoupper( $membership ) . '</li>';
+<?php $memberships = bp_get_member_type( bp_displayed_user_id(), false );
+	foreach ( $memberships as $membership ) {
+		if ( 'beta' !== $membership ) {
+			echo '<li>' . strtoupper( $membership ) . '</li>';
+		}
 	} ?>
 </ul>
+<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
 <p />
 <h4>Current Login Method</h4>
 <p />
 <ul>
-<?php $identity_provider = $humanities_commons::hcommons_get_identity_provider();
+<?php $identity_provider = Humanities_Commons::hcommons_get_identity_provider();
 	echo '<li>' . strtoupper( $identity_provider ) . '</li>';
 ?>
 </ul>
-
+<?php } ?>
 <?php if ( 1 === 2 ) { //disable the current form ?>
 
 <form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>" method="post" class="standard-form" id="settings-form">
