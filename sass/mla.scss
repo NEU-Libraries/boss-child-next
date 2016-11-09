@@ -9,4 +9,56 @@ $button-background-color: #006ccc;
 $menu-panel-color-hover: #b0061f;
 $menu-panel-icon-color-hover: $menu-panel-color-hover;
 
+#members-list li {
+
+	& .small {
+
+		& .button {
+		    background-color: transparent !important;
+		    color: #006ccc;
+		    font-size: 12px;
+		    display: inline-block;
+		    border-radius: 0;
+		    padding: 0 10px 0 0;
+		    box-shadow: none;
+		    width: auto;
+		    font-family: proxima-nova;
+		    margin-right: 10px;
+		    border-right: 1px solid rgba(0,0,0,0.11);
+
+		    &:hover {
+		    	text-decoration: underline;
+		    }
+
+	    }
+
+	    & > a:last-child {
+	    	border-right: none;
+	    }
+
+	    &:hover {
+	    	box-shadow: none;
+
+	    }
+
+	}
+
+	& .ass_manage_members_links {
+
+		font-family: proxima-nova;
+
+		& a {
+			cursor: pointer;
+			padding: 0 5px;
+		}
+
+	}
+
+	& img.avatar {
+		margin-bottom: 10px;
+	}
+
+}
+
+
 @import 'global';
