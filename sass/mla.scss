@@ -15,7 +15,7 @@ $menu-panel-icon-color-hover: $menu-panel-color-hover;
 
 		& .button {
 		    background-color: transparent !important;
-		    color: #006ccc;
+		    color: $button-background-color;
 		    font-size: 12px;
 		    display: inline-block;
 		    border-radius: 0;
@@ -50,7 +50,7 @@ $menu-panel-icon-color-hover: $menu-panel-color-hover;
 
 		& .button {
 		    background-color: transparent !important;
-		    color: #006ccc;
+		    color: $button-background-color;
 		    font-size: 12px;
 		    display: inline-block;
 		    border-radius: 0;
