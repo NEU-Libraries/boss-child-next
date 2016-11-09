@@ -15,7 +15,7 @@ $menu-panel-icon-color-hover: $menu-panel-color-hover;
 
 		& .button {
 		    background-color: transparent !important;
-		    color: $button-background-color;
+		    color: $groups-manage-members-anchor-color;
 		    font-size: 12px;
 		    display: inline-block;
 		    border-radius: 0;
@@ -50,7 +50,7 @@ $menu-panel-icon-color-hover: $menu-panel-color-hover;
 
 		& .button {
 		    background-color: transparent !important;
-		    color: $button-background-color;
+		    color: $groups-manage-members-anchor-color;
 		    font-size: 12px;
 		    display: inline-block;
 		    border-radius: 0;
@@ -79,6 +79,7 @@ $menu-panel-icon-color-hover: $menu-panel-color-hover;
 		font-family: proxima-nova;
 
 		& a {
+			color: $groups-manage-members-anchor-color;
 			cursor: pointer;
 			padding: 0 5px;
 		}
