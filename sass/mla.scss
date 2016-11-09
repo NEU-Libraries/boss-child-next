@@ -24,7 +24,6 @@ $menu-panel-icon-color-hover: $menu-panel-color-hover;
 		    width: auto;
 		    font-family: proxima-nova;
 		    margin-right: 10px;
-		    border-right: 1px solid rgba(0,0,0,0.11);
 
 		    &:hover {
 		    	text-decoration: underline;
@@ -39,7 +38,7 @@ $menu-panel-icon-color-hover: $menu-panel-color-hover;
 
 	}
 
-	
+
 }
 
 #members-list li {
