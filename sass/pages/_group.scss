@@ -181,7 +181,7 @@ li.bbp-topic-title a.bbp-topic-permalink {
 
     & .button {
         background-color: transparent !important;
-        color: $groups-manage-members-anchor-color;
+        color: $link-color;
         font-size: 12px;
         display: inline-block;
         border-radius: 0;
@@ -192,7 +192,8 @@ li.bbp-topic-title a.bbp-topic-permalink {
         margin-right: 10px;
 
         &:hover {
-          text-decoration: underline;
+        	color: $link-color-hover;
+        	text-decoration: underline;
         }
 
       }
@@ -208,6 +209,12 @@ li.bbp-topic-title a.bbp-topic-permalink {
     margin-bottom: 10px;
   }
 
+}
+
+.bp-widget {
+	h4 {
+		color: unset !important;
+	}
 }
 
 #members-list li {
