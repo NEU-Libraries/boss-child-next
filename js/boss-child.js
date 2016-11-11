@@ -21,6 +21,9 @@
     // we need live() to affect pages of groups loaded via ajax.
     $('#groups-dir-list .group-button').live('DOMSubtreeModified', joinleave_group_change_handler);
 
+    // disable this since it breaks in safari and isn't really useful anyway
+    $.fn.jRMenuMore = function () {}
+
   });
 
 })(jQuery);
