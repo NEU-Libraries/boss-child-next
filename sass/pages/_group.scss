@@ -221,6 +221,16 @@ li.bbp-topic-title a.bbp-topic-permalink {
   border-radius: 50%;
 }
 
+#bbpress-forums > .bbp-replies #subscription-toggle {
+  color: black;
+}
+#bbpress-forums > .bbp-replies #subscription-toggle a,
+#bbpress-forums > .bbp-replies #favorite-toggle a,
+#bbpress-forums > .bbp-replies #subscription-toggle a:hover,
+#bbpress-forums > .bbp-replies #favorite-toggle a:hover {
+  color: $link-color;
+}
+
 #members-list li {
 
   & .small {
