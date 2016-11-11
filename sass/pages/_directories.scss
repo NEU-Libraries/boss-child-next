@@ -225,3 +225,8 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 .directory #item-statistics .numbers {
   display: none;
 }
+
+// "Academic Interest: <term>" header
+#members-dir-list > h4 {
+  margin-top: 1em;
+}
