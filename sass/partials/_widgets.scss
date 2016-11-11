@@ -60,3 +60,8 @@ ul.swa-activity-list li {
     float: right;
   }
 }
+
+// hide activity timestamps
+.swa-activity-list .view.activity-time-since {
+  display: none;
+}
