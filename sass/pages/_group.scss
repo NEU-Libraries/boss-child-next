@@ -231,6 +231,12 @@ li.bbp-topic-title a.bbp-topic-permalink {
   color: $link-color;
 }
 
+// docs and group email subs do not play nice. just hide the email options on docs pages for now
+.bp-docs .group-subscription-div,
+.bp-docs .group-subscription-options {
+  display: none;
+}
+
 #members-list li {
 
   & .small {
