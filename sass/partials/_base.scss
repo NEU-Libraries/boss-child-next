@@ -32,6 +32,10 @@ a {
   }
 }
 
+#footer-links a:hover {
+  color: $link-color;
+}
+
 #buddypress #message.info,
 div#sitewide-notice #message.info {
   margin-top: 15px;
