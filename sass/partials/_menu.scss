@@ -153,7 +153,7 @@ body:not(.left-menu-open) .bp_components ul li ul li.menupop .ab-sub-wrapper {
 body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner {
   padding-top: 65px;
 }
-body:not(.left-menu-open) #right-panel-inner {
+body:not(.left-menu-open).is-desktop #right-panel-inner {
   margin-left: 65px;
 }
 .is-desktop #left-panel-inner #scroll-area {
