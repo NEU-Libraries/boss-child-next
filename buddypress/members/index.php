@@ -45,11 +45,11 @@ $society_id = Humanities_Commons::$society_id;
 
 		<div class="item-list-tabs" role="navigation">
 			<ul>
-				<li class="selected" id="members-all"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( 'All Members <span>%s</span>', 'boss' ), bp_get_total_member_count() ); ?></a></li>
-
-				<?php if ( ! empty( $society_id ) && $society_id !== 'hc' ) : ?>
+				<?php if ( ! empty( $society_id ) && 'hc' !== $society_id ) : ?>
 					<li class="selected" id="members-society"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( '%s Members', 'boss' ), strtoupper( $society_id ) ); ?></a></li>
 				<?php endif; ?>
+
+				<li<?php if ( 'hc' === $society_id ) { echo ' class="selected"'; } ?> id="members-all"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( 'All Members <span>%s</span>', 'boss' ), bp_get_total_member_count() ); ?></a></li>
 
 				<?php if ( is_user_logged_in() && bp_is_active( 'friends' ) && bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
 					<li id="members-personal"><a href="<?php echo bp_loggedin_user_domain() . bp_get_friends_slug() . '/my-friends/'; ?>"><?php printf( __( 'My Friends <span>%s</span>', 'boss' ), bp_get_total_friend_count( bp_loggedin_user_id() ) ); ?></a></li>
