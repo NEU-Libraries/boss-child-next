@@ -48,7 +48,7 @@ $society_id = Humanities_Commons::$society_id;
 				<li class="selected" id="members-all"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( 'All Members <span>%s</span>', 'boss' ), bp_get_total_member_count() ); ?></a></li>
 
 				<?php if ( ! empty( $society_id ) && 'hc' !== $society_id ) : ?>
-					<li class="selected" id="members-society"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( '%s Members', 'boss' ), strtoupper( $society_id ) ); ?></a></li>
+					<li id="members-society"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( '%s Members', 'boss' ), strtoupper( $society_id ) ); ?></a></li>
 				<?php endif; ?>
 
 				<?php if ( is_user_logged_in() && bp_is_active( 'friends' ) && bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
