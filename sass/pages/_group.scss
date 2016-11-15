@@ -181,7 +181,7 @@ li.bbp-topic-title a.bbp-topic-permalink {
 
     & .button {
         background-color: transparent !important;
-        color: $link-color;
+        color: $link-color !important;
         font-size: 12px;
         display: inline-block;
         border-radius: 0;
@@ -203,10 +203,6 @@ li.bbp-topic-title a.bbp-topic-permalink {
 
       }
 
-  }
-
-  & img.avatar {
-    margin-bottom: 10px;
   }
 
 }
@@ -243,7 +239,7 @@ li.bbp-topic-title a.bbp-topic-permalink {
 
     & .button {
         background-color: transparent !important;
-        color: $link-color;
+        color: $link-color !important;
         font-size: 12px;
         display: inline-block;
         border-radius: 0;
@@ -273,15 +269,14 @@ li.bbp-topic-title a.bbp-topic-permalink {
     font-family: proxima-nova;
 
     & a {
-      color: $link-color;
+      color: $link-color !important;
       cursor: pointer;
-      padding: 0 5px;
-    }
+      padding: 0 5px !important;
+      margin-right: 0 !important;
+      border-right: none !important;
 
-  }
+    } 
 
-  & img.avatar {
-    margin-bottom: 10px;
   }
 
 }
