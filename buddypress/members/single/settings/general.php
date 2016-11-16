@@ -10,7 +10,6 @@
 do_action( 'bp_before_member_settings_template' ); ?>
 
 <h4>Current Memberships</h4>
-<br />
 <p>Missing a membership? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
 <br />
 <ul>
@@ -24,7 +23,6 @@ do_action( 'bp_before_member_settings_template' ); ?>
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
 <br />
 <h4>Current Log-in Method</h4>
-<br />
 <p>Missing a Log-in method? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
 <br />
 <ul>
