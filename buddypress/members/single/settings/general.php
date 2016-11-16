@@ -10,7 +10,9 @@
 do_action( 'bp_before_member_settings_template' ); ?>
 
 <h4>Current Memberships</h4>
-<p />
+<br />
+<p>Missing a membership? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
+<br />
 <ul>
 <?php $memberships = bp_get_member_type( bp_displayed_user_id(), false );
 	foreach ( $memberships as $membership ) {
@@ -20,9 +22,11 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	} ?>
 </ul>
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
-<p />
-<h4>Current Login Method</h4>
-<p />
+<br />
+<h4>Current Log-in Method</h4>
+<br />
+<p>Missing a Log-in method? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
+<br />
 <ul>
 <?php $identity_provider = Humanities_Commons::hcommons_get_identity_provider();
 	echo '<li>' . strtoupper( $identity_provider ) . '</li>';
