@@ -49,7 +49,7 @@ $boxed = boss_get_option( 'boss_layout_style' );
                         <a href="<?php echo bp_get_signup_page(); ?>" class="register screen-reader-shortcut"><?php _e( 'Register', 'boss' ); ?></a>
                     <?php endif; ?>
 
-                    <a href="<?php echo wp_login_url(); ?>" class="login"><?php _e( 'Login', 'boss' ); ?></a>
+                    <a href="<?php echo wp_login_url(); ?>" class="login"><?php _e( 'Log In', 'boss' ); ?></a>
                 <?php if( '2' == boss_get_option('boss_header') ){ ?>
                 </div>
                 <?php } ?>
