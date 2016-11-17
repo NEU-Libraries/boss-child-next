@@ -72,3 +72,18 @@ function boss_child_theme_enqueue_typekit() {
 	wp_add_inline_script( 'typekit', 'try{Typekit.load();}catch(e){};' );
 }
 add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_typekit' );
+
+/**
+ * some thumbnails have been generated with small dimensions due to
+ * BP_AVATAR_THUMB_WIDTH being too small at the time. this is a temporary
+ * workaround to prevent artifacts/blurriness where those thumbnails appear by
+ * using the full avatar rather than the thumb.
+ *
+ * TODO once bad thumbnails have been replaced/removed, this filter should be
+ * removed to improve performance.
+ */
+function hcommons_filter_bp_get_group_invite_user_avatar() {
+	global $invites_template;
+	return $invites_template->invite->user->avatar; // rather than avatar_thumb
+}
+add_filter( 'bp_get_group_invite_user_avatar', 'hcommons_filter_bp_get_group_invite_user_avatar' );

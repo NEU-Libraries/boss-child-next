@@ -213,8 +213,15 @@ li.bbp-topic-title a.bbp-topic-permalink {
 	}
 }
 
-#invite-anyone-invite-list .avatar {
-  border-radius: 50%;
+.invite-anyone #invite-anyone-invite-list {
+  .avatar {
+    border-radius: 50%;
+    width: 70px !important;
+    height: 70px !important;
+  }
+  h4 {
+    margin: 0 0 25px;
+  }
 }
 
 #bbpress-forums > .bbp-replies #subscription-toggle {
@@ -275,7 +282,7 @@ li.bbp-topic-title a.bbp-topic-permalink {
       margin-right: 0 !important;
       border-right: none !important;
 
-    } 
+    }
 
   }
 
