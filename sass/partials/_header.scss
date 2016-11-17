@@ -3,6 +3,10 @@
 }
 
 #masthead {
+  .header-navigation a {
+    color: $link-color;
+  }
+
   a {
     color: black;
 
