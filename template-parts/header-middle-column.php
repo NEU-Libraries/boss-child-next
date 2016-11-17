@@ -1,7 +1,28 @@
 <?php
-global $rtl;
+global $rtl, $current_user;
 $header_style = boss_get_option('boss_header');
 $boxed = boss_get_option( 'boss_layout_style' );
+
+if ( class_exists( 'Humanities_Commons' ) && ! empty( $current_user ) ) {
+	$shib_login_host = get_user_meta( $current_user->ID, 'shib_login_host', true );
+
+	if  ( ! empty( $shib_login_host ) ) {
+		$user_society_slug = preg_replace( '/\.?' . Humanities_Commons::$main_network->domain . '/', '', $shib_login_host );
+
+		$current_society_name = ( empty( Humanities_Commons::$society_id ) ? 'HC' : strtoupper( Humanities_Commons::$society_id ) );
+
+		$user_society_name = ( empty( $user_society_slug ) ? 'HC' : strtoupper( $user_society_slug ) );
+
+		if ( $current_society_name !== $user_society_name ) {
+			$back_to_network_link = sprintf(
+				'<a href="%s">Return to %s</a>',
+				'https://' . $shib_login_host,
+				( ( $user_society_name === 'HC' ) ? 'Humanities' : $user_society_name ) . ' Commons'
+			);
+		}
+	}
+}
+
 ?>
 
 <?php if( '1' == $header_style ) { ?>
@@ -42,7 +63,11 @@ $boxed = boss_get_option( 'boss_layout_style' );
 		</div>
     <?php else: ?>
         <div class="header-navigation">
-            <p></p>
+					<ul>
+<li>
+					<p><?php echo ( ! empty( $back_to_network_link ) ) ? $back_to_network_link : '' ?></p>
+</li>
+					</ul>
         </div>
     <?php endif; ?>
 
