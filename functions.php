@@ -5,6 +5,9 @@
  * Add your own functions in this file.
  */
 
+if ( ! defined( 'BP_AVATAR_THUMB_WIDTH' ) ) define ( 'BP_AVATAR_THUMB_WIDTH', 150 );
+if ( ! defined( 'BP_AVATAR_THUMB_HEIGHT' ) ) define ( 'BP_AVATAR_THUMB_HEIGHT', 150 );
+
 /**
  * Sets up theme defaults
  *
