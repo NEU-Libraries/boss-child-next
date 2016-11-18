@@ -100,7 +100,7 @@ if ( function_exists( 'bp_post_get_permalink' ) ) { // ugly ugly ugly hack to ch
 	<?php do_action( 'bp_before_group_send_invites_content' ) ?>
 
 	<?php if ( invite_anyone_access_test() && ! bp_is_group_create() ) : ?>
-		<p class="send-invitations-by-email-wrap clearfix"><?php _e( 'Want to invite someone to the group who is not yet a member of the site?', 'invite-anyone' ) ?> <a class="button send-invitations-by-email alignright" href="<?php echo bp_loggedin_user_domain() . BP_INVITE_ANYONE_SLUG . '/invite-new-members/group-invites/' . bp_get_group_id() ?>"><?php _e( 'Send invitations by email', 'invite-anyone' ) ?></a></p>
+		<p class="send-invitations-by-email-wrap clearfix"><?php printf( __( 'Want to invite someone to the group who is not yet a member of the site?', 'invite-anyone' ), ( Humanities_Commons::$society_id === 'hc' ) ? 'Humanities' : strtoupper( Humanities_Commons::$society_id ) ) ?> <a class="button send-invitations-by-email alignright" href="<?php echo bp_loggedin_user_domain() . BP_INVITE_ANYONE_SLUG . '/invite-new-members/group-invites/' . bp_get_group_id() ?>"><?php _e( 'Send invitations by email', 'invite-anyone' ) ?></a></p>
 	<?php endif; ?>
 
 	<?php if ( ! bp_get_new_group_id() ) : ?>
