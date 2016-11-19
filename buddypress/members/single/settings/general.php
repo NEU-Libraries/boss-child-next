@@ -10,7 +10,6 @@
 do_action( 'bp_before_member_settings_template' ); ?>
 
 <h4>Current Memberships</h4>
-<p>Missing a membership? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
 <br />
 <ul>
 <?php $memberships = bp_get_member_type( bp_displayed_user_id(), false );
@@ -20,17 +19,30 @@ do_action( 'bp_before_member_settings_template' ); ?>
 		}
 	} ?>
 </ul>
-<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
 <br />
-<h4>Current Log-in Method</h4>
-<p>Want to add another log-in method to your account? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
+<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
+<p>Missing a membership? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
+<?php } ?>
+<br />
+<h4>Current Log-in Methods</h4>
 <br />
 <ul>
-<?php $identity_provider = Humanities_Commons::hcommons_get_identity_provider();
-	echo '<li>' . strtoupper( $identity_provider ) . '</li>';
-?>
+<?php $login_methods = Humanities_Commons::hcommons_get_user_login_methods( bp_displayed_user_id() );
+	foreach ( $login_methods as $login_method ) {
+		echo '<li>' . strtoupper( $login_method ) . '</li>';
+	} ?>
 </ul>
-<?php } ?>
+<br />
+<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
+<?php	$registry_url = constant( 'REGISTRY_SERVER_URL' ) . '/Shibboleth.sso/Login?SAMLDS=1';
+	$discovery_url = urlencode( constant( 'REGISTRY_SERVER_URL' ) . '/discovery_service_registry_only/index.php' );
+	$society_account_link_constant = strtoupper( Humanities_Commons::$society_id ) . '_ACCOUNT_LINK_URL';
+	$target_url = urlencode( constant( $society_account_link_constant ) );
+	$formatted_provider = false;
+	$entity_id = urlencode( Humanities_Commons::hcommons_get_identity_provider( $formatted_provider ) );
+	$society_name = ( 'hc' === Humanities_Commons::$society_id ) ? 'Humanities Commons' : strtoupper( Humanities_Commons::$society_id ) . ' Commons';
+	echo sprintf( '<p><a href="%s&discoveryURL=%s&target=%s&entityID=%s">Link another log-in method</a> to your %s Account</p>', $registry_url, $discovery_url, $target_url, $entity_id, $society_name );
+} ?>
 <?php if ( 1 === 2 ) { //disable the current form ?>
 
 <form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>" method="post" class="standard-form" id="settings-form">
