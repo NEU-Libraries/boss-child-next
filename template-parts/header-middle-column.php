@@ -1,10 +1,11 @@
 <?php
-global $rtl, $current_user;
+global $rtl;
 $header_style = boss_get_option('boss_header');
 $boxed = boss_get_option( 'boss_layout_style' );
 
-if ( class_exists( 'Humanities_Commons' ) && ! empty( $current_user ) ) {
-	$shib_login_host = get_user_meta( $current_user->ID, 'shib_login_host', true );
+if ( class_exists( 'Humanities_Commons' ) && ! empty( Humanities_Commons::hcommons_get_session_username() ) ) {
+	$session_user = get_user_by( 'login', Humanities_Commons::hcommons_get_session_username() );
+	$shib_login_host = get_user_meta( $session_user->ID, 'shib_login_host', true );
 
 	if  ( ! empty( $shib_login_host ) ) {
 		$user_society_slug = preg_replace( '/\.?' . Humanities_Commons::$main_network->domain . '/', '', $shib_login_host );
