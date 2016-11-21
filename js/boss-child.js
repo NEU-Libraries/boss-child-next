@@ -21,6 +21,12 @@
     // we need live() to affect pages of groups loaded via ajax.
     $('#groups-dir-list .group-button').live('DOMSubtreeModified', joinleave_group_change_handler);
 
+    // groups directory does not run a new query if "back" button was clicked due to browser cache, so force refresh
+    // (without this, results on page can be from the wrong tab despite which is "selected")
+    if ($('#groups-dir-list').length > 0) {
+      $('.item-list-tabs .selected a').trigger('click');
+    }
+
     // disable this since it breaks in safari and isn't really useful anyway
     $.fn.jRMenuMore = function () {}
 
