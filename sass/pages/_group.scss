@@ -240,6 +240,10 @@ li.bbp-topic-title a.bbp-topic-permalink {
   display: none;
 }
 
+#buddypress form#group-settings-form ul#members-list {
+  overflow: unset;
+}
+
 #members-list li {
 
   & .small {
