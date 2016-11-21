@@ -24,6 +24,14 @@
     // disable this since it breaks in safari and isn't really useful anyway
     $.fn.jRMenuMore = function () {}
 
+    $('form#hc-terms-acceptance-form input[type=submit][name=hc_accept_terms_continue]').on('click', function(){
+            if ( $('form#hc-terms-acceptance-form input[type=checkbox][name=hc_accept_terms]').is(':checked') ) {
+                    $('#hc-terms-acceptance-form').submit();
+            } else {
+                    alert('Please agree to the terms by checking the box next to "I agree".');
+            }
+    });
+
   });
 
 })(jQuery);
