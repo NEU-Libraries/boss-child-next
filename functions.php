@@ -87,3 +87,26 @@ function hcommons_filter_bp_get_group_invite_user_avatar() {
 	return $invites_template->invite->user->avatar; // rather than avatar_thumb
 }
 add_filter( 'bp_get_group_invite_user_avatar', 'hcommons_filter_bp_get_group_invite_user_avatar' );
+
+/**
+ * affects boss mobile right-hand main/top user menu
+ */
+function boss_child_change_profile_edit_to_view_in_adminbar() {
+	global $wp_admin_bar;
+
+	if ( is_user_logged_in() ) {
+		// the item which has the user's name/avatar as title and links to "edit"
+		$user_info_clone = $wp_admin_bar->get_node( 'user-info' );
+		// the item which has "Profile" as title and links to "view"
+		$my_account_xprofile_clone = $wp_admin_bar->get_node( 'my-account-xprofile' );
+
+		// use "view" url for the name/avatar item
+		$user_info_clone->href = $my_account_xprofile_clone->href;
+		$wp_admin_bar->add_menu( $user_info_clone );
+
+		// remove the second, now redundant, item
+		$wp_admin_bar->remove_menu( 'edit-profile' );
+	}
+}
+// priority 1000 to override boss buddyboss_strip_unnecessary_admin_bar_nodes()
+add_action( 'admin_bar_menu', 'boss_child_change_profile_edit_to_view_in_adminbar', 1000 );
