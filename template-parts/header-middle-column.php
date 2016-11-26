@@ -3,8 +3,8 @@ global $rtl;
 $header_style = boss_get_option('boss_header');
 $boxed = boss_get_option( 'boss_layout_style' );
 
-if ( class_exists( 'Humanities_Commons' ) && ! empty( Humanities_Commons::hcommons_get_session_username() ) ) {
-	$session_user = get_user_by( 'login', Humanities_Commons::hcommons_get_session_username() );
+if ( class_exists( 'Humanities_Commons' ) && ! empty( (new Humanities_Commons)->hcommons_get_session_username() ) ) {
+	$session_user = get_user_by( 'login', (new Humanities_Commons)->hcommons_get_session_username() );
 	$shib_login_host = get_user_meta( $session_user->ID, 'shib_login_host', true );
 
 	if  ( ! empty( $shib_login_host ) ) {
