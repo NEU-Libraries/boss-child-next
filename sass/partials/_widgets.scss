@@ -66,6 +66,14 @@ ul.swa-activity-list li {
   display: none;
 }
 
+/* hide group avatars in activity streams & clear content so it is not pushed aside */
+.avatar[class*=group] {
+  display: none;
+}
+.swa-activity-list .swa-activity-content .swa-activity-inner {
+  clear: both;
+}
+
 div.swa-activity-comments > ul {
   background-color: inherit;
 }
