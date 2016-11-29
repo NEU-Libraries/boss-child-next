@@ -16,3 +16,10 @@
 #buddypress div#item-nav .item-list-tabs ul li a#user-members-followers {
   display: none;
 }
+
+.profile .avatar-wrap,
+.xprofile #buddypress div#item-header-avatar img.avatar {
+  width: 150px;
+  height: 150px;
+  max-width: none;
+}
