@@ -67,7 +67,8 @@ ul.swa-activity-list li {
 }
 
 /* hide group avatars in activity streams & clear content so it is not pushed aside */
-.avatar[class*=group] {
+.swa-activity-list .avatar[class*=group],
+.activity .avatar[class*=group] {
   display: none;
 }
 .swa-activity-list .swa-activity-content .swa-activity-inner {
