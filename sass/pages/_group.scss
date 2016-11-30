@@ -299,6 +299,21 @@ li.bbp-topic-title a.bbp-topic-permalink {
   font-size: 14px;
 }
 
+/* make invite-anyone member list items consistent with directory & other listings */
+.invite-anyone #invite-anyone-invite-list {
+  h4 {
+    font-family: $font-family-body;
+    font-weight: normal;
+    margin: 14px 0 0;
+  }
+
+  .activity {
+    font-style: italic;
+    color: rgba(0,0,0,.4);
+  }
+}
+
+
 .bbp-no-topic {
   margin-left: 70px;
   margin-right: 70px;
