@@ -21,3 +21,10 @@
 #mobile-item-nav ul li:before {
   color: $menu-panel-icon-color;
 }
+
+/* increase top padding on directory item titles to make room for avatars */
+#primary #members-stream li div.item,
+#primary #members-list li div.item,
+#primary #buddypress ul.item-list li div.item {
+  padding: 50px 0 20px;
+}
