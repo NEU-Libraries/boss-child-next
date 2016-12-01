@@ -15,10 +15,20 @@ if ( class_exists( 'Humanities_Commons' ) && ! empty( (new Humanities_Commons)->
 		$user_society_name = ( empty( $user_society_slug ) ? 'HC' : strtoupper( $user_society_slug ) );
 
 		if ( $current_society_name !== $user_society_name ) {
+			$user_society_text = ( function() {
+				if ( 'HC' === $user_society_name ) {
+					$retval = 'Humanities Commons';
+				} else if ( 'STYLE.MLA.ORG' === $user_society_name ) {
+					$retval = 'Style Center';
+				} else {
+					$retval = $user_society_name . ' Commons';
+				}
+				return $retval;
+			} )();
 			$back_to_network_link = sprintf(
 				'<a href="%s">Return to %s</a>',
 				'https://' . $shib_login_host,
-				( ( $user_society_name === 'HC' ) ? 'Humanities' : $user_society_name ) . ' Commons'
+				$user_society_text
 			);
 		}
 	}
