@@ -92,42 +92,7 @@ if ( boss_get_option( 'boss_layout_style' ) != 'boxed' && boss_get_option('boss_
 
 			<div id="item-buttons" class="group">
 
-				<?php
-				//as we are going to show join button remove it from header hook
-				remove_action( 'bp_group_header_actions', 'bp_group_join_button', 5 );
-				ob_start();
-				do_action( 'bp_group_header_actions' );
-				$action_output = ob_get_contents();
-				ob_end_clean();
-				?>
-
-				<div id="main-button" class="<?php
-				if ( !empty( $action_output ) ) {
-					echo 'primary-btn';
-				}
-				?>">
-						 <?php
-						 bp_group_join_button();
-						 ?>
-				</div>
-
-				<?php
-				if ( !empty( $action_output ) ): //only show if output exists
-					?>
-
-					<!-- more items -->
-					<span class="single-member-more-actions">
-						<button class="more-items-btn btn"><i class="fa fa-ellipsis-h"></i></button>
-
-						<!--popup-->
-						<div class="pop">
-							<div class="inner">
-								<?php echo $action_output; ?>
-							</div>
-						</div>
-					</span>
-
-				<?php endif; ?>
+				<?php do_action( 'bp_group_header_actions' ); ?>
 
 			</div><!-- #item-buttons -->
 
