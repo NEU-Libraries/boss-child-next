@@ -15,7 +15,7 @@ if ( class_exists( 'Humanities_Commons' ) && ! empty( (new Humanities_Commons)->
 		$user_society_name = ( empty( $user_society_slug ) ? 'HC' : strtoupper( $user_society_slug ) );
 
 		if ( $current_society_name !== $user_society_name ) {
-			$user_society_text = ( function() {
+			$user_society_text = ( function() use ( $user_society_name ) {
 				if ( 'HC' === $user_society_name ) {
 					$retval = 'Humanities Commons';
 				} else if ( 'STYLE.MLA.ORG' === $user_society_name ) {
