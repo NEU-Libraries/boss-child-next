@@ -234,6 +234,11 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   display: none;
 }
 
+// hide post images in activity items
+#buddypress .activity-list .activity-content .activity-inner > p > img {
+  display: none;
+}
+
 // "Academic Interest: <term>" header
 #members-dir-list > h4 {
   margin-top: 1em;
