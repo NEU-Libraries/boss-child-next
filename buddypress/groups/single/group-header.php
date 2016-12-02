@@ -50,23 +50,7 @@ if ( boss_get_option( 'boss_layout_style' ) != 'boxed' && boss_get_option('boss_
 		<div id="item-header-content">
 			<ul class="group-info">
 				<li class="group-type">
-					<p>
-						<?php
-						global $groups_template;
-						$group = & $groups_template->group;
-						if ( 'public' == $group->status ) {
-							$type = __( "Public", "boss" );
-						} else if ( 'hidden' == $group->status ) {
-							$type = __( "Hidden", "boss" );
-						} else if ( 'private' == $group->status ) {
-							$type = __( "Private", "boss" );
-						} else {
-							$type = ucwords( $group->status );
-						}
-
-						echo $type;
-						?>
-					</p>
+					<p><?php echo ucfirst( trim( str_replace( 'group', '', strtolower( bp_get_group_type() ) ) ) ); ?></p>
 					<p class="small"><?php _e( "Group", 'boss' ); ?></p>
 				</li>
 				<li class="group-members">
