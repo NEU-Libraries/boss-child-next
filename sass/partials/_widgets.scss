@@ -61,6 +61,12 @@ ul.swa-activity-list li {
   }
 }
 
+.logged-in .hide-if-logged-in,
+body:not(.logged-in) .hide-if-logged-out,
+.active-session.non-member .hide-if-active-session {
+  display: none;
+}
+
 // hide activity timestamps
 .swa-activity-list .view.activity-time-since {
   display: none;
