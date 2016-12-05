@@ -41,7 +41,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	$formatted_provider = false;
 	$entity_id = urlencode( Humanities_Commons::hcommons_get_identity_provider( $formatted_provider ) );
 	$society_name = ( 'hc' === Humanities_Commons::$society_id ) ? 'Humanities Commons' : strtoupper( Humanities_Commons::$society_id ) . ' Commons';
-	//echo sprintf( '<p><a href="%s&discoveryURL=%s&target=%s&entityID=%s">Link another log-in method</a> to your %s Account</p>', $registry_url, $discovery_url, $target_url, $entity_id, $society_name );
+	echo sprintf( '<p><a href="%s&discoveryURL=%s&target=%s&entityID=%s">Link another log-in method</a> to your %s Account</p>', $registry_url, $discovery_url, $target_url, $entity_id, $society_name );
 } ?>
 <?php if ( 1 === 2 ) { //disable the current form ?>
 
