@@ -57,9 +57,9 @@ $society_id = Humanities_Commons::$society_id;
 
 				<?php do_action( 'bp_groups_directory_group_filter' ); ?>
 
-				<?php do_action( 'bp_groups_directory_group_types' ); ?>
-
 			</ul>
+
+			<?php do_action( 'bp_groups_directory_group_types' ); ?>
 		</div><!-- .item-list-tabs -->
 
         <!-- needed for group list scroll -->
