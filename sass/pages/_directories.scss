@@ -239,6 +239,13 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   display: none;
 }
 
+// extra filters on groups directory
+.filter-status,
+.filter-type {
+  display: inline-block;
+  margin-top: 18px;
+}
+
 // "Academic Interest: <term>" header
 #members-dir-list > h4 {
   margin-top: 1em;
