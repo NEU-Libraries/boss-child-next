@@ -32,6 +32,8 @@ span.create-a-group > a,
 #buddypress #groups-dir-list .group-subscription-options.generic-button a,
 #buddypress #groups-list .group-subscription-options.generic-button a,
 div#buddypress div#subnav.item-list-tabs ul li a,
+#buddypress #subnav #invite-new-members,
+#buddypress #subnav #sent-invites,
 .bp-user.messages #buddypress div#subnav.item-list-tabs ul li:first-child a {
   @include button-material();
 }
