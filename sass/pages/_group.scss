@@ -313,6 +313,10 @@ li.bbp-topic-title a.bbp-topic-permalink {
   }
 }
 
+// this is only valid on hc. overridden to show in that network only.
+.send-invitations-by-email-wrap {
+  display: none;
+}
 
 .bbp-no-topic {
   margin-left: 70px;
