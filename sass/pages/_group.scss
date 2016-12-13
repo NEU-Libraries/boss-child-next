@@ -319,6 +319,6 @@ li.bbp-topic-title a.bbp-topic-permalink {
 }
 
 #bbpress-forums .bbp-template-notice {
-  margin-left: 150px !important;
-  margin-right: 150px !important;
+  max-width: 40em;
+  margin: 10px auto;
 }
