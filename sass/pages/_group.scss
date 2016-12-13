@@ -318,7 +318,11 @@ li.bbp-topic-title a.bbp-topic-permalink {
   display: none;
 }
 
-#bbpress-forums .bbp-template-notice {
-  max-width: 40em;
-  margin: 10px auto;
+#bbpress-forums {
+  text-align: center;
+
+  .bbp-template-notice {
+    margin: 10px auto;
+    display: inline-block;
+  }
 }
