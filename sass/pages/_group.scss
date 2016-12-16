@@ -318,6 +318,15 @@ li.bbp-topic-title a.bbp-topic-permalink {
   display: none;
 }
 
+// make "leave group" button less prominent on mobile by styling as link rather than button
+.mobile .group-single #buddypress #item-header-cover #item-buttons a.leave-group {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: $link-color;
+  padding: 0;
+}
+
 #bbpress-forums {
   text-align: center;
 
