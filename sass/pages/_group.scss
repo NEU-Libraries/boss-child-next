@@ -297,6 +297,10 @@ li.bbp-topic-title a.bbp-topic-permalink {
 #bbpress-forums ul.bbp-forums,
 #bbpress-forums ul.bbp-replies {
   font-size: 14px;
+
+  p {
+    margin-bottom: 1em;
+  }
 }
 
 /* make invite-anyone member list items consistent with directory & other listings */
