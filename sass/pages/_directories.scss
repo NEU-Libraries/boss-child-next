@@ -257,5 +257,5 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 }
 
 #members-dir-list #members-list .activity {
-  display: none;
+  display: none !important;
 }
