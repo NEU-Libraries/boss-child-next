@@ -255,3 +255,9 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #members-dir-list > h4 {
   margin-top: 1em;
 }
+
+#members-list {
+  .activity {
+    display: none;
+  }
+}
