@@ -256,8 +256,6 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   margin-top: 1em;
 }
 
-#members-list {
-  .activity {
-    display: none;
-  }
+#members-dir-list #members-list .activity {
+  display: none;
 }
