@@ -259,3 +259,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #members-dir-list #members-list .activity {
   display: none !important;
 }
+
+#members-list li {
+  min-height: 3em;
+}
