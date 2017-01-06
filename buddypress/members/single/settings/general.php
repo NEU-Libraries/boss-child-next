@@ -41,12 +41,45 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	$formatted_provider = false;
 	$entity_id = urlencode( Humanities_Commons::hcommons_get_identity_provider( $formatted_provider ) );
 	$society_name = ( 'hc' === Humanities_Commons::$society_id ) ? 'Humanities Commons' : strtoupper( Humanities_Commons::$society_id ) . ' Commons';
-	//echo sprintf( '<p><a href="%s&discoveryURL=%s&target=%s&entityID=%s">Link another log-in method</a> to your %s Account</p>', $registry_url, $discovery_url, $target_url, $entity_id, $society_name );
+	echo sprintf( '<p><a href="%s&discoveryURL=%s&target=%s&entityID=%s">Link another log-in method</a> to your %s Account</p>', $registry_url, $discovery_url, $target_url, $entity_id, $society_name );
+
+
 } ?>
-<?php if ( 1 === 2 ) { //disable the current form ?>
+<?php //if ( 1 === 2 ) { //disable the current form
 
-<form action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>" method="post" class="standard-form" id="settings-form">
+$user = wp_get_current_user();
 
+if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+
+	if( isset( $_POST['primary_email'] ) ) {
+
+	    $user->user_email = $_POST['primary_email'];
+	    wp_update_user( ['ID' => $user->ID, 'user_email' => esc_attr( $_POST['primary_email'] ) ] );
+	
+	}
+
+}
+
+?>
+
+<form method="post" class="no-ajax" action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>">
+
+<ul>
+<?php
+
+$shib_email = Humanities_Commons::hcommons_shib_email( $user );
+
+	foreach( $shib_email as $email ) : 
+	//lets check to see if the current email is in the list of emails from shib
+		if( $email == $user->user_email ) : ?>
+		<li> <input type='radio' name='primary_email' value='<?php $user->user_email; ?>' checked /><?php echo $user->user_email; ?></li>
+		<?php else : ?>
+		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" /><?php echo $email; ?> </li>
+		<?php 
+		endif;
+	endforeach; ?>
+</ul>
+<!--
 	<?php if ( !is_super_admin() ) : ?>
 
 		<label for="pwd"><?php _e( 'Current Password <span>(required to update email or change current password)</span>', 'buddypress' ); ?></label>
@@ -73,10 +106,10 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	 *
 	 * @since 1.5.0
 	 */
-	do_action( 'bp_core_general_settings_before_submit' ); ?>
-
+	//do_action( 'bp_core_general_settings_before_submit' ); ?>
+-->
 	<div class="submit">
-		<input type="submit" name="submit" value="<?php esc_attr_e( 'Save Changes', 'buddypress' ); ?>" id="submit" class="auto" />
+		<input type="submit" name="submit" class="no-ajax" value="<?php esc_attr_e( 'Save Changes', 'buddypress' ); ?>" />
 	</div>
 
 	<?php
@@ -86,13 +119,15 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	 *
 	 * @since 1.5.0
 	 */
-	do_action( 'bp_core_general_settings_after_submit' ); ?>
+	//do_action( 'bp_core_general_settings_after_submit' ); ?>
 
-	<?php wp_nonce_field( 'bp_settings_general' ); ?>
+	<?php wp_nonce_field( 'bp_settings_general' );
+//wp_nonce_field( 'new_settings_general' );
+ ?>
 
 </form>
 
-<?php } //end disable the current form ?>
+<?php //} //end disable the current form ?>
 
 <?php
 
