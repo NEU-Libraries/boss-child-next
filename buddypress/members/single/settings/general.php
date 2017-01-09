@@ -69,6 +69,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 $shib_email = Humanities_Commons::hcommons_shib_email( $user );
 
+//lets check if $shib_email is an array to loop through, 
+//otherwise the user does not have multiple emails to select from
+if( is_array( $shib_email ) ) :
+
 	foreach( $shib_email as $email ) : 
 	//lets check to see if the current email is in the list of emails from shib
 		if( $email == $user->user_email ) : ?>
@@ -113,6 +117,12 @@ $shib_email = Humanities_Commons::hcommons_shib_email( $user );
 	</div>
 
 	<?php
+
+	//else : 
+
+		//echo "You do not have multiple emails to choose from.";
+
+	endif; //end is_array() check
 
 	/**
 	 * Fires after the display of the submit button for user general settings saving.
