@@ -64,7 +64,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 <form method="post" class="no-ajax" action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>">
 
-<ul>
+<ul class="email_selections">
 <?php
 
 $shib_email = Humanities_Commons::hcommons_shib_email( $user );
