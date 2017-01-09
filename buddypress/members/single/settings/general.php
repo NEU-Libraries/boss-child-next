@@ -51,7 +51,7 @@ $user = wp_get_current_user();
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
-	if( isset( $_POST['primary_email'] ) ) {
+	if( isset( $_POST['primary_email'] ) && ! empty( $_POST['primary_email'] ) ) {
 
 	    $user->user_email = $_POST['primary_email'];
 	    wp_update_user( ['ID' => $user->ID, 'user_email' => esc_attr( $_POST['primary_email'] ) ] );
