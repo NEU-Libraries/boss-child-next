@@ -62,7 +62,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 ?>
 
-<form method="post" class="no-ajax" action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>">
+<form method="post" class="no-ajax standard-form" id="settings-form-general" action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>">
 
 <ul class="email_selections">
 <?php
