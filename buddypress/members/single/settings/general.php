@@ -64,6 +64,9 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 <form method="post" class="no-ajax standard-form" id="settings-form-general" action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>">
 
+<br />
+<h4>Currently Registered E-mails</h4>
+<br />
 <ul class="email_selections">
 <?php
 
@@ -118,12 +121,6 @@ if( is_array( $shib_email ) ) :
 
 	<?php
 
-	//else : 
-
-		//echo "You do not have multiple emails to choose from.";
-
-	endif; //end is_array() check
-
 	/**
 	 * Fires after the display of the submit button for user general settings saving.
 	 *
@@ -137,7 +134,13 @@ if( is_array( $shib_email ) ) :
 
 </form>
 
-<?php //} //end disable the current form ?>
+<?php 
+	//else : 
+
+		//echo "You do not have multiple emails to choose from.";
+
+	endif; //end is_array() check
+//} //end disable the current form ?>
 
 <?php
 
