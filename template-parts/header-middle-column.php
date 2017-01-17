@@ -8,27 +8,14 @@ if ( class_exists( 'Humanities_Commons' ) && ! empty( (new Humanities_Commons)->
 	$shib_login_host = get_user_meta( $session_user->ID, 'shib_login_host', true );
 
 	if  ( ! empty( $shib_login_host ) ) {
-		$user_society_slug = preg_replace( '/\.?' . Humanities_Commons::$main_network->domain . '/', '', $shib_login_host );
+		$origin_site = get_site_by_path( $shib_login_host, '/' );
+		$origin_site_details = get_blog_details( $origin_site->blog_id );
 
-		$current_society_name = ( empty( Humanities_Commons::$society_id ) ? 'HC' : strtoupper( Humanities_Commons::$society_id ) );
-
-		$user_society_name = ( empty( $user_society_slug ) ? 'HC' : strtoupper( $user_society_slug ) );
-
-		if ( $current_society_name !== $user_society_name ) {
-			$user_society_text = ( function() use ( $user_society_name ) {
-				if ( 'HC' === $user_society_name ) {
-					$retval = 'Humanities Commons';
-				} else if ( 'STYLE.MLA.ORG' === $user_society_name ) {
-					$retval = 'Style Center';
-				} else {
-					$retval = $user_society_name . ' Commons';
-				}
-				return $retval;
-			} )();
+		if ( get_current_blog_id() !== (int) $origin_site->blog_id ) {
 			$back_to_network_link = sprintf(
 				'<a href="%s">Return to %s</a>',
-				'https://' . $shib_login_host,
-				$user_society_text
+				$origin_site_details->siteurl,
+				$origin_site_details->blogname
 			);
 		}
 	}
