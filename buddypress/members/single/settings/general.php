@@ -135,12 +135,9 @@ if( is_array( $shib_email ) ) :
 
 </form>
 
-<?php 
-	//else : 
-
-		//echo "You do not have multiple emails to choose from.";
-
-	endif; //end is_array() check
+<?php else : ?> 
+<p>Primary email in use: <?php echo $shib_email; ?></p>
+<?php endif; //end is_array() check
 //} //end disable the current form ?>
 
 <?php
