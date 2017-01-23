@@ -106,7 +106,7 @@ if( is_array( $shib_email ) ) :
 ?>
 
 </ul>
-
+<br/>
 <p>Use this for primary email:</p>
 <ul class="email_selection">
 <?php
