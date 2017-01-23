@@ -100,8 +100,6 @@ if( is_array( $shib_email ) ) :
 		<?php 
 		endif;
 	endforeach; ?>
-	<li><p>Use this for primary email:</p><li>
-	<li> <input type='radio' name='primary_email' value='<?php $user->user_email; ?>' checked /><?php echo $user->user_email; ?>
 </ul>
 <!--
 	<?php if ( !is_super_admin() ) : ?>
@@ -152,7 +150,8 @@ if( is_array( $shib_email ) ) :
 </form>
 
 <?php else : ?> 
-<p>Primary email in use: <?php echo $shib_email; ?></p>
+<li><p>Use this for primary email:</p><li>
+<li> <input type='radio' name='primary_email' value='<?php $user->user_email; ?>' checked /><?php echo $user->user_email; ?>
 <?php endif; //end is_array() check
 //} //end disable the current form ?>
 
