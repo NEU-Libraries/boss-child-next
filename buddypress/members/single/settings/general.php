@@ -19,8 +19,25 @@ do_action( 'bp_before_member_settings_template' ); ?>
 		}
 	} ?>
 </ul>
-<br />
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
+<?php
+	global $comanage_api;
+	$user = wp_get_current_user();
+	//echo "<p />",var_dump( $comanage_api->get_person_roles( $user->data->user_login, Humanities_Commons::$society_id ) );
+	$comanage_roles = $comanage_api->get_person_roles( $user->data->user_login );
+	foreach( $comanage_roles as $comanage_key => $comanage_role ) {
+		if ( ! in_array( strtolower( $comanage_key ), $memberships ) ) {
+			if ( 'Expired' == $comanage_role['status'] ) {
+					echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective ",
+						$comanage_role['valid_through'], "</P>";
+				} else {
+					echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective from ",
+						$comanage_role['valid_from'], " through ", $comanage_role['valid_through'], "</P>";
+				}
+		}
+	}
+?>
+<br />
 <p>Missing a membership? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
 <?php } ?>
 <br />
