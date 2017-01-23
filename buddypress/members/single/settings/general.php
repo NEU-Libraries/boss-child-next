@@ -84,18 +84,38 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 <br />
 <h4>Currently Registered E-mails</h4>
 <br />
-<ul class="email_selections">
 <?php
 
 $shib_email = Humanities_Commons::hcommons_shib_email( $user );
 
 //lets check if $shib_email is an array to loop through, 
 //otherwise the user does not have multiple emails to select from
-if( is_array( $shib_email ) ) :
+if( is_array( $shib_email ) ) : 
+?>
+
+<ul class="registered_emails">
+
+<?php 
 
 	foreach( $shib_email as $email ) : 
 	//lets check to see if the current email is in the list of emails from shib
 		if( $email !== $user->user_email ) : ?>
+		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" /><?php echo $email; ?> </li>
+		<?php 
+		endif;
+	endforeach; 
+
+?>
+
+</ul>
+
+<p>
+<ul class="email_selection">
+<?php
+
+	foreach( $shib_email as $email ) : 
+	//lets check to see if the current email is in the list of emails from shib
+		if( $email == $user->user_email ) : ?>
 		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" /><?php echo $email; ?> </li>
 		<?php 
 		endif;
@@ -150,8 +170,7 @@ if( is_array( $shib_email ) ) :
 </form>
 
 <?php else : ?> 
-<li><p>Use this for primary email:</p><li>
-<li> <input type='radio' name='primary_email' value='<?php $user->user_email; ?>' checked /><?php echo $user->user_email; ?>
+<p><?php echo $user->user_email; ?></p>
 <?php endif; //end is_array() check
 //} //end disable the current form ?>
 
