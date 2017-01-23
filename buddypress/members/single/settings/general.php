@@ -64,8 +64,6 @@ do_action( 'bp_before_member_settings_template' ); ?>
 } ?>
 <?php //if ( 1 === 2 ) { //disable the current form
 
-$user = wp_get_current_user();
-
 if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 	if( isset( $_POST['primary_email'] ) && ! empty( $_POST['primary_email'] ) ) {
@@ -109,14 +107,14 @@ if( is_array( $shib_email ) ) :
 
 </ul>
 
-<p>
+<p>Use this for primary email:</p>
 <ul class="email_selection">
 <?php
 
 	foreach( $shib_email as $email ) : 
 	//lets check to see if the current email is in the list of emails from shib
 		if( $email == $user->user_email ) : ?>
-		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" /><?php echo $email; ?> </li>
+		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" checked /><?php echo $email; ?> </li>
 		<?php 
 		endif;
 	endforeach; ?>
