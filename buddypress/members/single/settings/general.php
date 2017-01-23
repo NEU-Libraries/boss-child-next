@@ -95,14 +95,13 @@ if( is_array( $shib_email ) ) :
 
 	foreach( $shib_email as $email ) : 
 	//lets check to see if the current email is in the list of emails from shib
-		if( $email == $user->user_email ) : ?>
-		<li><p>Use this for primary email:</p><li>
-		<li> <input type='radio' name='primary_email' value='<?php $user->user_email; ?>' checked /><?php echo $user->user_email; ?></li>
-		<?php else : ?>
+		if( $email !== $user->user_email ) : ?>
 		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" /><?php echo $email; ?> </li>
 		<?php 
 		endif;
 	endforeach; ?>
+	<li><p>Use this for primary email:</p><li>
+	<li> <input type='radio' name='primary_email' value='<?php $user->user_email; ?>' checked /><?php echo $user->user_email; ?>
 </ul>
 <!--
 	<?php if ( !is_super_admin() ) : ?>
