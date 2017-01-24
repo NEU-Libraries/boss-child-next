@@ -20,6 +20,9 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	} ?>
 </ul>
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
+<br />
+<h4>Other Memberships</h4>
+<br />
 <?php
 	global $comanage_api;
 	$user = wp_get_current_user();
