@@ -21,15 +21,18 @@ do_action( 'bp_before_member_settings_template' ); ?>
 </ul>
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
 <br />
-<h4>Other Memberships</h4>
-<br />
 <?php
 	global $comanage_api;
 	$user = wp_get_current_user();
-	//echo "<p />",var_dump( $comanage_api->get_person_roles( $user->data->user_login, Humanities_Commons::$society_id ) );
+	$header_printed = false;
 	$comanage_roles = $comanage_api->get_person_roles( $user->data->user_login );
 	foreach( $comanage_roles as $comanage_key => $comanage_role ) {
 		if ( ! in_array( strtolower( $comanage_key ), $memberships ) ) {
+			if ( ! $header_printed ) {
+				$header_printed = true; ?>
+<h4>Other Memberships</h4>
+<br />
+			<?php }
 			if ( 'Expired' == $comanage_role['status'] ) {
 					echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective ",
 						$comanage_role['valid_through'], "</P>";
@@ -65,7 +68,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 
 
 } ?>
-<?php //if ( 1 === 2 ) { //disable the current form
+<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
@@ -160,7 +163,7 @@ if( is_array( $shib_email ) ) : ?>
 <?php else : ?> 
 <p><?php echo $user->user_email; ?></p>
 <?php endif; //end is_array() check
-//} //end disable the current form ?>
+} //end current form ?>
 
 <?php
 
