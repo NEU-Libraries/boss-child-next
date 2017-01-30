@@ -19,8 +19,31 @@ do_action( 'bp_before_member_settings_template' ); ?>
 		}
 	} ?>
 </ul>
-<br />
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
+<br />
+<?php
+	global $comanage_api;
+	$user = wp_get_current_user();
+	$header_printed = false;
+	$comanage_roles = $comanage_api->get_person_roles( $user->data->user_login );
+	foreach( $comanage_roles as $comanage_key => $comanage_role ) {
+		if ( ! in_array( strtolower( $comanage_key ), $memberships ) ) {
+			if ( ! $header_printed ) {
+				$header_printed = true; ?>
+<h4>Other Memberships</h4>
+<br />
+			<?php }
+			if ( 'Expired' == $comanage_role['status'] ) {
+					echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective ",
+						$comanage_role['valid_through'], "</P>";
+				} else {
+					echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective from ",
+						$comanage_role['valid_from'], " through ", $comanage_role['valid_through'], "</P>";
+				}
+		}
+	}
+?>
+<br />
 <p>Missing a membership? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
 <?php } ?>
 <br />
@@ -45,9 +68,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 
 
 } ?>
-<?php //if ( 1 === 2 ) { //disable the current form
-
-$user = wp_get_current_user();
+<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
@@ -67,25 +88,29 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 <br />
 <h4>Currently Registered E-mails</h4>
 <br />
-<ul class="email_selections">
 <?php
 
 $shib_email = Humanities_Commons::hcommons_shib_email( $user );
 
 //lets check if $shib_email is an array to loop through, 
 //otherwise the user does not have multiple emails to select from
-if( is_array( $shib_email ) ) :
+if( is_array( $shib_email ) ) : ?>
+
+<p>Use selected email as primary email:</p>
+<ul class="email_selection">
+<?php
 
 	foreach( $shib_email as $email ) : 
+
 	//lets check to see if the current email is in the list of emails from shib
 		if( $email == $user->user_email ) : ?>
-		<li><p>Use this for primary email:</p><li>
-		<li> <input type='radio' name='primary_email' value='<?php $user->user_email; ?>' checked /><?php echo $user->user_email; ?></li>
+		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" checked /><?php echo $email; ?> </li>
 		<?php else : ?>
 		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" /><?php echo $email; ?> </li>
-		<?php 
-		endif;
-	endforeach; ?>
+		
+<?php 	endif;
+	endforeach;
+?>
 </ul>
 <!--
 	<?php if ( !is_super_admin() ) : ?>
@@ -136,9 +161,9 @@ if( is_array( $shib_email ) ) :
 </form>
 
 <?php else : ?> 
-<p>Primary email in use: <?php echo $shib_email; ?></p>
+<p><?php echo $user->user_email; ?></p>
 <?php endif; //end is_array() check
-//} //end disable the current form ?>
+} //end current form ?>
 
 <?php
 

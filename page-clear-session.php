@@ -28,6 +28,10 @@ get_header(); ?>
 				<iframe src="<?php echo $shib_url ?>" style="display:none" title="Log Out" ></iframe>
 			<?php endforeach ?>
 
+			<article>
+				<a class="button" href="<?php echo wp_logout_url( home_url() ) ?>">Log Out</a>
+			</article>
+
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
