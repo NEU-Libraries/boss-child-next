@@ -6,6 +6,22 @@
  *
  * @since HCommons
  */
+	$memberships = Humanities_Commons::hcommons_get_user_memberships();
+	if ( ! empty( $memberships ) ) {
+		global $comanage_api;
+		$comanage_roles = $comanage_api->get_person_roles( Humanities_Commons::hcommons_get_session_username(), Humanities_Commons::$society_id );
+		$inactive_role = false;
+		foreach( $comanage_roles as $comanage_key => $comanage_role ) {
+			if ( $comanage_key == strtoupper( Humanities_Commons::$society_id ) && 'Active' != $comanage_role['status'] ) {
+				$inactive_role = true;
+			}
+		}
+		if ( $inactive_role ) {
+			wp_redirect( '/inactive-member/' );
+		}
+	}
+//must redirect first
+
 get_header(); ?>
 
 <div class="page-full-width">
@@ -19,19 +35,7 @@ get_header(); ?>
 		
 		<div class="entry-content">
 
-	<?php $memberships = Humanities_Commons::hcommons_get_user_memberships();
-	if ( ! empty( $memberships ) ) {
-		global $comanage_api;
-		$comanage_roles = $comanage_api->get_person_roles( Humanities_Commons::hcommons_get_session_username(), Humanities_Commons::$society_id );
-		$inactive_role = false;
-		foreach( $comanage_roles as $comanage_key => $comanage_role ) {
-			if ( $comanage_key == strtoupper( Humanities_Commons::$society_id ) && 'Active' != $comanage_role['status'] ) {
-				$inactive_role = true;
-			}
-		}
-		if ( $inactive_role ) {
-			echo '<h1 class="entry-title">Membership not active</h1>';
-		}
+	<?php if ( ! empty( $memberships ) ) {
 		the_content();
 	} else if ( ! empty( Humanities_Commons::hcommons_get_session_username() ) ) {
 		echo '<h1 class="entry-title">Something is wrong!</h1>';
