@@ -34,7 +34,8 @@ span.create-a-group > a,
 div#buddypress div#subnav.item-list-tabs ul li a,
 #buddypress #subnav #invite-new-members,
 #buddypress #subnav #sent-invites,
-.bp-user.messages #buddypress div#subnav.item-list-tabs ul li:first-child a {
+.bp-user.messages #buddypress div#subnav.item-list-tabs ul li:first-child a,
+.directory #buddypress div.item-list-tabs ul#bp-docs-all-docs li:not(#members-order-select):not(#groups-order-select):not(#blogs-order-select) a {
   @include button-material();
 }
 
