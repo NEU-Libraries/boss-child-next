@@ -38,6 +38,26 @@
             }
     });
 
+    //this handles the ajax for settings-general.php in single member view
+    $('.settings_general_submit input').on('click', function( event ) {
+
+      $.ajax({
+        method: 'POST',
+        url: ajaxurl,
+        data: {
+          action: 'hcommons_settings_general',
+          nonce: settings_general_req.nonce,
+          primary_email: $('.email_selection input[type="radio"]:checked').val()
+        },
+        cache: false
+      }).done(function(data) {
+        console.log( data );
+      });
+
+      event.preventDefault();
+
+    });
+
   });
 
 })(jQuery);
