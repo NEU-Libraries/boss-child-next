@@ -34,12 +34,33 @@ do_action( 'bp_before_member_settings_template' ); ?>
 <br />
 			<?php }
 			if ( 'Expired' == $comanage_role['status'] ) {
-					echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective ",
-						$comanage_role['valid_through'], "</P>";
-				} else {
-					echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective from ",
-						$comanage_role['valid_from'], " through ", $comanage_role['valid_through'], "</P>";
+				echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective ",
+					$comanage_role['valid_through'] , "&nbsp;&nbsp;";
+
+				switch( strtolower( $comanage_key ) ) {
+
+					case "mla":
+						echo "<a href='https://www.mla.org/Membership/Join-Renew/Introduction'>Renew membership</a></p>";
+					break;
+
+					case 'ajs':
+						echo "<a href='http://www.ajsnet.org/enroll.htm'>Renew membership</a></p>";
+					break;
+
+					case "aseees":
+						echo "<a href='https://netforum.avectra.com/eweb/DynamicPage.aspx?Site=aseees&WebCode=invmemberjoin'>Renew membership</a></p>";
+					break;
+
+					case "caa":
+						echo "<a href='https://services.collegeart.org/eweb/DynamicPage.aspx?Webcode=JOINCAA'>Renew membership</a></p>";
+					break;
+
 				}
+
+			} else {
+				echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective from ",
+					$comanage_role['valid_from'], " through ", $comanage_role['valid_through'], "</P>";
+			}
 		}
 	}
 ?>
