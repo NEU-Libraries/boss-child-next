@@ -51,7 +51,30 @@
         },
         cache: false
       }).done(function(data) {
-        console.log( data );
+
+        //store all radio buttons in this var to loop through later
+        var radio = $('.email_selection input[type="radio"]');
+        
+        //loop through each radio button and whichever one was saved is the one that will be checked.
+        radio.each(function( i, v ) {
+        
+        //in the context of the current loop
+        if( $(this).val() == data.primary_email ) {
+          
+          $(this).prop( 'checked', true );
+        }
+
+        });
+
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+
+        //ajax message to assert user that the data has been infact, updated
+          $('#item-header-cover').prepend(
+            $('<div />', { id: "message", class: "bp-template-notice updated" }).append(
+                $('<p />').text('Changed saved.')
+              )
+            );
+      
       });
 
       event.preventDefault();
