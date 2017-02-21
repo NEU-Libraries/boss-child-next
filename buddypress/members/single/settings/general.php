@@ -89,20 +89,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 
 
 } ?>
-<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
-
-if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
-
-	if( isset( $_POST['primary_email'] ) && ! empty( $_POST['primary_email'] ) ) {
-
-	    $user->user_email = $_POST['primary_email'];
-	    wp_update_user( ['ID' => $user->ID, 'user_email' => esc_attr( $_POST['primary_email'] ) ] );
-	
-	}
-
-}
-
-?>
+<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
 
 <form method="post" class="no-ajax standard-form" id="settings-form-general" action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>">
 
@@ -162,7 +149,7 @@ if( is_array( $shib_email ) ) : ?>
 	 */
 	//do_action( 'bp_core_general_settings_before_submit' ); ?>
 -->
-	<div class="submit">
+	<div class="settings_general_submit">
 		<input type="submit" name="submit" class="no-ajax" value="<?php esc_attr_e( 'Save Changes', 'buddypress' ); ?>" />
 	</div>
 
