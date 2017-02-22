@@ -126,3 +126,5 @@ function boss_child_theme_ajax() {
 }
 
 add_action('wp_enqueue_scripts', 'boss_child_theme_ajax');
+
+define('BP_MESSAGES_AUTOCOMPLETE_ALL', true);
