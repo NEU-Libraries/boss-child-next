@@ -20,6 +20,7 @@ window.bp = window.bp || {};
 	 * @since 2.1.0
 	 */
 	$.fn.bp_mentions = function( options ) {
+
 		if ( $.isArray( options ) ) {
 			options = { data: options };
 		}
@@ -145,7 +146,12 @@ window.bp = window.bp || {};
 				 */
 				inserting_wrapper: function( $inputor, content, suffix ) {
 					return '' + content + suffix;
+				},
+
+				sorter: function( query, items, searchKey ) {
+					return items;
 				}
+
 			}
 		},
 
@@ -162,6 +168,7 @@ window.bp = window.bp || {};
 				 * @since 2.1.0
 				 */
 				remote_filter: function( query, render_view ) {
+
 					var self = $( this ),
 						params = {};
 
@@ -189,6 +196,7 @@ window.bp = window.bp || {};
 						 * @since 2.1.0
 						 */
 						.done(function( response ) {
+
 							if ( ! response.success ) {
 								return;
 							}

@@ -18,6 +18,10 @@
 
   $(document).ready(function(){
 
+    if ( $( '#send-to-input').get( 0 ) ) {
+      $('#send-to-input').bp_mentions( bp.mentions.users );
+    }
+
     // we need live() to affect pages of groups loaded via ajax.
     $('#groups-dir-list .group-button').live('DOMSubtreeModified', joinleave_group_change_handler);
 

@@ -218,8 +218,8 @@ class MLA_Name_Suggestions extends BP_Suggestions {
                 $society_id = get_network_option( '', 'society_id' );
 
         if ( ! empty( $bp_user_query->query_vars['search_terms'] ) ) {
-                        $bp_user_query->uid_clauses['where'] = " WHERE u.ID IN ( SELECT tr.object_id FROM {$wpdb->users} us, wp_1000360_terms t, wp_1000360_term_relationships tr, wp_1000360_term_taxonomy tt where t.term_id = tt.term_id and tt.term_taxonomy_id = tr.term_taxonomy_id and tt.taxonomy='bp_member_type' and t.slug='{$society_id}' and tr.object_id = us.ID and us.spam = 0 AND us.deleted = 0 AND us.user_status = 0 AND us.display_name LIKE '%" . ucfirst( strtolower(  $bp_user_query->query_vars['search_terms'] ) ) ."%' )";
-                        $bp_user_query->uid_clauses['orderby'] = "ORDER BY substring_index(u.display_name, ' ', -1)";
+                        $bp_user_query->uid_clauses['where'] = " WHERE u.ID IN ( SELECT tr.object_id FROM {$wpdb->users} us, wp_1000360_terms t, wp_1000360_term_relationships tr, wp_1000360_term_taxonomy tt where t.term_id = tt.term_id and tt.term_taxonomy_id = tr.term_taxonomy_id and tt.taxonomy='bp_member_type' and t.slug='{$society_id}' and tr.object_id = us.ID and us.spam = 0 AND us.deleted = 0 AND us.user_status = 0 AND ( us.display_name LIKE '%" . ucfirst( strtolower(  $bp_user_query->query_vars['search_terms'] ) ) ."%' OR us.user_login LIKE '%" . strtolower( $bp_user_query->query_vars['search_terms'] ) . "%' ) )";
+                        $bp_user_query->uid_clauses['orderby'] = "ORDER BY u.display_name";
                 }
 
         }
@@ -290,3 +290,33 @@ function mla_mentions_script_enable( $current_status ) {
 }
 add_filter( 'bp_activity_maybe_load_mentions_scripts', 'mla_mentions_script_enable' );
 
+/**
+ * @param boolean $load
+ * @param $mentions_enabled
+ * @return boolean enabled ot not?
+ */
+function buddydev_enable_mention_autosuggestions_on_compose( $load, $mentions_enabled ) {
+
+        if ( ! $mentions_enabled ) {
+                return $load; //activity mention is  not enabled, so no need to bother
+        }
+        //modify this condition to suit yours
+        if( is_user_logged_in() && bp_is_messages_compose_screen() ) {
+                $load = true;
+        }
+
+        return $load;
+}
+add_filter( 'bp_activity_maybe_load_mentions_scripts', 'buddydev_enable_mention_autosuggestions_on_compose', 10, 2 );
+
+/**
+ * Removes autocomplete js and css so mentions.js can be used in compose screen for autocomplete
+ *
+ * @return void
+ */
+function remove_messages_add_autocomplete_js_css() {
+        remove_action( 'bp_enqueue_scripts', 'messages_add_autocomplete_js' );
+        remove_action( 'wp_head', 'messages_add_autocomplete_css' );
+}
+
+add_action( 'init', 'remove_messages_add_autocomplete_js_css' );
