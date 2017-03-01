@@ -320,3 +320,18 @@ function remove_messages_add_autocomplete_js_css() {
 }
 
 add_action( 'init', 'remove_messages_add_autocomplete_js_css' );
+
+/**
+ * Fixes css in admin for discussion forum metabox
+ * 
+ * @return void
+ */
+function groups_discussion_admin_metabox() {
+
+        echo '<style type="text/css">';
+        echo '#bbpress_group_admin_ui_meta_box .field-group, #bbpress_group_admin_ui_meta_box p { max-width: 65% !important; float: left !important; }';
+        echo '</style>';
+
+}
+
+add_action( 'admin_head', 'groups_discussion_admin_metabox' );
