@@ -13,15 +13,9 @@
 
 	<li class="bbp-topic-title">
 
-<?php 
-//var_dump( bbp_is_user_home() );
-//var_dump( bbp_is_favorites() );
-$home = true;
-$favorites = true;
-?>
-		<?php if ( $home ) : ?>
+		<?php if ( bbp_is_user_home() ) : ?>
 
-			<?php if ( $favorites ) : ?>
+			<?php if ( bbp_is_favorites() ) : ?>
 
 				<span class="bbp-row-actions">
 
