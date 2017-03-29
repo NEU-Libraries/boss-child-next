@@ -16,7 +16,24 @@
     }
   };
 
+  var getQueryVariable = function(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+      var pair = vars[i].split("=");
+      if(pair[0] == variable){return pair[1];}
+    }
+    return(false);
+  }
+
   $(document).ready(function(){
+    var searchQuery = getQueryVariable('s');
+    var searchInput = $('#members_search');
+
+    // preserve url searches by copying them to the search box if necessary
+    if (searchQuery.length > 0 && searchInput.val() === '') {
+      searchInput.val(searchQuery);
+    }
 
     if ( $( '#send-to-input').get( 0 ) ) {
       $('#send-to-input').bp_mentions( bp.mentions.users );
