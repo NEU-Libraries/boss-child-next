@@ -32,7 +32,7 @@
 
     // preserve url searches by copying them to the search box if necessary
     if (searchQuery.length > 0 && searchInput.val() === '') {
-      searchInput.val(searchQuery);
+      searchInput.val(searchQuery.replace(/\+/g," "));
     }
 
     if ( $( '#send-to-input').get( 0 ) ) {
