@@ -335,3 +335,12 @@ function groups_discussion_admin_metabox() {
 }
 
 add_action( 'admin_head', 'groups_discussion_admin_metabox' );
+
+/** adds bp-reactions to front-page for swa widget */
+if ( class_exists('BP_Reactions') && bp_is_front_page() ) {
+   global $bp_reactions;
+
+   wp_enqueue_style('bp-reactions-style');
+   wp_enqueue_script('fromcodepoint');
+   wp_enqueue_script('bp-reactions');
+}
