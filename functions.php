@@ -323,7 +323,7 @@ add_action( 'init', 'remove_messages_add_autocomplete_js_css' );
 
 /**
  * Fixes css in admin for discussion forum metabox
- * 
+ *
  * @return void
  */
 function groups_discussion_admin_metabox() {
@@ -335,3 +335,70 @@ function groups_discussion_admin_metabox() {
 }
 
 add_action( 'admin_head', 'groups_discussion_admin_metabox' );
+
+
+
+/**
+ * overriding parent function to use group/member avatars in search results
+ * TODO use group/member avatars in search results
+ */
+function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_comment_info = true ) {
+	global $post;
+
+	// Translators: used between list items, there is a space after the comma.
+	$categories_list = get_the_category_list( __( ', ', 'boss' ) );
+
+	// Translators: used between list items, there is a space after the comma.
+	$tag_list = get_the_tag_list( '', __( ', ', 'boss' ) );
+
+	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark" class="post-date fa fa-clock-o"><time class="entry-date" datetime="%3$s">%4$s</time></a>', esc_url( get_permalink() ), esc_attr( get_the_time() ), esc_attr( get_the_date( 'c' ) ), esc_html( get_the_date() )
+	);
+
+	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_attr( sprintf( __( 'View all posts by %s', 'boss' ), get_the_author() ) ), get_the_author()
+	);
+
+	// for bp avatars
+	$args = [
+		'item_id' => get_the_id(),
+		'height' => 55,
+		'width' => 55,
+	];
+
+	switch ( $post->post_type ) {
+		case EP_BP_API::GROUP_TYPE_NAME:
+			$args['type'] = 'group';
+			$avatar = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( $post->permalink ), bp_core_fetch_avatar( $args ) );
+			break;
+		case EP_BP_API::MEMBER_TYPE_NAME:
+			$args['type'] = 'user';
+			$avatar = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( $post->permalink ), bp_core_fetch_avatar( $args ) );
+			break;
+	}
+
+	if ( ! $avatar && function_exists( 'get_avatar' ) ) {
+		$avatar = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), get_avatar( get_the_author_meta( 'email' ), 55 )
+		);
+	}
+
+	if ( $show_author ) {
+		echo '<span class="post-author">';
+		echo $avatar;
+		echo $author;
+		echo '</span>';
+	}
+
+	if ( $show_date ) {
+		echo $date;
+	}
+
+	if ( $show_comment_info ) {
+		if ( comments_open() ) :
+?>
+				<!-- reply link -->
+				<span class="comments-link fa fa-comment-o">
+					<?php comments_popup_link( '<span class="leave-reply">' . __( '0 comments', 'boss' ) . '</span>', __( '1 comment', 'boss' ), __( '% comments', 'boss' ) ); ?>
+				</span><!-- .comments-link -->
+<?php
+			endif; // comments_open()
+	}
+}
