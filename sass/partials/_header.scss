@@ -205,3 +205,7 @@ a.sidebar-btn.fa:hover {
 .bp_components ul li ul li.menupop.active {
   background-color: unset;
 }
+
+#titlebar-search {
+  display: table-cell !important;
+}
