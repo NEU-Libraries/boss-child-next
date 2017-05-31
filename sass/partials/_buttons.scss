@@ -76,6 +76,12 @@ div#buddypress div#subnav.item-list-tabs ul li.current a {
   border: unset;
 }
 
+.search #ep-bp-facets span.active {
+  background-color: $button-background-color;
+  border-color: $button-background-color;
+  color: $button-color;
+}
+
 // not actually buttons yet. soon
 // TODO button-ize
 .header-account-login .pop #dashboard-links .menupop a span,
