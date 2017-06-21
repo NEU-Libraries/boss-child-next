@@ -375,7 +375,7 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 			break;
 	}
 
-	if ( ! $avatar && function_exists( 'get_avatar' ) ) {
+	if ( empty( $avatar ) && function_exists( 'get_avatar' ) ) {
 		$avatar = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( get_permalink() ), get_avatar( get_the_author_meta( 'email' ), 55 )
 		);
 	}
