@@ -135,6 +135,12 @@ function boss_child_fix_redux_script_paths() {
 }
 add_action( 'admin_enqueue_scripts', 'boss_child_fix_redux_script_paths' );
 
+function boss_child_turn_off_redux_ajax_save( $data ) {
+	$data['args']['ajax_save'] = false;
+	return $data;
+}
+add_filter( 'redux/boss_options/localize', 'boss_child_turn_off_redux_ajax_save' );
+
 /**
  * Adds support for user at-mentions to the Suggestions API.
  */
