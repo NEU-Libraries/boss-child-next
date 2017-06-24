@@ -110,6 +110,12 @@ body:not(.left-menu-open)[data-logo="1"] #mastlogo {
   padding: 0;
 }
 
+/* search box can overflow here, ensure popouts are topmost */
+.header-notifications .pop,
+.header-notifications .ab-sub-wrapper {
+  z-index: 2;
+}
+
 .header-outher {
   margin-left: 65px;
 }
@@ -223,11 +229,19 @@ a.sidebar-btn.fa:hover {
   padding: 0 1em;
   width: 80%;
 }
-body #titlebar-search #searchform {
-  width: 50%;
-}
-#searchform {
-  display: block !important;
+body #titlebar-search {
+  position: relative;
+  width: 65%;
+  form .search-wrapper:before {
+    display: none;
+  }
+  #search-open {
+    display: none;
+  }
+  #searchform {
+    display: block !important;
+    width: 50%;
+  }
 }
 #search-close {
   display: none;
@@ -235,6 +249,4 @@ body #titlebar-search #searchform {
 #searchsubmit {
   box-shadow: none;
 }
-
-
 
