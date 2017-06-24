@@ -354,7 +354,7 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 	$date = sprintf( '<a href="%1$s" title="%2$s" rel="bookmark" class="post-date fa fa-clock-o"><time class="entry-date" datetime="%3$s">%4$s</time></a>', esc_url( get_permalink() ), esc_attr( get_the_time() ), esc_attr( get_the_date( 'c' ) ), esc_html( get_the_date() )
 	);
 
-	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_attr( sprintf( __( 'View all posts by %s', 'boss' ), get_the_author() ) ), get_the_author()
+	$author = sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span>', esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ), esc_attr( sprintf( __( 'View %s', 'boss' ), get_the_author() ) ), get_the_author()
 	);
 
 	// for bp avatars
@@ -367,8 +367,16 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 	switch ( $post->post_type ) {
 		case EP_BP_API::GROUP_TYPE_NAME:
 			$args['type'] = 'group';
+			$args = array_merge( $args, [
+				'avatar_dir' => 'group-avatars',
+				'object'     => 'group',
+			] );
 			$avatar = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( $post->permalink ), bp_core_fetch_avatar( $args ) );
 			break;
+		case 'reply':
+		case 'topic':
+		case 'humcore_deposit':
+			$args['item_id'] = $post->post_author;
 		case EP_BP_API::MEMBER_TYPE_NAME:
 			$args['type'] = 'user';
 			$avatar = sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>', esc_url( $post->permalink ), bp_core_fetch_avatar( $args ) );
