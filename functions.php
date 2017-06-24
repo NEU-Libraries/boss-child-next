@@ -360,8 +360,8 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 	// for bp avatars
 	$args = [
 		'item_id' => get_the_id(),
-		'height' => 55,
-		'width' => 55,
+		'height' => 65,
+		'width' => 65,
 	];
 
 	switch ( $post->post_type ) {
