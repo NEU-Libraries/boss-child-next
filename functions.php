@@ -127,6 +127,20 @@ function boss_child_theme_ajax() {
 
 add_action('wp_enqueue_scripts', 'boss_child_theme_ajax');
 
+function boss_child_fix_redux_script_paths() {
+	global $wp_scripts;
+	foreach ( $wp_scripts->registered as &$registered ) {
+		$registered->src = str_replace( '/srv/www/commons/current/web', '', $registered->src );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'boss_child_fix_redux_script_paths' );
+
+function boss_child_turn_off_redux_ajax_save( $data ) {
+	$data['args']['ajax_save'] = false;
+	return $data;
+}
+add_filter( 'redux/boss_options/localize', 'boss_child_turn_off_redux_ajax_save' );
+
 /**
  * Adds support for user at-mentions to the Suggestions API.
  */
