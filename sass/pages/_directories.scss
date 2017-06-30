@@ -263,3 +263,13 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 #members-list li {
   min-height: 3em;
 }
+
+.search .entry-title a {
+  font-size: 18px;
+
+  .post_type {
+    font-family: $font-family-body;
+    font-size: 14px;
+    margin: 10px 10px 0 0;
+  }
+}
