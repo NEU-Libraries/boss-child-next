@@ -213,7 +213,10 @@ a.sidebar-btn.fa:hover {
 }
 
 #titlebar-search {
+  /* hidden for initial release
   display: table-cell !important;
+  */
+  display: none;
 }
 
 .search .page-header {
