@@ -48,3 +48,10 @@
 .atwho-view ul li small {
   color: #000 !important;
 }
+
+/* this should never show up but for unknown reasons it is happening to certain users.
+ * hide it always with this theme for good measure.
+ **/
+#hcommons-network-footer {
+  display: none;
+}
