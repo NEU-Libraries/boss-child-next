@@ -20,20 +20,23 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 	}
 
-	/*echo "<pre>";
-	var_dump( $_POST );
-	echo "user object: <br>";
-	var_dump( $user->data->user_email );*/
+	//echo "<pre>";
+	//var_dump( $_POST );
+	//echo "user object: <br>";
+	//var_dump( $user->data->user_email );
 
 	if( $user !== false ) {
 
 		$user_login_methods = implode( '<br />', Humanities_Commons::hcommons_get_user_login_methods( $user->data->ID ) );
+//var_dump( $user_login_methods );
 		//var_dump( implode( '<br />', $user_login_methods ) );
 		wp_mail( $user->data->user_email, "Your Humanities Commons Login Method Request", "<p>Your current login Methods are: </p> <h3>{$user_login_methods}</h3>", "From: HC <hc@hcommons.org>" );
 
-		echo "<p>Thanks! We will send an email shortly with your connected login methods.</p>";
+		echo "<p>If we have this email on file, you will receive a message.</p>";
 	
-	}
+	} else {
+        	echo "<p>If we have this email on file, you will receive a message.</p>";
+        }
 
 	//echo "</pre>";
 
@@ -64,7 +67,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 </script>
 
 <h3>Remind Me</h3>
-<p>Insert email to recover user details</p>
+<p>Recover my login details</p>
 
 <form action="" id="remindMeForm" method="POST">
 	
