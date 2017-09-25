@@ -11,6 +11,9 @@ $shib_urls = [
 	get_site_url() . '/Shibboleth.sso/Logout',
 ];
 
+setcookie( '_saml_idp', false, time()-3600, '/', '.' . WP_DOMAIN, true, true );
+setcookie( 'stickyIdPSelection', false, time()-3600, '/', '.' . WP_DOMAIN, true, true );
+
 get_header(); ?>
 
 <div class="page-full-width">
