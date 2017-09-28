@@ -77,8 +77,8 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	} ?>
 </ul>
 <br />
-<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
-<?php	$registry_url = constant( 'REGISTRY_SERVER_URL' ) . '/Shibboleth.sso/Login?SAMLDS=1';
+<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
+	$registry_url = constant( 'REGISTRY_SERVER_URL' ) . '/Shibboleth.sso/Login?SAMLDS=1';
 	$discovery_url = urlencode( constant( 'REGISTRY_SERVER_URL' ) . '/discovery_service_registry_only/index.php' );
 	$society_account_link_constant = strtoupper( Humanities_Commons::$society_id ) . '_ACCOUNT_LINK_URL';
 	$target_url = urlencode( constant( $society_account_link_constant ) );
@@ -93,20 +93,24 @@ do_action( 'bp_before_member_settings_template' ); ?>
 
 } ?>
 <br />
-<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
-<?php   $registry_url = constant( 'REGISTRY_SERVER_URL' ) . '/Shibboleth.sso/Login?SAMLDS=1';
-        $discovery_url = urlencode( constant( 'REGISTRY_SERVER_URL' ) . '/discovery_service_registry_only/index.php' );
-        $orcid_user_account_link_constant = 'ORCID_USER_ACCOUNT_LINK_URL';
-        $target_url = urlencode( constant( $orcid_user_account_link_constant ) );
-        $formatted_provider = false;
-        $entity_id = urlencode( Humanities_Commons::hcommons_get_identity_provider( $formatted_provider ) );
-        $society_name = 'Humanities Commons';
-        if ( ! strpos( constant( $orcid_user_account_link_constant ), 'downtime' ) ) {
-                echo sprintf( '<p><a href="%s&discoveryURL=%s&target=%s&entityID=%s">Link your Orcid</a> to your %s Account</p>', $registry_url, $discovery_url, $target_url, $entity_id, $society_name );
-        } else {
-                echo '<p>Linking Orcid to your account is currently unavailable.</p>';
-        }
-
+<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
+	$current_orcid = hcommons_get_session_orcid();
+	if ( empty( $current_orcid ) ) {
+		$registry_url = constant( 'REGISTRY_SERVER_URL' ) . '/Shibboleth.sso/Login?SAMLDS=1';
+		$discovery_url = urlencode( constant( 'REGISTRY_SERVER_URL' ) . '/discovery_service_registry_only/index.php' );
+		$orcid_user_account_link_constant = 'ORCID_USER_ACCOUNT_LINK_URL';
+		$target_url = urlencode( constant( $orcid_user_account_link_constant ) );
+		$formatted_provider = false;
+		$entity_id = urlencode( Humanities_Commons::hcommons_get_identity_provider( $formatted_provider ) );
+		$society_name = 'Humanities Commons';
+		if ( ! strpos( constant( $orcid_user_account_link_constant ), 'downtime' ) ) {
+			echo sprintf( '<p><a href="%s&discoveryURL=%s&target=%s&entityID=%s">Link your ORCID</a> to your %s Account</p>', $registry_url, $discovery_url, $target_url, $entity_id, $society_name );
+		} else {
+			echo '<p>Linking ORCID to your account is currently unavailable.</p>';
+		}
+	} else {
+		echo '<p>Your ORCID (' . $current_orcid . ') is linked you your account.';
+	}
 } ?>
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
 
