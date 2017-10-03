@@ -350,7 +350,18 @@ function groups_discussion_admin_metabox() {
 
 add_action( 'admin_head', 'groups_discussion_admin_metabox' );
 
+/**
+ * Circumvent the signup allowed option to always show the register button in the header.
+ * @uses Humanities_Commons
+ */
+function hcommons_filter_bp_get_signup_allowed( bool $allowed ) {
+	if ( Humanities_Commons::backtrace_contains( 'file', '/srv/www/commons/current/web/app/themes/boss/header.php' ) ) {
+		$allowed = true;
+	}
 
+	return $allowed;
+}
+add_filter( 'bp_get_signup_allowed', 'hcommons_filter_bp_get_signup_allowed' );
 
 /**
  * overriding parent function to use group/member avatars in search results
