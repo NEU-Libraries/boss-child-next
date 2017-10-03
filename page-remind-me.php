@@ -1,7 +1,7 @@
 <?php get_header(); 
 
 
-if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+if( $_SERVER['REQUEST_METHOD'] == 'POST' &&  wp_verify_nonce($_POST['rm_nonce'], 'remind-me-nonce' ) ) {
 
 	//var_dump( $_POST );
 
@@ -32,10 +32,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 		//var_dump( implode( '<br />', $user_login_methods ) );
 		wp_mail( $user->data->user_email, "Your Humanities Commons Login Method Request", "<p>Your current login Methods are: </p> <h3>{$user_login_methods}</h3>", "From: HC <hc@hcommons.org>" );
 
-		echo "<p>If we have this email on file, you will receive a message.</p>";
+		echo "<p class='res_message'>If we have this email on file, you will receive a message.</p>";
 	
 	} else {
-        	echo "<p>If we have this email on file, you will receive a message.</p>";
+        	echo "<p class='res_message'>If we have this email on file, you will receive a message.</p>";
         }
 
 	//echo "</pre>";
@@ -66,6 +66,36 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 </script>
 
+<style type="text/css">
+
+.res_message {
+width: 50%;
+margin: 20px auto 0 auto;
+}
+
+	#remind-me-container {
+		padding: 10px;
+		width: 50%;
+		margin: 40px auto 0 auto;
+	}
+
+		#remind-me-container h3 {
+			text-align: center;
+			margin-bottom: 10px;
+		}
+
+		#remind-me-container p {
+			margin-bottom: 5px;
+		}
+
+		#remind-me-container input#rm_user_email, #remind-me-container input#rm_username {
+			width: 70%;
+		}
+
+
+
+</style>
+<div id="remind-me-container">
 <h3>Remind Me</h3>
 <p>Recover my login details</p>
 
@@ -78,6 +108,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 	<input type="text" id="rm_username"  name="username" />
 
 	<input type="submit" value="Submit!" />
+        <input type="hidden" name="rm_nonce" value="<?php echo wp_create_nonce('remind-me-nonce'); ?>" />
 </form>	
 
 <?php
@@ -91,5 +122,5 @@ if ( have_posts() ) {
   } // end while
 } // end if
 ?>
-
+</div> <!-- #remind-me-container -->
 <?php get_footer(); ?>
