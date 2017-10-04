@@ -1,5 +1,8 @@
 <?php get_header(); 
 
+if( is_user_logged_in() ) {
+	wp_redirect('/');
+}
 
 if( $_SERVER['REQUEST_METHOD'] == 'POST' &&  wp_verify_nonce($_POST['rm_nonce'], 'remind-me-nonce' ) ) {
 
@@ -40,7 +43,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' &&  wp_verify_nonce($_POST['rm_nonce'],
 
 	//echo "</pre>";
 
-}
+} else {
 
 ?>
 
@@ -80,7 +83,7 @@ margin: 20px auto 0 auto;
 	}
 
 		#remind-me-container h3 {
-			text-align: center;
+			text-align: left;
 			margin-bottom: 10px;
 		}
 
@@ -91,11 +94,32 @@ margin: 20px auto 0 auto;
 		#remind-me-container input#rm_user_email, #remind-me-container input#rm_username {
 			width: 70%;
 		}
-
+		
+		#remind-me-container .res_message {
+		    width: 65%;
+		    padding: 10px;
+		    margin: 0 auto;
+		    margin-top: 50px;
+		    font-size: 20px;
+		}
 
 
 </style>
 <div id="remind-me-container">
+
+<?php
+
+if ( have_posts() ) {
+  while ( have_posts() ) {
+    
+    the_post();
+    the_content();
+
+  } // end while
+} // end if
+
+?>
+
 <h3>Remind Me</h3>
 <p>Recover my login details</p>
 
@@ -111,16 +135,5 @@ margin: 20px auto 0 auto;
         <input type="hidden" name="rm_nonce" value="<?php echo wp_create_nonce('remind-me-nonce'); ?>" />
 </form>	
 
-<?php
-
-if ( have_posts() ) {
-  while ( have_posts() ) {
-    
-    the_post();
-    the_content();
-
-  } // end while
-} // end if
-?>
 </div> <!-- #remind-me-container -->
-<?php get_footer(); ?>
+<?php } get_footer(); ?>
