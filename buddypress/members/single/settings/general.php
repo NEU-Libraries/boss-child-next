@@ -109,7 +109,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 			echo '<p>Linking ORCID to your account is currently unavailable.</p>';
 		}
 	} else {
-		echo '<p>Your ORCID (' . $current_orcid . ') is linked you your account.';
+		echo '<p>Your ORCID (' . $current_orcid . ') is linked to your account.';
 	}
 } ?>
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
