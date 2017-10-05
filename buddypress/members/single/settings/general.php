@@ -93,7 +93,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 
 } ?>
 <br />
-<?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
+<?php if ( 1==2 && is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
 	$current_orcid = hcommons_get_session_orcid();
 	if ( empty( $current_orcid ) ) {
 		$registry_url = constant( 'REGISTRY_SERVER_URL' ) . '/Shibboleth.sso/Login?SAMLDS=1';

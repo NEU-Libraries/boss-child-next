@@ -1,6 +1,31 @@
-<?php get_header(); 
+<?php get_header(); ?>
 
-if( $_SERVER['REQUEST_METHOD'] == 'POST' &&  wp_verify_nonce($_POST['rm_nonce'], 'remind-me-nonce' ) ) {
+<style type="text/css">
+
+p.res_message {
+	width: 50%;
+	margin: 20px auto 0 auto;
+}
+
+#remind-me-container p {
+	margin-bottom: 5px;
+}
+
+#remind-me-container input#rm_user_email, #remind-me-container input#rm_username {
+	width: 70%;
+}
+
+#remind-me-container .res_message {
+	width: 65%;
+	padding: 10px;
+	margin: 0 auto;
+	margin-top: 50px;
+	font-size: 20px;
+}
+
+</style>
+
+<?php if( $_SERVER['REQUEST_METHOD'] == 'POST' &&  wp_verify_nonce($_POST['rm_nonce'], 'remind-me-nonce' ) ) {
 
 	//var_dump( $_POST );
 
@@ -65,31 +90,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' &&  wp_verify_nonce($_POST['rm_nonce'],
 
 </script>
 
-<style type="text/css">
-
-.res_message {
-	width: 50%;
-	margin: 20px auto 0 auto;
-}
-
-#remind-me-container p {
-	margin-bottom: 5px;
-}
-
-#remind-me-container input#rm_user_email, #remind-me-container input#rm_username {
-	width: 70%;
-}
-		
-#remind-me-container .res_message {
-	width: 65%;
-	padding: 10px;
-	margin: 0 auto;
-	margin-top: 50px;
-	font-size: 20px;
-}
-
-
-</style>
 <div class="page-full-width">
 <div id="primary" class="site-content">
 <div id="content" role="main">
