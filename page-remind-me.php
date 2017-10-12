@@ -102,12 +102,12 @@ p.res_message {
 
 <div id="remind-me-container">
 
-<p>Recover my login details</p>
+<p>Send me an e-mail with my login information!</p>
 
 <form action="" id="remindMeForm" method="POST">
 	
-	<p><input type="radio" id="email_choice" name="req_method" value="email" checked />I want to use my email to recover my login details</p>
-	<p><input type="radio" id="username_choice" name="req_method" value="username" />I want to use my username to recover my login details</p>
+	<p><input type="radio" id="email_choice" name="req_method" value="email" checked />I'll identify myself with my registered e-mail</p>
+	<p><input type="radio" id="username_choice" name="req_method" value="username" />I'll identify myself with my <em>Humanities Commons</em> username</p>
 
 	<input type="email" id="rm_user_email" name="user_email" />
 	<input type="text" id="rm_username"  name="username" />

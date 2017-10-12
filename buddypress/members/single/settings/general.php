@@ -26,6 +26,9 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	$user = wp_get_current_user();
 	$header_printed = false;
 	$comanage_roles = $comanage_api->get_person_roles( $user->data->user_login );
+	if ( false === $comanage_roles ) {
+		$comanage_roles = array();
+	}
 	foreach( $comanage_roles as $comanage_key => $comanage_role ) {
 		if ( ! in_array( strtolower( $comanage_key ), $memberships ) ) {
 			if ( ! $header_printed ) {
