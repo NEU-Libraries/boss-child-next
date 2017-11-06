@@ -40,7 +40,7 @@ get_header(); ?>
 	} else if ( ! empty( Humanities_Commons::hcommons_get_session_username() ) ) {
 		echo '<h1 class="entry-title">Something is wrong!</h1>';
 		echo "You have logged in with a username (" . Humanities_Commons::hcommons_get_session_username() . ") that does not have any memberships.";
-		echo "<a href="mailto:hello@hcommons.org">Please let us know.</a>";
+		echo '<a href="mailto:hello@hcommons.org">Please let us know.</a>';
 	} else {
 		$identity_provider = Humanities_Commons::hcommons_get_identity_provider();
 		echo '<h1 class="entry-title">Unknown Login</h1>';
