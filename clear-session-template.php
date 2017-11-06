@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Name: Not Enrolled Template
+ * Template Name: Clear Session Template
  *
- * Description: Handle logins that are not linked to any account in HC
+ * Description: Clear cookies and log out of WP and all local IDPs and SPs
  *
  * @since HCommons
  */
@@ -22,9 +22,9 @@
 		// SPs
 		getenv('REGISTRY_SP_URL') . '/Shibboleth.sso/Logout',
 		get_site_url() . '/Shibboleth.sso/Logout',
-	];
+	]; ?>
 
-	get_header(); ?>
+	<?php get_header(); ?>
 
 	<?php foreach( $shib_urls as $shib_url ): ?>
 		<iframe src="<?php echo $shib_url ?>" style="display:none" title="Log Out" ></iframe>
