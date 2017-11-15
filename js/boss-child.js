@@ -1,5 +1,12 @@
 (function($) {
 
+  $( '.hide-if-logged-out' ).each( function() {
+    $( this ).parent().addClass( 'hide-if-logged-out' );
+  } );
+  $( '.hide-if-logged-in' ).each( function() {
+    $( this ).parent().addClass( 'hide-if-logged-in' );
+  } );
+
   var joinleave_group_change_handler = function() {
     // if the join/leave group button was clicked and ajax call is over (no spinner),
     // refresh the page so that we see the success message & email settings
