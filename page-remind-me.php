@@ -54,7 +54,7 @@ p.res_message {
 		$user_login_methods = implode( '<br />', Humanities_Commons::hcommons_get_user_login_methods( $user->data->ID ) );
 //var_dump( $user_login_methods );
 		//var_dump( implode( '<br />', $user_login_methods ) );
-		wp_mail( $user->data->user_email, "Your Humanities Commons Login Method Request", "<p>Your current login Methods are: </p> <h3>{$user_login_methods}</h3>", "From: HC <hc@hcommons.org>" );
+		wp_mail( $user->data->user_email, "Your Humanities Commons Login Method Request", "<p>You currently log in to Humanities Commons using: </p> <h3>{$user_login_methods}</h3>", "From: HC <hc@hcommons.org>" );
 
 		echo "<p class='res_message'>If we have this username or e-mail address on file, we will send you a message detailing how you have previously logged in to _Humanities Commons_. Please check your inbox.</p>";
 	
