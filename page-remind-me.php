@@ -56,10 +56,10 @@ p.res_message {
 		//var_dump( implode( '<br />', $user_login_methods ) );
 		wp_mail( $user->data->user_email, "Your Humanities Commons Login Method Request", "<p>Your current login Methods are: </p> <h3>{$user_login_methods}</h3>", "From: HC <hc@hcommons.org>" );
 
-		echo "<p class='res_message'>If we have this email on file, you will receive a message.</p>";
+		echo "<p class='res_message'>If we have this username or e-mail address on file, we will send you a message detailing how you have previously logged in to _Humanities Commons_. Please check your inbox.</p>";
 	
 	} else {
-        	echo "<p class='res_message'>If we have this email on file, you will receive a message.</p>";
+        	echo "<p class='res_message'>If we have this username or e-mail address on file, we will send you a message detailing how you have previously logged in to _Humanities Commons_. Please check your inbox.</p>";
         }
 
 	//echo "</pre>";
