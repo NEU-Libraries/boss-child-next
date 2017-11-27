@@ -20,7 +20,7 @@
 
 		if( ! empty( $replyto ) && ! empty( $msg ) ) {
 
- 			$mail = wp_mail( 'hello@hcommons.org', 'User request from Contact Us form', $msg, "From: " . $replyto );
+ 			$mail = wp_mail( 'scrutinizing@hcommons.org', 'User is not enrolled', $msg, "From: " . $replyto );
  			
  			if( $mail == true )
  				$success = 'Mail sent! Please give us some time to respond back';
