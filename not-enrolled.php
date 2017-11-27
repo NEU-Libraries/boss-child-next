@@ -6,6 +6,34 @@
  *
  * @since HCommons
  */
+	$errors = '';
+	$success = false;
+	$mail_error = false;
+
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' && wp_verify_nonce($_POST['cu_nonce'], 'contact-us-nonce' ) ) {
+
+		//sanitize post data first
+		//$subject = filter_var( $_POST['subject'], FILTER_SANITIZE_STRIPPED );
+		$msg = filter_var( $_POST['message'], FILTER_SANITIZE_STRIPPED );
+		$replyto = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
+
+
+		if( ! empty( $replyto ) && ! empty( $msg ) ) {
+
+ 			$mail = wp_mail( 'hello@hcommons.org', 'User request from Contact Us form', $msg, "From: " . $replyto );
+ 			
+ 			if( $mail == true )
+ 				$success = 'Mail sent! Please give us some time to respond back';
+ 			else
+ 				$mail_error = 'Uh oh! Something went wrong..';
+
+		} else {
+
+			$errors = true;
+		
+		}
+
+	}
 
 	//must set cookies before header
 	setcookie( '_saml_idp', false, time()-3600, '/', '.' . getenv('WP_DOMAIN'), false, true );
@@ -26,6 +54,33 @@
 
 	get_header(); ?>
 
+	<style type="text/css">
+		
+		#cu-container {
+			width: 50%;
+			margin: 0 auto;
+		}
+
+		#cu-container h3 {
+			margin-bottom: 10px;
+		}
+
+		#contact-us input[type="text"], #contact-us input[type="email"], #contact-us textarea {
+    		width: 70%;
+    		margin-bottom: 20px;
+		}
+
+		#contact-us span {
+			margin-bottom: 3px;
+			color: red;
+		}
+
+		#contact-us .error {
+			border: 1px solid red;
+		}
+
+	</style>
+
 	<?php foreach( $shib_urls as $shib_url ): ?>
 		<iframe src="<?php echo $shib_url ?>" style="display:none" title="Log Out" ></iframe>
 	<?php endforeach ?>
@@ -33,21 +88,55 @@
         <div class="page-full-width">
 
         <div id="primary" class="site-content">
-                <div id="content" role="main">
+            <div id="content" role="main">
 
                 <?php while ( have_posts() ) : the_post(); ?>
 
-	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		
-		<div class="entry-content">
-		<?php the_content(); ?>
-		</div><!-- .entry-content -->
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					
+					<div class="entry-content">
+					<?php the_content(); ?>
+					</div><!-- .entry-content -->
 
-	</article><!-- #post -->
+				</article><!-- #post -->
 
-                <?php endwhile; // end of the loop. ?>
+        		<?php endwhile; // end of the loop. ?>
 
-                </div><!-- #content -->
+            </div><!-- #content -->
+         	
+         	<div id="cu-container">
+         		
+         		<?php if( !empty( $success ) ) : ?>
+         			<h4><?php echo $success; ?></h4>
+         		<?php endif; ?>
+
+         		<?php if( !empty( $mail_error ) ) : ?>
+         			<h4><?php echo $success; ?></h4>
+         		<?php endif; ?>
+
+	         	<h3>Contact Us</h3>
+	         	<form id="contact-us" action="" method="POST">
+
+	         		<?php if( ! empty( $errors ) ) : ?>
+
+	         		<p><span>Please enter your E-mail!</span><br/> 
+	         			<input type="email" class="error" placeholder="Your E-mail" name="email" /></p>
+	         		<!--<p><span>Please enter a subject!</span><br/> 
+	         			<input type="text" class="error" placeholder="subject" name="subject" /></p>-->
+					<p><span>Please enter message!</span><br />
+						<textarea class="error" placeholder="message" name="message"></textarea></p>
+					<?php else : ?>
+
+					<p><input type="email" placeholder="Your E-mail" name="user_email" /></p>
+					<!--<p><input type="text" placeholder="Subject" name="subject" /></p>-->
+					<p><textarea placeholder="Message" name="message"></textarea></p>
+					<?php endif; ?>
+					<input type="hidden" name="cu_nonce" value="<?php echo wp_create_nonce('contact-us-nonce'); ?>" />
+					<p><button>Submit</button></p>
+				</form>
+
+			</div> <!-- /#cu-container -->
+
         </div><!-- #primary -->
 
 </div><!-- .page-full-width -->
