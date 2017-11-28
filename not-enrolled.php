@@ -27,7 +27,7 @@
 			$content .= "<p>User's E-mail: {$email}</p>";
 			$content .= "<p>Message: {$msg}</p>";
 
- 			$mail = wp_mail( 'scrutinizing@hcommons.org', 'User is not enrolled', $content, "\r\nReply-to: <" . $email . ">" );
+ 			$mail = wp_mail( 'hello@hcommons.org', 'User is not enrolled', $content, "\r\nReply-to: <" . $email . ">" );
  			
  			if( $mail == true ) {
  				$success = 'Mail sent! Please give us some time to respond back';
