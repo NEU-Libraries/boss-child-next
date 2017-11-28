@@ -63,7 +63,7 @@
 		
 		#cu-container {
 			width: 50%;
-			margin: 0 auto 40px auto;
+			margin: 40px auto;
 		}
 
 			#cu-container h3 {
