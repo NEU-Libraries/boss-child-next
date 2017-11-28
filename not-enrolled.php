@@ -125,7 +125,7 @@ EOF;
          		<?php endif; ?>
 
 	         	<h3>Contact Us</h3>
-	         	<form id="contact-us" action="" method="POST">
+	         	<form id="contact-us" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
 	         		<?php if( ! empty( $errors ) ) : ?>
 
