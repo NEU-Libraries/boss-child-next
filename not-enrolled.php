@@ -96,6 +96,8 @@
 
         <div class="page-full-width">
 
+        <?php if( ! empty( $success ) ) : ?>
+        	
         <div id="primary" class="site-content">
             <div id="content" role="main">
 
@@ -112,6 +114,8 @@
         		<?php endwhile; // end of the loop. ?>
 
             </div><!-- #content -->
+
+        <?php endif ?>
          	
          	<div id="cu-container">
          		
