@@ -15,12 +15,18 @@
 		//sanitize post data first
 		//$subject = filter_var( $_POST['subject'], FILTER_SANITIZE_STRIPPED );
 		$msg = filter_var( $_POST['message'], FILTER_SANITIZE_STRIPPED );
-		$replyto = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
+		$email = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
+		$name = filter_var( $_POST['name'], FILTER_SANITIZE_STRIPPED );
 
+		if( ! empty( $email ) && ! empty( $msg ) && ! empty( $name ) ) {
 
-		if( ! empty( $replyto ) && ! empty( $msg ) ) {
+			$content = <<<EOF
+				<p>User's Name: $name</p>
+				<p>User's E-mail: $email</p>
+				<p>$msg</p>
+EOF;
 
- 			$mail = wp_mail( 'scrutinizing@hcommons.org', 'User is not enrolled', $msg, "From: " . $replyto );
+ 			$mail = wp_mail( 'scrutinizing@hcommons.org', 'User is not enrolled', $content, "\r\nReply-to: <" . $email . ">" );
  			
  			if( $mail == true )
  				$success = 'Mail sent! Please give us some time to respond back';
@@ -58,12 +64,16 @@
 		
 		#cu-container {
 			width: 50%;
-			margin: 0 auto;
+			margin: 0 auto 40px auto;
 		}
 
-		#cu-container h3 {
-			margin-bottom: 10px;
-		}
+			#cu-container h3 {
+				margin-bottom: 10px;
+			}
+
+			#cu-container h4 {
+				margin-bottom: 10px;
+			}
 
 		#contact-us input[type="text"], #contact-us input[type="email"], #contact-us textarea {
     		width: 70%;
@@ -119,6 +129,8 @@
 
 	         		<?php if( ! empty( $errors ) ) : ?>
 
+	         		<p><span>Please enter your Name!</span><br/> 
+	         			<input type="text" class="error" placeholder="Your Name" name="name" /></p>
 	         		<p><span>Please enter your E-mail!</span><br/> 
 	         			<input type="email" class="error" placeholder="Your E-mail" name="email" /></p>
 	         		<!--<p><span>Please enter a subject!</span><br/> 
@@ -126,7 +138,7 @@
 					<p><span>Please enter message!</span><br />
 						<textarea class="error" placeholder="message" name="message"></textarea></p>
 					<?php else : ?>
-
+					<p><input type="text" placeholder="Your Name" name="name" /></p>
 					<p><input type="email" placeholder="Your E-mail" name="user_email" /></p>
 					<!--<p><input type="text" placeholder="Subject" name="subject" /></p>-->
 					<p><textarea placeholder="Message" name="message"></textarea></p>
