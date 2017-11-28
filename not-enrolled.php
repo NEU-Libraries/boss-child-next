@@ -20,12 +20,10 @@
 
 		if( ! empty( $email ) && ! empty( $msg ) && ! empty( $name ) ) {
 
-			$content = <<<EOF
-				<p>User's Name: $name</p>
-				<p>User's E-mail: $email</p>
-				<p>$msg</p>
-EOF;
-
+			$content .= "<p>User's Name: {$name}</p>";
+			$content .=	"<p>User's E-mail: {$email}</p>";
+			$content .= "<p>$msg</p>";
+//should be hello@hcommons.org
  			$mail = wp_mail( 'scrutinizing@hcommons.org', 'User is not enrolled', $content, "\r\nReply-to: <" . $email . ">" );
  			
  			if( $mail == true )
