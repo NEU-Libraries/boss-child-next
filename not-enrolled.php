@@ -96,8 +96,8 @@
 
         <div class="page-full-width">
 
-        <?php if( ! empty( $success ) ) : ?>
-        	
+        <?php if( empty( $success ) ) : ?>
+
         <div id="primary" class="site-content">
             <div id="content" role="main">
 
