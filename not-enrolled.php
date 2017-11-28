@@ -18,9 +18,12 @@
 		$email = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
 		$uname = filter_var( $_POST['uname'], FILTER_SANITIZE_STRIPPED );
 
-		if( ! empty( $email ) && ! empty( $msg ) && ! empty( $uname ) ) {
+		if( ! empty( $email ) && ! empty( $msg ) ) {
 
-			$content .= "<p>User's name: {$uname}</p>";
+			if( !empty( $uname ) ) {
+				$content .= "<p>User's name: {$uname}</p>";
+			}
+
 			$content .= "<p>User's E-mail: {$email}</p>";
 			$content .= "<p>Message: {$msg}</p>";
 
@@ -119,33 +122,35 @@
          	
          	<div id="cu-container">
          		
-         		<?php if( !empty( $success ) ) : ?>
+         		<?php if( ! empty( $success ) ) : ?>
          			<h4><?php echo $success; ?></h4>
          		<?php endif; ?>
 
-         		<?php if( !empty( $mail_error ) ) : ?>
+         		<?php if( ! empty( $mail_error ) ) : ?>
          			<h4><?php echo $success; ?></h4>
          		<?php endif; ?>
 
 	         	<h3>Contact Us</h3>
-	         	<form id="contact-us" action="" method="POST">
+	         	<form id="contact-us" action="/not-enrolled" method="POST">
+					
+					<p><input type="text" placeholder="Your Name" name="name" /></p>
 
 	         		<?php if( ! empty( $errors ) ) : ?>
 
-	         		<p><span>Please enter your Name!</span><br/> 
-	         			<input type="text" class="error" placeholder="Your Name" name="name" /></p>
 	         		<p><span>Please enter your E-mail!</span><br/> 
 	         			<input type="email" class="error" placeholder="Your E-mail" name="email" /></p>
-	         		<!--<p><span>Please enter a subject!</span><br/> 
-	         			<input type="text" class="error" placeholder="subject" name="subject" /></p>-->
+
 					<p><span>Please enter message!</span><br />
 						<textarea class="error" placeholder="message" name="message"></textarea></p>
+
 					<?php else : ?>
-					<p><input type="text" placeholder="Your Name" name="uname" /></p>
+					
 					<p><input type="email" placeholder="Your E-mail" name="user_email" /></p>
 					<!--<p><input type="text" placeholder="Subject" name="subject" /></p>-->
 					<p><textarea placeholder="Message" name="message"></textarea></p>
+					
 					<?php endif; ?>
+					
 					<input type="hidden" name="cu_nonce" value="<?php echo wp_create_nonce('contact-us-nonce'); ?>" />
 					<p><button>Submit</button></p>
 				</form>
