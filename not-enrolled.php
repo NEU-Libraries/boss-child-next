@@ -16,20 +16,21 @@
 		//$subject = filter_var( $_POST['subject'], FILTER_SANITIZE_STRIPPED );
 		$msg = filter_var( $_POST['message'], FILTER_SANITIZE_STRIPPED );
 		$email = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
-		$name = filter_var( $_POST['name'], FILTER_SANITIZE_STRIPPED );
+		$uname = filter_var( $_POST['uname'], FILTER_SANITIZE_STRIPPED );
 
-		if( ! empty( $email ) && ! empty( $msg ) && ! empty( $name ) ) {
+		if( ! empty( $email ) && ! empty( $msg ) && ! empty( $uname ) ) {
 
-			$content .= "<p>User's Name: {$name}</p>";
-			$content .=	"<p>User's E-mail: {$email}</p>";
-			$content .= "<p>$msg</p>";
-//should be hello@hcommons.org
+			$content .= "<p>User's name: {$uname}</p>";
+			$content .= "<p>User's E-mail: {$email}</p>";
+			$content .= "<p>Message: {$msg}</p>";
+
  			$mail = wp_mail( 'scrutinizing@hcommons.org', 'User is not enrolled', $content, "\r\nReply-to: <" . $email . ">" );
  			
- 			if( $mail == true )
+ 			if( $mail == true ) {
  				$success = 'Mail sent! Please give us some time to respond back';
- 			else
+ 			} else {
  				$mail_error = 'Uh oh! Something went wrong..';
+ 			}
 
 		} else {
 
@@ -123,7 +124,7 @@
          		<?php endif; ?>
 
 	         	<h3>Contact Us</h3>
-	         	<form id="contact-us" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+	         	<form id="contact-us" action="" method="POST">
 
 	         		<?php if( ! empty( $errors ) ) : ?>
 
@@ -136,7 +137,7 @@
 					<p><span>Please enter message!</span><br />
 						<textarea class="error" placeholder="message" name="message"></textarea></p>
 					<?php else : ?>
-					<p><input type="text" placeholder="Your Name" name="name" /></p>
+					<p><input type="text" placeholder="Your Name" name="uname" /></p>
 					<p><input type="email" placeholder="Your E-mail" name="user_email" /></p>
 					<!--<p><input type="text" placeholder="Subject" name="subject" /></p>-->
 					<p><textarea placeholder="Message" name="message"></textarea></p>
