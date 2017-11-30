@@ -6,16 +6,18 @@
  *
  * @since HCommons
  */
-	$errors = '';
+	$errors = false;
 	$success = false;
 	$mail_error = false;
+
+var_dump( $_POST );
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' && wp_verify_nonce($_POST['cu_nonce'], 'contact-us-nonce' ) ) {
 
 		//sanitize post data first
 		//$subject = filter_var( $_POST['subject'], FILTER_SANITIZE_STRIPPED );
-		$msg = filter_var( $_POST['message'], FILTER_SANITIZE_STRIPPED );
-		$email = filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL );
+		$msg = filter_var( $_POST['msg'], FILTER_SANITIZE_STRIPPED );
+		$email = filter_var( $_POST['uemail'], FILTER_SANITIZE_EMAIL );
 		$uname = filter_var( $_POST['uname'], FILTER_SANITIZE_STRIPPED );
 
 		if( ! empty( $email ) && ! empty( $msg ) ) {
@@ -133,21 +135,21 @@
 	         	<h3>Contact Us</h3>
 	         	<form id="contact-us" action="/not-enrolled" method="POST">
 					
-					<p><input type="text" placeholder="Your Name" name="name" /></p>
+					<p><input type="text" placeholder="Your Name" name="uname" /></p>
 
 	         		<?php if( ! empty( $errors ) ) : ?>
 
 	         		<p><span>Please enter your E-mail!</span><br/> 
-	         			<input type="email" class="error" placeholder="Your E-mail" name="email" /></p>
+	         			<input type="email" class="error" placeholder="Your E-mail" name="uemail" /></p>
 
 					<p><span>Please enter message!</span><br />
-						<textarea class="error" placeholder="message" name="message"></textarea></p>
+						<textarea class="error" placeholder="message" name="msg"></textarea></p>
 
 					<?php else : ?>
 					
-					<p><input type="email" placeholder="Your E-mail" name="user_email" /></p>
+					<p><input type="email" placeholder="Your E-mail" name="uemail" /></p>
 					<!--<p><input type="text" placeholder="Subject" name="subject" /></p>-->
-					<p><textarea placeholder="Message" name="message"></textarea></p>
+					<p><textarea placeholder="Message" name="msg"></textarea></p>
 					
 					<?php endif; ?>
 					
