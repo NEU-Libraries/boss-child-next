@@ -130,7 +130,7 @@
          			<h4><?php echo $success; ?></h4>
          		<?php endif; 
 
-         			if( ! empty( $success ) && $_SERVER['REQUEST_METHOD'] == 'POST' ) :
+         			if( empty( $success ) ) :
          		?>
 
 	         	<h3>Contact Us</h3>
