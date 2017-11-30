@@ -105,8 +105,8 @@
     // admins can add these classes in the widget options, but only to
     // the content of widgets which still leaves an empty box with a
     // border unless we also add the class to the container.
-    $( '.hide-if-logged-in' ).parent().addClass( 'hide-if-logged-in' );
-    $( '.hide-if-logged-out' ).parent().addClass( 'hide-if-logged-out' );
+    $( '.hide-if-logged-in.panel-widget-style' ).parent().addClass( 'hide-if-logged-in' );
+    $( '.hide-if-logged-out.panel-widget-style' ).parent().addClass( 'hide-if-logged-out' );
   });
 
 })(jQuery);
