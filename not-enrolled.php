@@ -10,8 +10,6 @@
 	$success = false;
 	$mail_error = false;
 
-var_dump( $_POST );
-
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' && wp_verify_nonce($_POST['cu_nonce'], 'contact-us-nonce' ) ) {
 
 		//sanitize post data first
