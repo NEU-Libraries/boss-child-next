@@ -55,3 +55,24 @@ div#sitewide-notice #message.info {
 .menu-panel .bp_components ul li ul li > .ab-item:before {
   transition-property: none;
 }
+
+// template notices
+div.bbp-template-notice {
+  background-color: white;
+  border: 1px solid black;
+
+  p {
+    color: black;
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  &.info,
+  &.info * {
+    background-color: $button-background-color;
+    color: $button-color;
+    text-align: left;
+  }
+}
