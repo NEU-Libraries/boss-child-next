@@ -75,13 +75,13 @@
 
         //store all radio buttons in this var to loop through later
         var radio = $('.email_selection input[type="radio"]');
-        
+
         //loop through each radio button and whichever one was saved is the one that will be checked.
         radio.each(function( i, v ) {
-        
+
         //in the context of the current loop
         if( $(this).val() == data.primary_email ) {
-          
+
           $(this).prop( 'checked', true );
         }
 
@@ -95,7 +95,7 @@
                 $('<p />').text('Changed saved.')
               )
             );
-      
+
       });
 
       event.preventDefault();
@@ -109,7 +109,13 @@
             scrollTop: $(".topic-form").offset().top},
             'slow');
   });  
-    
+   
+    // admins can add these classes in the widget options, but only to
+    // the content of widgets which still leaves an empty box with a
+    // border unless we also add the class to the container.
+    $( '.hide-if-logged-in' ).parent().addClass( 'hide-if-logged-in' );
+    $( '.hide-if-logged-out' ).parent().addClass( 'hide-if-logged-out' );
+
   });
 
 })(jQuery);
