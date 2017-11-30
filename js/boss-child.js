@@ -29,6 +29,15 @@
   $(document).ready(function(){
     var searchQuery = getQueryVariable('s');
     var searchInput = $('#members_search');
+     
+      $("#topic-form-toggle").on('click', '#add', function() {
+    $(".topic-form").slideToggle("slow");
+    $("#add").hide();
+    $('html,body').animate({
+            scrollTop: $(".topic-form").offset().top},
+            'slow');
+  });  
+
 
     // preserve url searches by copying them to the search box if necessary
     if (searchQuery.length > 0 && searchInput.val() === '') {
@@ -102,13 +111,6 @@
 
     });
     
-  $("#topic-form-toggle").on('click', '#add', function() {
-    $(".topic-form").slideToggle("slow");
-    $("#add").hide();
-    $('html,body').animate({
-            scrollTop: $(".topic-form").offset().top},
-            'slow');
-  });  
    
     // admins can add these classes in the widget options, but only to
     // the content of widgets which still leaves an empty box with a
