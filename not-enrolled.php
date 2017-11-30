@@ -131,7 +131,8 @@ var_dump( $_POST );
          		<?php if( ! empty( $mail_error ) ) : ?>
          			<h4><?php echo $success; ?></h4>
          		<?php endif; 
-         			if( ! empty( $success ) ) :
+
+         			if( ! empty( $success ) && $_SERVER['REQUEST_METHOD'] == 'POST' ) :
          		?>
 
 	         	<h3>Contact Us</h3>
