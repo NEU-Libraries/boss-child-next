@@ -130,7 +130,9 @@ var_dump( $_POST );
 
          		<?php if( ! empty( $mail_error ) ) : ?>
          			<h4><?php echo $success; ?></h4>
-         		<?php endif; ?>
+         		<?php endif; 
+         			if( ! empty( $success ) ) :
+         		?>
 
 	         	<h3>Contact Us</h3>
 	         	<form id="contact-us" action="/not-enrolled" method="POST">
@@ -155,7 +157,9 @@ var_dump( $_POST );
 					
 					<input type="hidden" name="cu_nonce" value="<?php echo wp_create_nonce('contact-us-nonce'); ?>" />
 					<p><button>Submit</button></p>
-				</form>
+				</form> <!-- /contact-us -->
+
+				<?php endif;?>
 
 			</div> <!-- /#cu-container -->
 
