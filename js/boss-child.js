@@ -101,12 +101,21 @@
       event.preventDefault();
 
     });
-
+    
+  $("#topic-form-toggle").on('click', '#add', function() {
+    $(".topic-form").slideToggle("slow");
+    $("#add").hide();
+    $('html,body').animate({
+            scrollTop: $(".topic-form").offset().top},
+            'slow');
+  });  
+   
     // admins can add these classes in the widget options, but only to
     // the content of widgets which still leaves an empty box with a
     // border unless we also add the class to the container.
     $( '.hide-if-logged-in' ).parent().addClass( 'hide-if-logged-in' );
     $( '.hide-if-logged-out' ).parent().addClass( 'hide-if-logged-out' );
+
   });
 
 })(jQuery);
