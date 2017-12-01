@@ -5,6 +5,38 @@
   color: black;
 }
 
+.bbp-forum-details {
+    padding: 5px 10px;
+}
+
+.bbp-pagination {
+    padding: 5px 5px 5px 5px;
+}
+
+.bbp-pagination-count {
+   margin-top: 0px;
+}
+
+.bbp-type-select {
+   display: inline-block;
+}
+
+.bbp-status-select {
+  float: right;
+  margin-right: 150px;
+}
+
+#bbpress-forums fieldset.bbp-form p {
+  margin: 0 0 10px;
+}
+#bbpress-forums fieldset.bbp-form input {
+  margin: 0 0 0px;
+}
+
+#bbpress-forums div.bbp-the-content-wrapper {
+  margin-bottom: 10px;
+}
+ 
 #buddypress div#item-nav {
   margin: 0;
 }
