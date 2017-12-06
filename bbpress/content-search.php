@@ -6,11 +6,10 @@
  * @package bbPress
  * @subpackage Theme
  */
-
 ?>
 
 <div id="bbpress-forums">
-        
+<?php echo bp_get_group_id(); ?>        
         <?php //bbp_breadcrumb(); ?>
 
 	<?php bbp_set_query_name( bbp_get_search_rewrite_id() ); ?>

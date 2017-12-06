@@ -450,159 +450,38 @@ function mla_bbp_search_form(){
 }
   
 add_action( 'bbp_template_before_single_forum', 'mla_bbp_search_form' );
-add_action( 'bbp_template_before_single_topic', 'mla_bbp_search_form' );
 
+/* Filter the forum search query to search for a specific forum.
+ *
+ * @param array $r Existing search query args
+ * @return array
+ */
+ function mla_modify_search_results_query( $r ){
+                
+     $r['ep_integrate'] = false;
 
-function mla_has_search_results( $args = '' ) {
-	global $wp_rewrite;
-
-	/** Defaults **************************************************************/
-
-	$default_post_type = array( bbp_get_forum_post_type(), bbp_get_topic_post_type(), bbp_get_reply_post_type() );
-
-	// Default query args
-	$default = array(
-		'post_type'           => $default_post_type,         // Forums, topics, and replies
-		'posts_per_page'      => bbp_get_replies_per_page(), // This many
-		'paged'               => bbp_get_paged(),            // On this page
-		'orderby'             => 'date',                     // Sorted by date
-		'order'               => 'DESC',                     // Most recent first
-		'ignore_sticky_posts' => true,                       // Stickies not supported
-		's'                   => bbp_get_search_terms(),     // This is a search
-                'ep_integrate'        => false,	
-	);
-
-	// What are the default allowed statuses (based on user caps)
-	if ( bbp_get_view_all() ) {
-
-		// Default view=all statuses
-		$post_statuses = array(
-			bbp_get_public_status_id(),
-			bbp_get_closed_status_id(),
-			bbp_get_spam_status_id(),
-			bbp_get_trash_status_id()
-		);
-
-		// Add support for private status
-		if ( current_user_can( 'read_private_topics' ) ) {
-			$post_statuses[] = bbp_get_private_status_id();
-		}
-
-		// Join post statuses together
-		$default['post_status'] = implode( ',', $post_statuses );
-
-	// Lean on the 'perm' query var value of 'readable' to provide statuses
-	} else {
-		$default['perm'] = 'readable';
-	}
-
-	/** Setup *****************************************************************/
-
-	// Parse arguments against default values
-	$r = bbp_parse_args( $args, $default, 'has_search_results' );
-
-	// Get bbPress
-	$bbp = bbpress();
-        echo get_query_var('bbp_tops');
-	// Call the query
-	if ( ! empty( $r['s'] ) ) {
-		$bbp->search_query = new WP_Query( $r );
-	}
-
-	// Add pagination values to query object
-	$bbp->search_query->posts_per_page = $r['posts_per_page'];
-	$bbp->search_query->paged          = $r['paged'];
-
-	// Never home, regardless of what parse_query says
-	$bbp->search_query->is_home        = false;
-          
-	// Only add pagination is query returned results
-	if ( ! empty( $bbp->search_query->found_posts ) && ! empty( $bbp->search_query->posts_per_page ) ) {
-
-		// Array of arguments to add after pagination links
-		$add_args = array();
-
-		// If pretty permalinks are enabled, make our pagination pretty
-		if ( $wp_rewrite->using_permalinks() ) {
-
-			// Shortcode territory
-			if ( is_page() || is_single() ) {
-				$base = trailingslashit( get_permalink() );
-
-			// Default search location
-			} else {
-				$base = trailingslashit( bbp_get_search_results_url() );
-			}
-
-			// Add pagination base
-			$base = $base . user_trailingslashit( $wp_rewrite->pagination_base . '/%#%/' );
-
-		// Unpretty permalinks
-		} else {
-			$base = add_query_arg( 'paged', '%#%' );
-		}
-
-		// Add args
-		if ( bbp_get_view_all() ) {
-			$add_args['view'] = 'all';
-		}
-
-		// Add pagination to query object
-		$bbp->search_query->pagination_links = paginate_links(
-			apply_filters( 'bbp_search_results_pagination', array(
-				'base'      => $base,
-				'format'    => '',
-				'total'     => ceil( (int) $bbp->search_query->found_posts / (int) $r['posts_per_page'] ),
-				'current'   => (int) $bbp->search_query->paged,
-				'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
-				'next_text' => is_rtl() ? '&larr;' : '&rarr;',
-				'mid_size'  => 1,
-				'add_args'  => $add_args, 
-			) )
-		);
-
-		// Remove first page from pagination
-		if ( $wp_rewrite->using_permalinks() ) {
-			$bbp->search_query->pagination_links = str_replace( $wp_rewrite->pagination_base . '/1/', '', $bbp->search_query->pagination_links );
-		} else {
-			$bbp->search_query->pagination_links = str_replace( '&#038;paged=1', '', $bbp->search_query->pagination_links );
-		}
-	}
-
-	// Return object
-	return apply_filters( 'mla_has_search_results', $bbp->search_query->have_posts(), $bbp->search_query );
-}
-
-add_filter( 'bbp_has_search_results', 'mla_has_search_results');
-
-
-        /*
-	 * Filter the forum search query to search for a specific forum.
-	 *
-	 * @param array $r Existing search query args
-	 * @return array
-	 */
-	 function mla_modify_search_results_query( $r ){
-		//Get the submitted forum ID 
-		if ( empty( $_GET['bbp_search_forum_id'] ) ) {
-			$forum_id = (int) get_query_var( 'bbp_search_forum_id' );
+     //Get the submitted forum ID 
+      if ( empty( $_GET['bbp_search_forum_id'] ) ) {
+          $forum_id = (int) get_query_var( 'bbp_search_forum_id' );
                        
-		} else {
-			$forum_id = (int) $_GET['bbp_search_forum_id'];
-                }
-		if ( empty( $forum_id ) ) {
-			return $r;
-		}
-		// If the forum ID exists, filter the query
-		if ( ! empty( $forum_id ) ) {
-			$r['meta_query'] = array( array(
-				'key'     => '_bbp_forum_id',
-				'value'   => $forum_id,
-				'compare' => '=',
-			) );
-		}
-		return $r;
+      } else {
+          $forum_id = (int) $_GET['bbp_search_forum_id'];
+      }
+      if ( empty( $forum_id ) ) {
+          return $r;
+      }
+      
+      // If the forum ID exists, filter the query
+      
+      if ( ! empty( $forum_id ) ) {
+          $r['meta_query'] = array( array(
+		'key'     => '_bbp_forum_id',
+		'value'   => $forum_id,
+		'compare' => '=',
+	   ) );
 	}
+      return $r;
+}
 
 add_filter( 'bbp_after_has_search_results_parse_args' , 'mla_modify_search_results_query' );
 

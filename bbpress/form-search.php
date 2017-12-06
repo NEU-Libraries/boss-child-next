@@ -8,7 +8,7 @@
  */
 
 $forum_id = bbp_get_forum_id();
-
+$group_id =  bp_get_group_id();
 ?>
 
 <form role="search" method="get" id="bbp-search-form" action="<?php bbp_search_url(); ?>">
@@ -18,9 +18,13 @@ $forum_id = bbp_get_forum_id();
 		<input tabindex="<?php bbp_tab_index(); ?>" type="text" value="<?php echo esc_attr( bbp_get_search_terms() ); ?>" name="bbp_search" id="bbp_search" />
 		
                 <?php if( $forum_id ): ?>
-                    <input class="button" type="hidden" name="bbp_search_forum_id" value="<?php echo $forum_id; ?>" />
+                    <input type="hidden" name="bbp_search_forum_id" value="<?php echo $forum_id; ?>" />
                 <?php endif; ?>
                  
+                <?php if( $group_id ): ?>
+                    <input type="hidden" name="bbp_search_group_id" value="<?php echo $group_id; ?>" />
+                <?php endif; ?> 
+     
                 <input tabindex="<?php bbp_tab_index(); ?>" class="button" type="submit" id="bbp_search_submit" value="<?php esc_attr_e( 'Search', 'bbpress' ); ?>" />
 
 	
