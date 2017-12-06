@@ -25,7 +25,7 @@
                 <?php bbp_forum_subscription_link(); ?>
             </div>
 
-            <?php if ( current_user_can('publish_topics') ) : ?>
+            <?php if ( current_user_can('publish_topics') && bp_group_is_member()) : ?>
 
             	<div class="table-cell">
 	            <span id="topic-form-toggle">
