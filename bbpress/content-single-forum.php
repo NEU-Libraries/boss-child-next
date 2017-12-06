@@ -28,9 +28,9 @@
             <?php if ( current_user_can('publish_topics') && bp_group_is_member()) : ?>
 
             	<div class="table-cell">
-	            <span id="topic-form-toggle">
-                        <button id="add">Create New Topic</button>
-                     </span>
+                    <span id="topic-form-toggle">
+                         <button id="add">Create New Topic</button>
+                    </span>
                 </div>
 
             <?php  endif; ?>
