@@ -107,6 +107,11 @@
     // border unless we also add the class to the container.
     $( '.hide-if-logged-in.panel-widget-style' ).parent().addClass( 'hide-if-logged-in' );
     $( '.hide-if-logged-out.panel-widget-style' ).parent().addClass( 'hide-if-logged-out' );
+
+    // handle usernames with and without @ in message compose form
+    $( '#send_message_form' ).on( 'submit', function( e ) {
+      $( '#send-to-input' ).val( $( '#send-to-input' ).val().replace( '@', '' ) );
+    } );
   });
 
 })(jQuery);
