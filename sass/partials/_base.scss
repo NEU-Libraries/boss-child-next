@@ -76,3 +76,9 @@ div.bbp-template-notice {
     text-align: left;
   }
 }
+
+.bp-user #buddypress #item-header div#message,
+.group-single #buddypress #item-header div#message {
+  animation-duration: 10s;
+  opacity: 1;
+}
