@@ -196,19 +196,19 @@
 <?php /* Manage Group Members */ ?>
 <?php if ( bp_is_group_admin_screen( 'manage-members' ) ) : ?>
 
-	<?php do_action( 'bp_before_group_manage_members_admin' ); ?>
+    <?php do_action( 'bp_before_group_manage_members_admin' ); ?>
 	
         <div class="bp-widget">
-    <form role="search" method="get" id="bbp-search-form">
-        <div>
-            <label class="screen-reader-text hidden" for="bbp_search">Search Members:</label>
-                <input type="text" value="" name="members_search" id="group_member_search"">
-                <input class="button" type="submit" id="members_search_submit" members="members_search_submit" value="Search">
+            <form role="search" method="get" id="bbp-search-form">
+                <div>
+                    <label class="screen-reader-text hidden" for="bbp_search">Search Members:</label>
+                       <input type="text" value="" name="members_search" id="group_member_search" placeholder="Search Members:">
+                       <input class="button" type="submit" id="members_search_submit" members="members_search_submit" value="Search">
+                </div>
+            </form>
         </div>
-     </form>
-       </div>
 
-<?php if ( bp_has_members( '&include='. bp_group_admin_ids() ) ) : ?>
+     <?php if ( bp_has_members( '&include='. bp_group_admin_ids() ) ) : ?>
 
 	<div class="bp-widget">
 		<h4><?php _e( 'Administrators', 'boss' ); ?></h4>
