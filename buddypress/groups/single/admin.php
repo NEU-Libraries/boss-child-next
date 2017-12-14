@@ -196,6 +196,10 @@
 <?php /* Manage Group Members */ ?>
 <?php if ( bp_is_group_admin_screen( 'manage-members' ) ) : ?>
 
+<?php  if(bbp_is_search())
+         echo "is search";
+?>
+
     <?php do_action( 'bp_before_group_manage_members_admin' ); ?>
 	
         <div class="bp-widget">
@@ -263,11 +267,11 @@
 		</div>
 	<?php endif ?>
 
-
 	<div class="bp-widget">
-		<h4><?php _e("Members", "boss"); ?></h4>
 
-		<?php if ( bp_group_has_members( 'per_page=15&exclude_banned=false' ) ) : ?>
+<?php if ( bp_group_has_members( 'per_page=15&exclude_banned=false' ) ) : ?>
+
+		<h4><?php _e("Members", "boss"); ?></h4>
 
 			<ul id="members-list" class="item-list single-line">
 				<?php while ( bp_group_members() ) : bp_group_the_member(); ?>
@@ -322,11 +326,11 @@
 				</div>
 
 			<?php endif; ?>
-
+                   
 		<?php else: ?>
 
 			<div id="message" class="info">
-				<p><?php _e( 'This group has no members.', 'boss' ); ?></p>
+				<p><?php _e( 'No members found for this Group.', 'boss' ); ?></p>
 			</div>
 
 		<?php endif; ?>
