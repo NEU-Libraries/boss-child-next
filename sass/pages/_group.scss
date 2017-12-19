@@ -5,6 +5,14 @@
   color: black;
 }
 
+#buddypress input#group_member_search {
+    width: unset;
+}
+
+#search-group-admin div.bbp-search-form {
+  float: left;
+  margin: 10px;
+
 button#add {
   white-space: nowrap;
   overflow: hidden; 
@@ -51,6 +59,16 @@ button#add {
  
 #buddypress div#item-nav {
   margin: 0;
+}
+
+.bbp-on-search-form {
+  float:right;
+  margin:10px;
+}
+
+#bbpress-forums div.bbp-search-form {
+  float: right;
+  margin: 10px;
 }
 
 #buddypress div#item-nav .item-list-tabs ul li a {
