@@ -445,3 +445,63 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 			endif; // comments_open()
 	}
 }
+//display bbPress search form above sinle topics and forums
+function mla_bbp_search_form(){
+  
+    if ( bbp_allow_search()) {
+        ?>
+        <div class="bbp-search-form">
+  
+            <?php bbp_get_template_part( 'form', 'search' ); ?>
+  
+        </div>
+        <?php
+    }
+}
+  
+add_action( 'bbp_template_before_single_forum', 'mla_bbp_search_form' );
+
+
+function mla_bbp_filter_search_results( $r ){
+    
+    $r['ep_integrate'] = false;
+
+    //Get the submitted forum ID (added in gethub > bbpress > form-search.php)
+    $forum_id = sanitize_title_for_query( $_GET['bbp_search_forum_id'] );
+ 
+    //If the forum ID exits, filter the query
+    if( $forum_id && is_numeric( $forum_id ) ){
+ 
+        $r['meta_query'] = array(
+            array(
+                'key' => '_bbp_forum_id',
+                'value' => $forum_id,
+                'compare' => '=',
+            )
+        );
+	    
+        $group_id = bbp_get_forum_group_ids( $forum_id );
+        if( groups_is_user_member( bp_loggedin_user_id(), $group_id[0] ) )
+        {
+            function mla_allow_all_forums () { return true; }
+            add_filter( 'bbp_include_all_forums', 'mla_allow_all_forums' );
+        }
+    }
+ 
+    return $r;
+}
+
+add_filter( 'bbp_after_has_search_results_parse_args' , 'mla_bbp_filter_search_results' );
+
+
+add_filter( 'body_class', 'mla_search_body_class' ); 
+
+function mla_search_body_class( $classes ) {
+    
+   $name = null;
+   if(bbp_is_search()) {
+       $name = 'groups single-item';
+   }
+   
+   return array_merge( $classes, array($name ) );
+}
