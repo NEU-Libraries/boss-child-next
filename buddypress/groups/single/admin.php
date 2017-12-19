@@ -196,10 +196,6 @@
 <?php /* Manage Group Members */ ?>
 <?php if ( bp_is_group_admin_screen( 'manage-members' ) ) : ?>
 
-<?php  if(bbp_is_search())
-         echo "is search";
-?>
-
     <?php do_action( 'bp_before_group_manage_members_admin' ); ?>
 	
         <div class="bp-widget">
