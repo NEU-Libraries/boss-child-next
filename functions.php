@@ -336,6 +336,16 @@ function remove_messages_add_autocomplete_js_css() {
 add_action( 'init', 'remove_messages_add_autocomplete_js_css' );
 
 /**
+ * This is dequeued by remove_messages_add_autocomplete_js_css(),
+ * but Boss adds it back in buddyboss_scripts_styles().
+ * Remove it on that action again.
+ */
+function hcommons_dequeue_bgiframe() {
+	wp_dequeue_script( 'bp-jquery-bgiframe' );
+}
+add_action( 'wp_enqueue_scripts', 'hcommons_dequeue_bgiframe', 20 );
+
+/**
  * Fixes css in admin for discussion forum metabox
  *
  * @return void

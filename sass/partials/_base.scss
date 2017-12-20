@@ -60,3 +60,30 @@ div#sitewide-notice #message.info {
 h1.entry-title.main-title.search-title-results {
   font-size: 30px;
 }
+
+// template notices
+div.bbp-template-notice {
+  background-color: white;
+  border: 1px solid black;
+
+  p {
+    color: black;
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  &.info,
+  &.info * {
+    background-color: white;
+    color: black;
+    text-align: left;
+  }
+}
+
+.bp-user #buddypress #item-header div#message,
+.group-single #buddypress #item-header div#message {
+  animation-duration: 10s;
+  opacity: 1;
+}

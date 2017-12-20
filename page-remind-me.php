@@ -11,7 +11,7 @@ p.res_message {
 	margin-bottom: 5px;
 }
 
-#remind-me-container input#rm_user_email, #remind-me-container input#rm_username {
+#remind-me-container input#rm_username_email {
 	width: 70%;
 }
 
@@ -32,11 +32,11 @@ p.res_message {
 	switch( $_POST['req_method'] ) {
 		
 		case "email" :
-			$user = get_user_by('email', filter_var( $_POST['user_email'], FILTER_SANITIZE_EMAIL ) );
+			$user = get_user_by('email', filter_var( $_POST['username_email'], FILTER_SANITIZE_EMAIL ) );
 		break;
 
 		case "username" :
-			$user = get_user_by( 'login', filter_var( $_POST['username'], FILTER_SANITIZE_STRING ) );
+			$user = get_user_by( 'login', filter_var( $_POST['username_email'], FILTER_SANITIZE_STRING ) );
 		break;
 
 		default:
@@ -52,7 +52,8 @@ p.res_message {
 	if( $user !== false ) {
 
 		$user_login_methods = implode( '<br />', Humanities_Commons::hcommons_get_user_login_methods( $user->data->ID ) );
-//var_dump( $user_login_methods );
+		//var_dump( $user_login_methods );
+
 		//var_dump( implode( '<br />', $user_login_methods ) );
 		if ( ! empty( $user_login_methods ) ) {
 			wp_mail( $user->data->user_email, "Your Humanities Commons Login Method Request", "<p>You currently log in to <em>Humanities Commons</em> using: </p> <h3>{$user_login_methods}</h3>", "From: HC <hc@hcommons.org>" );
@@ -75,7 +76,7 @@ p.res_message {
 
 <script type="text/javascript">
 
-	$(document).ready(function() {
+	/*$(document).ready(function() {
 		
 		$('#rm_username').hide();
 		$('#username_choice').on('click', function() {
@@ -91,7 +92,7 @@ p.res_message {
 			}	
 
 		});
-	});
+	});*/
 
 </script>
 
@@ -114,8 +115,7 @@ p.res_message {
 	<p><input type="radio" id="email_choice" name="req_method" value="email" checked />I'll identify myself with my registered e-mail</p>
 	<p><input type="radio" id="username_choice" name="req_method" value="username" />I'll identify myself with my <em>Humanities Commons</em> username</p>
 
-	<input type="email" id="rm_user_email" name="user_email" />
-	<input type="text" id="rm_username"  name="username" />
+	<input type="text" id="rm_username_email"  name="username_email" />
 
 	<input type="submit" value="Submit!" />
         <input type="hidden" name="rm_nonce" value="<?php echo wp_create_nonce('remind-me-nonce'); ?>" />

@@ -196,12 +196,27 @@
 <?php /* Manage Group Members */ ?>
 <?php if ( bp_is_group_admin_screen( 'manage-members' ) ) : ?>
 
-	<?php do_action( 'bp_before_group_manage_members_admin' ); ?>
+<?php  if(bbp_is_search())
+         echo "is search";
+?>
+
+    <?php do_action( 'bp_before_group_manage_members_admin' ); ?>
 	
+        <div class="bp-widget">
+            <form role="search" method="get" id="bbp-search-form">
+                <div>
+                    <label class="screen-reader-text hidden" for="bbp_search">Search Members:</label>
+                       <input type="text" value="" name="members_search" id="group_member_search" placeholder="Search Members:">
+                       <input class="button" type="submit" id="members_search_submit" members="members_search_submit" value="Search">
+                </div>
+            </form>
+        </div>
+
+     <?php if ( bp_has_members( '&include='. bp_group_admin_ids() ) ) : ?>
+
 	<div class="bp-widget">
 		<h4><?php _e( 'Administrators', 'boss' ); ?></h4>
 
-		<?php if ( bp_has_members( '&include='. bp_group_admin_ids() ) ) : ?>
 		
 		<ul id="admins-list" class="item-list single-line">
 			
@@ -220,10 +235,10 @@
 			<?php endwhile; ?>
 		
 		</ul>
-		
+	</div>	
 		<?php endif; ?>
 
-	</div>
+	
 	
 	<?php if ( bp_group_has_moderators() ) : ?>
 		<div class="bp-widget">
@@ -252,11 +267,11 @@
 		</div>
 	<?php endif ?>
 
-
 	<div class="bp-widget">
-		<h4><?php _e("Members", "boss"); ?></h4>
 
-		<?php if ( bp_group_has_members( 'per_page=15&exclude_banned=false' ) ) : ?>
+<?php if ( bp_group_has_members( 'per_page=15&exclude_banned=false' ) ) : ?>
+
+		<h4><?php _e("Members", "boss"); ?></h4>
 
 			<ul id="members-list" class="item-list single-line">
 				<?php while ( bp_group_members() ) : bp_group_the_member(); ?>
@@ -311,11 +326,11 @@
 				</div>
 
 			<?php endif; ?>
-
+                   
 		<?php else: ?>
 
 			<div id="message" class="info">
-				<p><?php _e( 'This group has no members.', 'boss' ); ?></p>
+				<p><?php _e( 'No members found for this Group.', 'boss' ); ?></p>
 			</div>
 
 		<?php endif; ?>
