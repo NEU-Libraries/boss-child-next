@@ -5,6 +5,18 @@
   color: black;
 }
 
+#bbp-search-results 
+.bbp-forum-title h3, 
+#bbp-search-results .bbp-reply-title h3, 
+#bbp-search-results .bbp-topic-title h3 {
+  display: block;
+  margin: 3px 44px 0 0;
+}
+
+span.bbp-topic-post-title {
+  font-size: 15px;
+}
+
 #buddypress input#group_member_search {
     width: unset;
 }
@@ -12,6 +24,7 @@
 #search-group-admin div.bbp-search-form {
   float: left;
   margin: 10px;
+}
 
 button#add {
   white-space: nowrap;
@@ -260,7 +273,7 @@ li.bbp-topic-title a.bbp-topic-permalink {
 
         &:hover {
         	color: $link-color-hover;
-        	text-decoration: underline;
+          text-decoration: underline;
         }
 
       }
