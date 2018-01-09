@@ -11,7 +11,7 @@ $forum_id = bbp_get_forum_id();
 $group_slug = bp_get_current_group_slug();
 ?>
 
-<form role="search" method="get" id="bbp-search-form" action="<?php bbp_search_url(); ?>">
+<form role="search" method="get" id="bbp-search-form" action="/groups/<?php echo $group_slug ?>/forum/search-forum/">
 	<div>
 		<label class="screen-reader-text hidden" for="bbp_search"><?php _e( 'Search for:', 'bbpress' ); ?></label>
 		<!--<input type="hidden" name="action" value="bbp-search-request" />-->

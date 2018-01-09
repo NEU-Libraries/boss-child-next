@@ -505,3 +505,17 @@ function mla_search_body_class( $classes ) {
    
    return array_merge( $classes, array($name ) );
 }
+
+function mla_search_results_pagination( $args ) {
+   global $wp_rewrite;
+
+   $base = trailingslashit( get_permalink() );
+   $group_slug = bp_get_current_group_slug();
+   
+   $base = $base . 'groups/' .  $group_slug . '/forum/search-forum/' .  user_trailingslashit( $wp_rewrite->pagination_base . '/%#%/' );
+   $args['base'] = $base;
+
+   return $args;
+}
+
+add_filter('bbp_search_results_pagination', 'mla_search_results_pagination');
