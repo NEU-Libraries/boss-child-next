@@ -23,10 +23,10 @@
             <div class="table-cell">
                 <?php bbp_breadcrumb(); ?>
                 <?php bbp_forum_subscription_link(); ?>
+                <?php do_action( 'bbp_template_notices' ); ?>
             </div>
 
             <?php if ( current_user_can('publish_topics') && bp_group_is_member()) : ?>
-
             	<div class="table-cell">
                     <span id="topic-form-toggle">
                          <button id="add">Create New Topic</button>
