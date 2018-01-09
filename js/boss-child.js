@@ -32,7 +32,7 @@
      
       $("#topic-form-toggle").on('click', '#add', function() {
     $(".topic-form").slideToggle("slow");
-    $("#add").hide();
+   
     $('html,body').animate({
             scrollTop: $(".topic-form").offset().top},
             'slow');

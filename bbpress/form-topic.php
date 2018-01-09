@@ -8,9 +8,7 @@
  */
 
 ?>
-
 <?php if ( !bbp_is_single_forum() ) : ?>
-
 <div id="bbpress-forums">
 
 	<?php bbp_breadcrumb(); ?>
@@ -26,7 +24,6 @@
 <?php endif; ?>
 
 <?php if ( bbp_current_user_can_access_create_topic_form() ) : ?>
-
 	<div id="new-topic-<?php bbp_topic_id(); ?>" class="bbp-topic-form">
 
 		<form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>">
@@ -63,7 +60,7 @@
 
 				<?php endif; ?>
 
-				<?php do_action( 'bbp_template_notices' ); ?>
+				<?php //do_action( 'bbp_template_notices' ); ?>
 
 				<div>
 

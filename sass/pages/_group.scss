@@ -40,7 +40,7 @@ span.bbp-topic-post-title {
 
 button#add {
   white-space: nowrap;
-  overflow: hidden; 
+  overflow: hidden;
   text-overflow: ellipsis;
   max-width: 200px;
   font-size: 14px;
@@ -81,7 +81,7 @@ button#add {
 #bbpress-forums div.bbp-the-content-wrapper {
   margin-bottom: 10px;
 }
- 
+
 #buddypress div#item-nav {
   margin: 0;
 }
@@ -168,7 +168,7 @@ body:not(.boxed) #item-nav .item-list-tabs .hideshow ul:before {
   #bbp_topic_tags {
     width: 100%;
   }
-  
+
   .topic-form {
     display:none;
   }
@@ -285,7 +285,7 @@ li.bbp-topic-title a.bbp-topic-permalink {
 
         &:hover {
         	color: $link-color-hover;
-          text-decoration: underline;
+        	text-decoration: underline;
         }
 
       }
