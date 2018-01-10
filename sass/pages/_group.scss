@@ -5,6 +5,30 @@
   color: black;
 }
 
+body.bbp-search #item-body {
+  display: none;
+}
+
+.page-right-sidebar .site-content {
+  height: 100%;
+}
+
+#bbp-search-results 
+.bbp-forum-title h3, 
+#bbp-search-results .bbp-reply-title h3, 
+#bbp-search-results .bbp-topic-title h3 {
+  display: block;
+  margin: 3px 44px 0 0;
+}
+
+body.bbp-search .entry-content {
+    padding: unset;
+}
+
+span.bbp-topic-post-title {
+  font-size: 15px;
+}
+
 #buddypress input#group_member_search {
     width: unset;
 }
