@@ -152,7 +152,7 @@ global $class, $rtmedia_query;
 
                     </div><!-- #content -->
 <?php
-$search = $_GET['bbp_search'];
+$search = ( isset( $_GET['bbp_search'] ) ) ? $_GET['bbp_search'] : false;
 
 if(!empty($search)) :
 
