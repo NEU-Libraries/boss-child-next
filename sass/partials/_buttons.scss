@@ -101,3 +101,12 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
     display: none;
   }
 }
+
+
+#members-list span:last-child,
+#members-list .item-meta .count
+{
+    display: none;
+}
+
+
