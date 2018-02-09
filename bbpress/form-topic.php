@@ -107,8 +107,7 @@
 
 						<?php do_action( 'bbp_theme_before_topic_form_forum' ); ?>
 
-						<?php // this has to exist for the forum submission to work, but we don't want users changing it ?>
-						<p style="display:none;">
+						<p>
 							<label for="bbp_forum_id"><?php _e( 'Forum:', 'bbpress' ); ?></label><br />
 							<?php
 								bbp_dropdown( array(
@@ -133,11 +132,11 @@
 
 							<?php bbp_form_topic_type_dropdown(); ?>
 </div>
-
+                                               
                                                        <?php do_action( 'bbp_theme_after_topic_form_type' ); ?>
 
                                                        <?php do_action( 'bbp_theme_before_topic_form_status' ); ?>
-
+                                               
 <div class="bbp-status-select">
                                                         <label for="bbp_topic_status"><?php _e( 'Topic Status:', 'bbpress' ); ?></label><br />
 
