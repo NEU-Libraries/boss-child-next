@@ -105,19 +105,23 @@
 
 					<?php if ( !bbp_is_single_forum() ) : ?>
 
-						<?php do_action( 'bbp_theme_before_topic_form_forum' ); ?>
+						<div style="display:none">
 
-						<p>
-							<label for="bbp_forum_id"><?php _e( 'Forum:', 'bbpress' ); ?></label><br />
-							<?php
-								bbp_dropdown( array(
-									'show_none' => __( '(No Forum)', 'bbpress' ),
-									'selected'  => bbp_get_form_topic_forum()
-								) );
-							?>
-						</p>
+							<?php do_action( 'bbp_theme_before_topic_form_forum' ); ?>
 
-						<?php do_action( 'bbp_theme_after_topic_form_forum' ); ?>
+							<p>
+								<label for="bbp_forum_id"><?php _e( 'Forum:', 'bbpress' ); ?></label><br />
+								<?php
+									bbp_dropdown( array(
+										'show_none' => __( '(No Forum)', 'bbpress' ),
+										'selected'  => bbp_get_form_topic_forum()
+									) );
+								?>
+							</p>
+
+							<?php do_action( 'bbp_theme_after_topic_form_forum' ); ?>
+
+						</div>
 
 					<?php endif; ?>
 
@@ -132,11 +136,11 @@
 
 							<?php bbp_form_topic_type_dropdown(); ?>
 </div>
-                                               
+
                                                        <?php do_action( 'bbp_theme_after_topic_form_type' ); ?>
 
                                                        <?php do_action( 'bbp_theme_before_topic_form_status' ); ?>
-                                               
+
 <div class="bbp-status-select">
                                                         <label for="bbp_topic_status"><?php _e( 'Topic Status:', 'bbpress' ); ?></label><br />
 
