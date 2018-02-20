@@ -103,9 +103,8 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 }
 
 
-#members-list span:last-child,
-#members-list .item-meta .count
-{
+.following span:last-child,
+.following .item-meta span.count {
     display: none;
 }
 
