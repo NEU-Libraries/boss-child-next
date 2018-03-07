@@ -35,9 +35,12 @@ div#buddypress div#subnav.item-list-tabs ul li a,
 #buddypress #subnav #invite-new-members,
 #buddypress #subnav #sent-invites,
 .bp-user.messages #buddypress div#subnav.item-list-tabs ul li:first-child a,
+.disabled-button,
 .directory #buddypress div.item-list-tabs ul#bp-docs-all-docs li:not(#members-order-select):not(#groups-order-select):not(#blogs-order-select) a {
   @include button-material();
 }
+
+
 
 div#buddypress div#subnav.item-list-tabs ul li.selected a,
 div#buddypress div#subnav.item-list-tabs ul li.current a {
@@ -91,6 +94,14 @@ div#buddypress div#subnav.item-list-tabs ul li.current a {
 body.activity:not(.bp-user)  .item-list-tabs ul li a span,
 .dir-form .item-list-tabs ul li a span {
   background-color: $button-background-color;
+}
+
+.disabled-button,
+.disabled-button:hover {
+  background-color: #ccc;
+  color: #999;
+  width: 175px;
+  padding: 12px 6px;
 }
 
 // some message buttons are not like the others...
