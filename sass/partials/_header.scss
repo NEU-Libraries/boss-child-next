@@ -212,6 +212,17 @@ a.sidebar-btn.fa:hover {
   background-color: unset;
 }
 
+@media screen and (max-width: 1000px) {
+  .non-member-disclaimer {
+    display: none;
+  }
+}
+.non-member-disclaimer {
+  float: right;
+  line-height: 2em;
+  margin: -6em 5em 0 0;
+}
+
 #titlebar-search {
   display: table-cell !important;
 }
