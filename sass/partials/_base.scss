@@ -84,3 +84,15 @@ div.bbp-template-notice {
   top: 0;
   margin-top: 0;
 }
+
+.bp-active a:focus, input[type=text]:focus,
+.bp-active textarea:focus, .bp-active iframe:focus,
+ button:focus, .bp-active select:focus {
+  outline: #9ecaed solid 2px !important;
+}
+
+.buddyboss-select-inner select:focus {
+  opacity: 1;
+  left: -5px;
+}
+
