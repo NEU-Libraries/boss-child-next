@@ -26,12 +26,6 @@
     return(false);
   }
 
-  var validateDate = function(variable) {
-    var dtRegex = new RegExp(/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{4}\b/);
-    return dtRegex.test(variable);
-  }
-
-
   $(document).ready(function(){
     var searchQuery = getQueryVariable('s');
     var searchInput = $('#members_search');
