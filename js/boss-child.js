@@ -26,18 +26,36 @@
     return(false);
   }
 
+  var validateDate = function(variable) {
+    var dtRegex = new RegExp(/\b\d{1,2}[\/-]\d{1,2}[\/-]\d{4}\b/);
+    return dtRegex.test(variable);
+  }
+
+
   $(document).ready(function(){
     var searchQuery = getQueryVariable('s');
     var searchInput = $('#members_search');
-     
-      $("#topic-form-toggle").on('click', '#add', function() {
-    $(".topic-form").slideToggle("slow");
-   
-    $('html,body').animate({
+
+    $("#topic-form-toggle").on('click', '#add', function() {
+      $(".topic-form").slideToggle("slow");
+
+      $('html,body').animate({
             scrollTop: $(".topic-form").offset().top},
             'slow');
-  });  
+    });
 
+    var previousDate;
+
+    $("#eo-start-date, #eo-end-date").focus( function() {
+      previousDate = $( this ).val(); ;
+    });
+
+    $("#eo-start-date, #eo-end-date").blur( function() {
+        var newDate = $( this ).val();
+        if (!moment( newDate, 'dd-mm-yyyy', true ).isValid() ) {
+            $( this ).val( previousDate );
+        }
+    });
 
     // preserve url searches by copying them to the search box if necessary
     if (searchQuery.length > 0 && searchInput.val() === '') {
@@ -110,8 +128,8 @@
       event.preventDefault();
 
     });
-    
-   
+
+
     // admins can add these classes in the widget options, but only to
     // the content of widgets which still leaves an empty box with a
     // border unless we also add the class to the container.
