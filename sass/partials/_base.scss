@@ -99,3 +99,40 @@ div.bbp-template-notice {
 #buddypress table#groups-notification-settings th {
     padding-right: 2em;
 }
+
+#buddypress div#item-body {
+    max-width: 800px;
+}
+
+#buddypress table#groups-notification-settings th.network-header {
+    border: none;
+}
+
+#buddypress table.notification-settings .yes, #buddypress table.notification-settings .no {
+    text-align: unset;
+}
+
+
+#buddypress table#groups-notification-settings tr:nth-child(even),
+#buddypress table#activity-notification-settings tr:nth-child(even),
+#buddypress table#messages-notification-settings tr:nth-child(even),
+#buddypress table#follow-notification-settings tr:nth-child(even) {
+    background: #DCDCDC;
+}
+
+#buddypress table.notification-settings td {
+    padding: 5px;
+}
+
+#buddypress table thead tr#network {
+    border: none;
+}
+
+#buddypress table#groups-notification-settings tbody tr:last-child:not(:first-child) td, 
+#buddypress table#activity-notification-settings tbody tr:last-child:not(:first-child) td {
+    padding: 5px;
+}
+
+#buddypress #settings-form div#group-email-settings {
+    display: none;
+}

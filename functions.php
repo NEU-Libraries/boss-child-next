@@ -50,7 +50,8 @@ function boss_child_theme_enqueue_style() {
 		! empty( Humanities_Commons::$society_id ) &&
 		file_exists( get_stylesheet_directory() . '/css/' . Humanities_Commons::$society_id . '.css' )
 	) {
-		wp_enqueue_style( 'boss-child-custom', get_stylesheet_directory_uri() . '/css/' . Humanities_Commons::$society_id . '.css', [], 4 );
+                $ctime =  filemtime( get_theme_file_path() . '/css/' . Humanities_Commons::$society_id . '.css' );
+		wp_enqueue_style( 'boss-child-custom', get_stylesheet_directory_uri() . '/css/' . Humanities_Commons::$society_id . '.css', [], $ctime );
 	}
 
 }
@@ -62,7 +63,8 @@ add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_style', 200 );
  * Enqueues scripts for child theme front-end.
  */
 function boss_child_theme_enqueue_script() {
-	wp_enqueue_script( 'boss-child-custom', get_stylesheet_directory_uri() . '/js/boss-child.js', [], 1 );
+        $jtime = filemtime( get_theme_file_path() . '/js/boss-child.js' );
+	wp_enqueue_script( 'boss-child-custom', get_stylesheet_directory_uri() . '/js/boss-child.js', [], $jtime );
 }
 // priority 200 to ensure this loads after redux which uses 150
 add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_script' );
@@ -447,31 +449,31 @@ function buddyboss_entry_meta( $show_author = true, $show_date = true, $show_com
 }
 //display bbPress search form above sinle topics and forums
 function mla_bbp_search_form(){
-  
+
     if ( bbp_allow_search()) {
         ?>
         <div class="bbp-search-form">
-  
+
             <?php bbp_get_template_part( 'form', 'search' ); ?>
-  
+
         </div>
         <?php
     }
 }
-  
+
 add_action( 'bbp_template_before_single_forum', 'mla_bbp_search_form' );
 
 
 function mla_bbp_filter_search_results( $r ){
-    
+
     $r['ep_integrate'] = false;
 
     //Get the submitted forum ID (added in gethub > bbpress > form-search.php)
     $forum_id = sanitize_title_for_query( $_GET['bbp_search_forum_id'] );
- 
+
     //If the forum ID exits, filter the query
     if( $forum_id && is_numeric( $forum_id ) ){
- 
+
         $r['meta_query'] = array(
             array(
                 'key' => '_bbp_forum_id',
@@ -479,7 +481,7 @@ function mla_bbp_filter_search_results( $r ){
                 'compare' => '=',
             )
         );
-	    
+
         $group_id = bbp_get_forum_group_ids( $forum_id );
         if( groups_is_user_member( bp_loggedin_user_id(), $group_id[0] ) )
         {
@@ -487,22 +489,22 @@ function mla_bbp_filter_search_results( $r ){
             add_filter( 'bbp_include_all_forums', 'mla_allow_all_forums' );
         }
     }
- 
+
     return $r;
 }
 
 add_filter( 'bbp_after_has_search_results_parse_args' , 'mla_bbp_filter_search_results' );
 
 
-add_filter( 'body_class', 'mla_search_body_class' ); 
+add_filter( 'body_class', 'mla_search_body_class' );
 
 function mla_search_body_class( $classes ) {
-    
+
    $name = null;
    if(bbp_is_search()) {
        $name = 'groups single-item';
    }
-   
+
    return array_merge( $classes, array($name ) );
 }
 
@@ -511,7 +513,7 @@ function mla_search_results_pagination( $args ) {
 
    $base = trailingslashit( get_permalink() );
    $group_slug = bp_get_current_group_slug();
-   
+
    $base = $base . 'groups/' .  $group_slug . '/forum/search-forum/' .  user_trailingslashit( $wp_rewrite->pagination_base . '/%#%/' );
    $args['base'] = $base;
 
