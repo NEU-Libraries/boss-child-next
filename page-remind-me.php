@@ -30,7 +30,7 @@ p.res_message {
 	//var_dump( $_POST );
 
 	switch( $_POST['req_method'] ) {
-		
+
 		case "email" :
 			$user = get_user_by('email', filter_var( $_POST['username_email'], FILTER_SANITIZE_EMAIL ) );
 		break;
@@ -63,7 +63,7 @@ p.res_message {
 			wp_mail( $user->data->user_email, "Your Humanities Commons Login Method Request", "<p>Looks like you have never logged into <em>Humanities Commons</em>. Please get in touch.</p>", "From: HC <hc@hcommons.org>" );
 }
 		echo "<p class='res_message'>If we have this username or e-mail address on file, we will send you a message detailing how you have previously logged in to <em>Humanities Commons</em>. Please check your inbox.</p>";
-	
+
 	} else {
         	echo "<p class='res_message'>If we have this username or e-mail address on file, we will send you a message detailing how you have previously logged in to <em>Humanities Commons</em>. Please check your inbox.</p>";
         }
@@ -77,7 +77,7 @@ p.res_message {
 <script type="text/javascript">
 
 	/*$(document).ready(function() {
-		
+
 		$('#rm_username').hide();
 		$('#username_choice').on('click', function() {
 			$('#rm_username').toggle();
@@ -85,11 +85,11 @@ p.res_message {
 		});
 
 		$('#email_choice').on('click', function() {
-			
+
 			if( ! $('#rm_user_email').is(':visible') )	{
 				$('#rm_user_email').toggle();
 				$('#rm_username').hide();
-			}	
+			}
 
 		});
 	});*/
@@ -111,7 +111,7 @@ p.res_message {
 <p>Send me an e-mail with my login information!</p>
 
 <form action="" id="remindMeForm" method="POST">
-	
+
 	<p><input type="radio" id="email_choice" name="req_method" value="email" checked />I'll identify myself with my registered e-mail</p>
 	<p><input type="radio" id="username_choice" name="req_method" value="username" />I'll identify myself with my <em>Humanities Commons</em> username</p>
 
@@ -119,7 +119,9 @@ p.res_message {
 
 	<input type="submit" value="Submit!" />
         <input type="hidden" name="rm_nonce" value="<?php echo wp_create_nonce('remind-me-nonce'); ?>" />
-</form>	
+</form>
+
+</div> <!-- #remind-me-container -->
 
 </div><!-- .entry-content -->
 
@@ -131,7 +133,6 @@ p.res_message {
 
 <?php endwhile; // end of the loop. ?>
 
-</div> <!-- #remind-me-container -->
 </div><!-- #content -->
 </div><!-- #primary -->
 </div><!-- .page-full-width -->
