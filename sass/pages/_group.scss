@@ -24,12 +24,16 @@ body.bbp-search #item-body {
 }
 
 .page-right-sidebar .site-content {
-  height: 100%;
+  height: unset !important;
 }
 
-#bbp-search-results 
-.bbp-forum-title h3, 
-#bbp-search-results .bbp-reply-title h3, 
+.left-menu-open .group-single #secondary {
+  margin-bottom: unset !important;
+}
+
+#bbp-search-results
+.bbp-forum-title h3,
+#bbp-search-results .bbp-reply-title h3,
 #bbp-search-results .bbp-topic-title h3 {
   display: block;
   margin: 3px 44px 0 0;
