@@ -28,9 +28,9 @@ if ( boss_get_option( 'boss_layout_style' ) != 'boxed' && boss_get_option('boss_
 
 					//Get truncated string with long width group title
 					if ( wp_is_mobile() ) {
-						echo mb_strimwidth( $group_name, 0, 35, "...");
+						echo force_balance_tags( mb_strimwidth( $group_name, 0, 35, "...") );
 					} else {
-						echo mb_strimwidth( $group_name, 0, 55, "...");
+						echo force_balance_tags( mb_strimwidth( $group_name, 0, 55, "...") );
 					}
 				}
 				?></h1>
