@@ -37,6 +37,10 @@
 
     $("label[for='blog_public_off']").append("<br><br>Note: Neither of these options blocks access to your site — it is up to search engines to honor your request.");
 
+    if ( $('.entry-buddypress-content p a:eq(1)').length ) {
+      $('.entry-buddypress-content p a:eq(1)')[0].nextSibling.remove();
+    }
+
     $("#topic-form-toggle").on('click', '#add', function() {
       $(".topic-form").slideToggle("slow");
 
