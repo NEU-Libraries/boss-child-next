@@ -27,8 +27,19 @@
   }
 
   $(document).ready(function(){
+
     var searchQuery = getQueryVariable('s');
     var searchInput = $('#members_search');
+
+    $("label[for='blog_public_on'] strong").text('Allow search engines to index this site, and allow the site to appear in public listings around this network.');
+
+    $("label[for='blog_public_off'] strong").text("Discourage search engines from indexing this site.");
+
+    $("label[for='blog_public_off']").append("<br><br>Note: Neither of these options blocks access to your site — it is up to search engines to honor your request.");
+
+    if ( $('.entry-buddypress-content p a:eq(1)').length ) {
+      $('.entry-buddypress-content p a:eq(1)')[0].nextSibling.remove();
+    }
 
     $("#topic-form-toggle").on('click', '#add', function() {
       $(".topic-form").slideToggle("slow");
@@ -135,5 +146,8 @@
       $( '#send-to-input' ).val( $( '#send-to-input' ).val().replace( '@', '' ) );
     } );
   });
+
+
+
 
 })(jQuery);
