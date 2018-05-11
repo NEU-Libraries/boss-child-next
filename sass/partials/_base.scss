@@ -112,12 +112,16 @@ div.bbp-template-notice {
     text-align: unset;
 }
 
-
+#buddypress table#groups-subscription-notification-settings tr:nth-child(even),
 #buddypress table#groups-notification-settings tr:nth-child(even),
 #buddypress table#activity-notification-settings tr:nth-child(even),
 #buddypress table#messages-notification-settings tr:nth-child(even),
 #buddypress table#follow-notification-settings tr:nth-child(even) {
     background: #DCDCDC;
+}
+
+#buddypress table tbody tr:last-child:not(:first-child) td {
+    padding-bottom: 5px;
 }
 
 #buddypress table.notification-settings td {
@@ -133,6 +137,9 @@ div.bbp-template-notice {
     padding: 5px;
 }
 
-#buddypress #settings-form div#group-email-settings {
+#buddypress #settings-form div#group-email-settings,
+#buddypress #settings-form p:first-child {
     display: none;
 }
+
+
