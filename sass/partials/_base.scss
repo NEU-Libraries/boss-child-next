@@ -77,6 +77,12 @@ div.bbp-template-notice {
   }
 }
 
+// this is invisible against the titlebar by default, change to make it visible
+.ui-dialog-titlebar-close:hover::before {
+  content: '\f158';
+  color: black;
+}
+
 .bp-user #buddypress #item-header div#message,
 .group-single #buddypress #item-header div#message {
   animation-duration: 10s;
