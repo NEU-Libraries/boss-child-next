@@ -31,9 +31,6 @@
     var searchQuery = getQueryVariable('s');
     var searchInput = $('#members_search');
 
-    var formSubmitting = false;
-    var setFormSubmitting = function() { formSubmitting = true; };
-
     $('form#settings-form').areYouSure();
 
     $("label[for='blog_public_on'] strong").text('Allow search engines to index this site, and allow the site to appear in public listings around this network.');
