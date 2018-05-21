@@ -10,7 +10,7 @@
 do_action( 'bp_before_member_settings_template' ); ?>
 
 <h4>Current Memberships</h4>
-<br />
+<br>
 <ul>
 <?php $memberships = bp_get_member_type( bp_displayed_user_id(), false );
 	foreach ( $memberships as $membership ) {
@@ -20,7 +20,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	} ?>
 </ul>
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) { ?>
-<br />
+<br>
 <?php
 	global $comanage_api;
 	$user = wp_get_current_user();
@@ -34,7 +34,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 			if ( ! $header_printed ) {
 				$header_printed = true; ?>
 <h4>Other Memberships</h4>
-<br />
+<br>
 			<?php }
 			if ( 'Expired' == $comanage_role['status'] ) {
 				echo "<p>",$comanage_key, " membership status ", $comanage_role['status'], " effective ",
@@ -67,19 +67,19 @@ do_action( 'bp_before_member_settings_template' ); ?>
 		}
 	}
 ?>
-<br />
+<br>
 <p>Missing a membership? Let us know <a href="mailto:hello@hcommons.org">here</a>.</p>
 <?php } ?>
-<br />
+<br><br>
 <h4>Current Log-in Methods</h4>
-<br />
+<br>
 <ul>
 <?php $login_methods = Humanities_Commons::hcommons_get_user_login_methods( bp_displayed_user_id() );
 	foreach ( $login_methods as $login_method ) {
 		echo '<li>' . strtoupper( $login_method ) . '</li>';
 	} ?>
 </ul>
-<br />
+<br>
 <?php if ( is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
 	$registry_url = constant( 'REGISTRY_SERVER_URL' ) . '/Shibboleth.sso/Login?SAMLDS=1';
 	$discovery_url = urlencode( constant( 'REGISTRY_SERVER_URL' ) . '/discovery_service_registry_only/index.php' );
@@ -95,7 +95,7 @@ do_action( 'bp_before_member_settings_template' ); ?>
 	}
 
 } ?>
-<br />
+<br>
 <?php if ( 1==2 && is_user_logged_in() && bp_loggedin_user_id() === bp_displayed_user_id() ) {
 	$current_orcid = hcommons_get_session_orcid();
 	if ( empty( $current_orcid ) ) {
@@ -120,14 +120,14 @@ do_action( 'bp_before_member_settings_template' ); ?>
 
 <form method="post" class="no-ajax standard-form" id="settings-form-general" action="<?php echo bp_displayed_user_domain() . bp_get_settings_slug() . '/general'; ?>">
 
-<br />
+<br>
 <h4>Currently Registered E-mails</h4>
-<br />
+<br>
 <?php
 
 $shib_email = Humanities_Commons::hcommons_shib_email( $user );
 
-//lets check if $shib_email is an array to loop through, 
+//lets check if $shib_email is an array to loop through,
 //otherwise the user does not have multiple emails to select from
 if( is_array( $shib_email ) ) : ?>
 
@@ -135,14 +135,14 @@ if( is_array( $shib_email ) ) : ?>
 <ul class="email_selection">
 <?php
 
-	foreach( $shib_email as $email ) : 
+	foreach( $shib_email as $email ) :
 
 	//lets check to see if the current email is in the list of emails from shib
 		if( $email == $user->user_email ) : ?>
 		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" checked /><?php echo $email; ?> </li>
 		<?php else : ?>
 		<li> <input type="radio" name="primary_email" value="<?php echo $email; ?>" /><?php echo $email; ?> </li>
-		
+
 <?php 	endif;
 	endforeach;
 ?>
@@ -159,7 +159,7 @@ if( is_array( $shib_email ) ) : ?>
 	<input type="email" name="email" id="email" value="<?php echo bp_get_displayed_user_email(); ?>" class="settings-input" <?php bp_form_field_attributes( 'email' ); ?>/>
 
 	<label for="pass1"><?php _e( 'Change Password <span>(leave blank for no change)</span>', 'buddypress' ); ?></label>
-	<input type="password" name="pass1" id="pass1" size="16" value="" class="settings-input small password-entry" <?php bp_form_field_attributes( 'password' ); ?>/> &nbsp;<?php _e( 'New Password', 'buddypress' ); ?><br />
+	<input type="password" name="pass1" id="pass1" size="16" value="" class="settings-input small password-entry" <?php bp_form_field_attributes( 'password' ); ?>/> &nbsp;<?php _e( 'New Password', 'buddypress' ); ?><br>
 	<div id="pass-strength-result"></div>
 	<label for="pass2" class="bp-screen-reader-text"><?php
 		/* translators: accessibility text */
@@ -195,11 +195,19 @@ if( is_array( $shib_email ) ) : ?>
 
 </form>
 
-<?php else : ?> 
+<?php else : ?>
 <p><?php echo $user->user_email; ?></p>
 <?php endif; //end is_array() check
 } //end current form ?>
 
+<br><br>
+<h4>Your account</h4>
+<br>
+You can request a copy of your personal data by contacting us at <a href="mailto:hello@hcommons.org">hello@hcommons.org.</a>
+<br><br>
+If you wish to close your account, please contact us at <a href="mailto:hello@hcommons.org">hello@hcommons.org.</a>
+<br><br>
+For more information, please see the <a href="/privacy/">privacy policy</a>.
 <?php
 
 /** This action is documented in bp-templates/bp-legacy/buddypress/members/single/settings/profile.php */
