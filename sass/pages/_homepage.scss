@@ -13,3 +13,8 @@
 .sow-slider-base .sow-slide-nav {
   display: none !important; // hide arrows on slider
 }
+
+.home-page:not(.boxed) #content .panel-grid {
+  margin-left: -40px;
+  margin-right: -40px;
+}
