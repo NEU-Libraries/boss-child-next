@@ -26,6 +26,34 @@
     return(false);
   }
 
+  // https://stackoverflow.com/a/12784180
+  var getBackgroundImageSize = function(el) {
+    var imageUrl = $(el).css('background-image').match(/^url\(["']?(.+?)["']?\)$/);
+    var dfd = new $.Deferred();
+
+    if (imageUrl) {
+      var image = new Image();
+      image.onload = dfd.resolve;
+      image.onerror = dfd.reject;
+      image.src = imageUrl[1];
+    } else {
+      dfd.reject();
+    }
+
+    return dfd.then(function() {
+      return { width: this.width, height: this.height };
+    });
+  };
+
+  var fixCoverImageDimensions = function() {
+    getBackgroundImageSize( $('#header-cover-image')[0] )
+      .then( function( size ) {
+        if ( 1250 == size.width ) {
+          $('#header-cover-image').css({'background-size': 'auto 320px'});
+        }
+      } );
+  }
+
   $(document).ready(function(){
 
     var searchQuery = getQueryVariable('s');
@@ -147,6 +175,8 @@
     $( '#send_message_form' ).on( 'submit', function( e ) {
       $( '#send-to-input' ).val( $( '#send-to-input' ).val().replace( '@', '' ) );
     } );
+
+    fixCoverImageDimensions();
   });
 
 
