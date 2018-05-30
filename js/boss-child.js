@@ -176,7 +176,9 @@
       $( '#send-to-input' ).val( $( '#send-to-input' ).val().replace( '@', '' ) );
     } );
 
-    fixCoverImageDimensions();
+    if ( $( '#header-cover-image' ).length ) {
+      fixCoverImageDimensions();
+    }
   });
 
 
