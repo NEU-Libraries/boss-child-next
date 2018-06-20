@@ -24,6 +24,13 @@
   max-width: none;
 }
 
+.profile.change-avatar #buddypress div#item-header-avatar img.avatar,
+.profile.change-cover-image #buddypress div#item-header-avatar img.avatar {
+  width: 100%;
+  height: auto;
+}
+
+
 .site #invite-anyone-steps > li::before {
   background-color: $menu-panel-background-color;
   color: $menu-panel-color;
