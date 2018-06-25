@@ -89,3 +89,12 @@ input[type="radio"].styled + strong:before {
   display: inline;
   width: unset;
 }
+
+#buddypress .standard-form textarea,
+#buddypress .standard-form input[type="text"] {
+  border-color: $menu-panel-color;
+
+  &:hover {
+    border-color: $menu-panel-color-hover;
+  }
+}
