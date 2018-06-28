@@ -90,6 +90,8 @@ input[type="radio"].styled + strong:before {
   width: unset;
 }
 
+.bbp-form textarea,
+.bbp-form input[type="text"],
 #buddypress .standard-form textarea,
 #buddypress .standard-form input[type="text"] {
   border-color: $menu-panel-color;
