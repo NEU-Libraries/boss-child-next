@@ -69,12 +69,6 @@ function boss_child_theme_enqueue_script() {
 // priority 200 to ensure this loads after redux which uses 150
 add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_script' );
 
-function boss_child_theme_enqueue_typekit() {
-	wp_enqueue_script( 'typekit', '//use.typekit.net/bgx6tpq.js', array(), null );
-	wp_add_inline_script( 'typekit', 'try{Typekit.load();}catch(e){};' );
-}
-add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_typekit' );
-
 /**
  * some thumbnails have been generated with small dimensions due to
  * BP_AVATAR_THUMB_WIDTH being too small at the time. this is a temporary
@@ -366,14 +360,14 @@ add_action( 'admin_head', 'groups_discussion_admin_metabox' );
  * Circumvent the signup allowed option to always show the register button in the header.
  * @uses Humanities_Commons
  */
-function hcommons_filter_bp_get_signup_allowed( bool $allowed ) {
-	if ( Humanities_Commons::backtrace_contains( 'file', '/srv/www/commons/current/web/app/themes/boss/header.php' ) ) {
+function hcommons_filter_bp_get_signup_allowed( $allowed ) {
+	if ( class_exists( 'Humanities_Commons' ) && Humanities_Commons::backtrace_contains( 'file', '/srv/www/commons/current/web/app/themes/boss/header.php' ) ) {
 		$allowed = true;
 	}
 
 	return $allowed;
 }
-add_filter( 'bp_get_signup_allowed', 'hcommons_filter_bp_get_signup_allowed' );
+//add_filter( 'bp_get_signup_allowed', 'hcommons_filter_bp_get_signup_allowed' );
 
 /**
  * overriding parent function to use group/member avatars in search results

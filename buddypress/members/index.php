@@ -1,9 +1,3 @@
-<?php
-
-$society_id = Humanities_Commons::$society_id;
-
-?>
-
 <?php do_action( 'bp_before_directory_members_page' ); ?>
 
 <div id="buddypress">
@@ -47,13 +41,13 @@ $society_id = Humanities_Commons::$society_id;
 			<ul>
 				<li class="selected" id="members-all"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( 'All Members <span>%s</span>', 'boss' ), bp_get_total_member_count() ); ?></a></li>
 
-				<?php if ( ! empty( $society_id ) && 'hc' !== $society_id ) : ?>
-					<li id="members-society"><a href="<?php bp_members_directory_permalink(); ?>"><?php printf( __( '%s Members', 'boss' ), strtoupper( $society_id ) ); ?></a></li>
-				<?php endif; ?>
-
 				<?php if ( is_user_logged_in() && bp_is_active( 'friends' ) && bp_get_total_friend_count( bp_loggedin_user_id() ) ) : ?>
 					<li id="members-personal"><a href="<?php echo bp_loggedin_user_domain() . bp_get_friends_slug() . '/my-friends/'; ?>"><?php printf( __( 'My Friends <span>%s</span>', 'boss' ), bp_get_total_friend_count( bp_loggedin_user_id() ) ); ?></a></li>
 				<?php endif; ?>
+
+				<?php if ( count( bp_get_member_types() ) > 1 ) : foreach ( bp_get_member_types( array(), 'objects' ) as $type => $settings ) : ?>
+					<li id="members-<?php echo esc_attr( $type ); ?>"><a href="#" class="member-type" data-type="<?php echo esc_attr( $type ); ?>"><?php echo $settings->labels['name']; ?></a></li>
+				<?php endforeach; endif; ?>
 
 				<?php do_action( 'bp_members_directory_member_types' ); ?>
 

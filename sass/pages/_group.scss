@@ -223,6 +223,12 @@ li.bbp-topic-title a.bbp-topic-permalink {
   color: unset;
 }
 
+// don't use our normal styles for these inputs
+#buddypress #create-group-form.standard-form textarea,
+#buddypress #create-group-form.standard-form input[type="text"] {
+  width: unset;
+}
+
 #buddypress #create-group-form {
   #groupblog-details {
     input[type="text"] {

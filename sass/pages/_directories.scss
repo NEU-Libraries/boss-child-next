@@ -181,6 +181,7 @@ body.activity:not(.bp-user)  .item-list-tabs ul li a span,
   width: 70%; // TODO why is this different?
 }
 #primary #groups-list li .item-avatar {
+  min-height: 1px;
   width: 105px; // without this limit, avatars stretch and can make row inconsistent depending on visible buttons
 }
 

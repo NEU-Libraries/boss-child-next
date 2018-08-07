@@ -71,8 +71,8 @@ div.bbp-template-notice {
 
   &.info,
   &.info * {
-    background-color: white;
-    color: black;
+    background-color: $button-background-color;
+    color: $button-color;
     text-align: left;
   }
 }
