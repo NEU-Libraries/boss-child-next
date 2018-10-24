@@ -8,6 +8,18 @@
 if ( ! defined( 'BP_AVATAR_THUMB_WIDTH' ) ) define ( 'BP_AVATAR_THUMB_WIDTH', 150 );
 if ( ! defined( 'BP_AVATAR_THUMB_HEIGHT' ) ) define ( 'BP_AVATAR_THUMB_HEIGHT', 150 );
 
+add_filter( 'body_class', function( $classes ) {
+	$classes = array_merge( $classes, array('page-template', 'page-template-page-no-buddypanel', 'page-template-page-no-buddypanel-php' ) );
+
+	if ( $index = array_search( 'left-menu-open', $classes ) ) {
+		unset( $classes[ $index ] );
+	}
+
+	return array_unique( $classes );
+}, 11 );
+
+add_action( 'wp_footer', 'no_buddypanel_all' );
+
 /**
  * Sets up theme defaults
  *

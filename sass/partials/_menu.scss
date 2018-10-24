@@ -1,3 +1,19 @@
+body.page-template-page-no-buddypanel:not(.boxed) .header-inner {
+  background-color: #fff;
+
+  .header-links {
+    display: none;
+  }
+
+  .search-wrap {
+    background-color: #fff;
+  }
+
+  input, button {
+    color: #999 !important;
+  }
+}
+
 .menu-panel,
 .menu-panel #nav-menu .sub-menu-wrap,
 .menu-panel #header-menu .sub-menu-wrap,
@@ -154,7 +170,7 @@ body.is-desktop:not(.left-menu-open)[data-logo="1"] #left-panel-inner {
   padding-top: 65px;
 }
 body:not(.left-menu-open).is-desktop #right-panel-inner {
-  margin-left: 65px;
+  margin-left: 0; // disable BuddyPanel
 }
 .is-desktop #left-panel-inner #scroll-area {
   width: 65px;
