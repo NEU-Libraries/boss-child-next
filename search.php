@@ -18,7 +18,7 @@ get_header(); ?>
         <section id="primary" class="site-content">
             <div id="content" role="main">
 
-                <article id="post-0" class="post">
+                <article id="post-0" class="post post-wrap">
                     <div class="entry-content">
                         <p><?php _e( 'Searching ...', 'boss' ); ?></p>
                     </div><!-- .entry-content -->
