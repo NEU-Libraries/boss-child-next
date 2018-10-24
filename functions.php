@@ -76,10 +76,100 @@ add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_style', 200 );
  */
 function boss_child_theme_enqueue_script() {
         $jtime = filemtime( get_theme_file_path() . '/js/boss-child.js' );
-	wp_enqueue_script( 'boss-child-custom', get_stylesheet_directory_uri() . '/js/boss-child.js', [], $jtime );
+	wp_register_script( 'sweetalert', 'https://unpkg.com/sweetalert/dist/sweetalert.min.js' );
+	wp_enqueue_script( 'boss-child-custom', get_stylesheet_directory_uri() . '/js/boss-child.js', [ 'jquery' ], $jtime );
+
+	$user = wp_get_current_user();
+	if ( $user->exists() && get_user_meta( $user->ID, 'shibboleth_account', true ) && ! get_user_meta( $user->ID, 'neu_username_updated', true ) ) {
+		wp_enqueue_script( 'neu-onboarding', get_stylesheet_directory_uri() . '/js/onboarding.js', [ 'sweetalert', 'jquery', 'wp-util' ], $jtime, true );
+	}
 }
 // priority 200 to ensure this loads after redux which uses 150
 add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_script' );
+
+/**
+ * Listener for username update modal
+ *
+ * @since  1.0.0
+ *
+ * @author Tanner Moushey
+ */
+function neu_udpate_username() {
+	global $wpdb;
+	$user = wp_get_current_user();
+
+	if ( ! $user->exists() ) {
+		wp_send_json_error( 'user not logged in' );
+	}
+
+	if ( ! get_user_meta( $user->ID, 'shibboleth_account', true ) ) {
+		wp_send_json_error( array( 'message' => 'not a shibboleth account', 'retry' => false ) );
+	}
+
+	if ( get_user_meta( $user->ID, 'neu_username_updated', true ) ) {
+		wp_send_json_error( array( 'message' => 'username already updated', 'retry' => false ) );
+	}
+
+	$original_username = $_POST['username'];
+	$username = neu_check_username( $original_username );
+
+	if ( is_wp_error( $username ) ) {
+		wp_send_json_error( array( 'message' => $username->get_error_message(), 'retry' => true ) );
+	}
+
+	if ( $username != $original_username ) {
+		wp_send_json_error( array( 'message' => 'The username you entered is invalid. Please use only numbers, letters, and dashes.', 'retry' => true ) );
+	}
+
+	$wpdb->update( $wpdb->users, array( 'user_nicename' => $username ), array( 'ID' => $user->ID ) );
+
+	update_user_meta( $user->ID, 'neu_username_updated', true );
+	wp_send_json_success( $username );
+}
+add_action( 'wp_ajax_neu_update_username', 'neu_udpate_username' );
+
+/**
+ * Validate username. Taken from wp_insert_user();
+ *
+ * @param $username
+ * @see wp_insert_user()
+ *
+ * @return WP_Error | string
+ * @author Tanner Moushey
+ */
+function neu_check_username( $username ) {
+	global $wpdb;
+
+	$username = apply_filters( 'pre_user_login', sanitize_user( $username, true ) );
+	$username = trim( $username );
+	$username = apply_filters( 'pre_user_nicename', sanitize_title( $username ) );
+
+	// user_login must be between 0 and 60 characters.
+	if ( empty( $username ) ) {
+		return new WP_Error( 'empty_user_login', __( 'Cannot create a user with an empty login name.' ) );
+	} elseif ( mb_strlen( $username ) > 60 ) {
+		return new WP_Error( 'user_login_too_long', __( 'Username may not be longer than 60 characters.' ) );
+	}
+
+	if ( get_user_by( 'slug', $username ) ) {
+		return new WP_Error( 'existing_user_login', __( 'Sorry, that username already exists!' ) );
+	}
+
+	/**
+	 * Filters the list of blacklisted usernames.
+	 *
+	 * @since 4.4.0
+	 *
+	 * @param array $usernames Array of blacklisted usernames.
+	 */
+	$illegal_logins = (array) apply_filters( 'illegal_user_logins', array() );
+
+	if ( in_array( strtolower( $username ), array_map( 'strtolower', $illegal_logins ) ) ) {
+		return new WP_Error( 'invalid_username', __( 'Sorry, that username is not allowed.' ) );
+	}
+
+	return $username;
+}
 
 /**
  * some thumbnails have been generated with small dimensions due to
@@ -527,3 +617,4 @@ function mla_search_results_pagination( $args ) {
 }
 
 add_filter('bbp_search_results_pagination', 'mla_search_results_pagination');
+
