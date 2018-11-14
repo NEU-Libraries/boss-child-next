@@ -110,7 +110,7 @@ function neu_udpate_username() {
 		wp_send_json_error( array( 'message' => 'username already updated', 'retry' => false ) );
 	}
 
-	$original_username = $_POST['username'];
+	$original_username = strtolower( $_POST['username'] );
 	$username = neu_check_username( $original_username );
 
 	if ( is_wp_error( $username ) ) {
@@ -121,9 +121,22 @@ function neu_udpate_username() {
 		wp_send_json_error( array( 'message' => 'The username you entered is invalid. Please use only numbers, letters, and dashes.', 'retry' => true ) );
 	}
 
-	$wpdb->update( $wpdb->users, array( 'user_nicename' => $username ), array( 'ID' => $user->ID ) );
+//	$wpdb->update( $wpdb->users, array( 'user_nicename' => $username ), array( 'ID' => $user->ID ) );
+
+	$user->user_nicename = $username;
+
+	if ( $user->display_name === $user->user_login ) {
+		$user->display_name = $username;
+	}
+
+	if ( xprofile_get_field_data( 'Name', $user->ID ) === $user->user_login ) {
+		xprofile_set_field_data( 'Name', $user->ID, $username );
+	}
+
+	wp_insert_user( $user );
 
 	update_user_meta( $user->ID, 'neu_username_updated', true );
+
 	wp_send_json_success( $username );
 }
 add_action( 'wp_ajax_neu_update_username', 'neu_udpate_username' );
