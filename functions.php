@@ -51,7 +51,7 @@ function boss_child_theme_remove_dynamic_css( $reduxFramework ) {
 	remove_action( 'wp_head', 'boss_generate_option_css', 99 );
 	remove_action( 'wp_head', array( $reduxFramework, '_output_css' ), 150 );
 }
-add_action( 'redux/loaded', 'boss_child_theme_remove_dynamic_css' );
+add_action( 'wp_head', 'boss_child_theme_remove_dynamic_css' );
 
 /**
  * Enqueues styles for child theme front-end.
