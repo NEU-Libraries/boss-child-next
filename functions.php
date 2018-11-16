@@ -94,8 +94,7 @@ add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_script' );
  *
  * @author Tanner Moushey
  */
-function neu_udpate_username() {
-	global $wpdb;
+function neu_update_username() {
 	$user = wp_get_current_user();
 
 	if ( ! $user->exists() ) {
@@ -121,8 +120,6 @@ function neu_udpate_username() {
 		wp_send_json_error( array( 'message' => 'The username you entered is invalid. Please use only numbers, letters, and dashes.', 'retry' => true ) );
 	}
 
-//	$wpdb->update( $wpdb->users, array( 'user_nicename' => $username ), array( 'ID' => $user->ID ) );
-
 	$user->user_nicename = $username;
 
 	if ( $user->display_name === $user->user_login ) {
@@ -133,14 +130,14 @@ function neu_udpate_username() {
 		xprofile_set_field_data( 'Name', $user->ID, $username );
 	}
 
-	wp_insert_user( $user );
+	wp_update_user( $user );
 	wp_cache_set( 'bp_user_username_' . $user->ID, $username, 'bp' );
-
+	
 	update_user_meta( $user->ID, 'neu_username_updated', true );
 
 	wp_send_json_success( $username );
 }
-add_action( 'wp_ajax_neu_update_username', 'neu_udpate_username' );
+add_action( 'wp_ajax_neu_update_username', 'neu_update_username' );
 
 /**
  * Validate username. Taken from wp_insert_user();
