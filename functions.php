@@ -134,6 +134,7 @@ function neu_udpate_username() {
 	}
 
 	wp_insert_user( $user );
+	wp_cache_delete( 'bp_user_username_' . $user->ID, 'bp' );
 
 	update_user_meta( $user->ID, 'neu_username_updated', true );
 
