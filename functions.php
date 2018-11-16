@@ -127,7 +127,7 @@ function neu_update_username() {
 	}
 
 	if ( xprofile_get_field_data( 'Name', $user->ID ) === $user->user_login ) {
-		xprofile_set_field_data( 'Name', $user->ID, $username );
+		xprofile_set_field_data( 'Name', $user->ID, $user->display_name );
 	}
 
 	wp_update_user( $user );
