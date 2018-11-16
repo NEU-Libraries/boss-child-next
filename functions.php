@@ -94,7 +94,7 @@ add_action( 'wp_enqueue_scripts', 'boss_child_theme_enqueue_script' );
  *
  * @author Tanner Moushey
  */
-function neu_udpate_username() {
+function neu_update_username() {
 	global $wpdb;
 	$user = wp_get_current_user();
 
@@ -140,7 +140,7 @@ function neu_udpate_username() {
 
 	wp_send_json_success( $username );
 }
-add_action( 'wp_ajax_neu_update_username', 'neu_udpate_username' );
+add_action( 'wp_ajax_neu_update_username', 'neu_update_username' );
 
 /**
  * Validate username. Taken from wp_insert_user();
