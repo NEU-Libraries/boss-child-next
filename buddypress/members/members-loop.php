@@ -9,6 +9,13 @@
  * @subpackage bp-default
  */
 
+add_filter( 'bp_before_has_members_parse_args', function( $args ) {
+	if ( isset( $args['scope'] ) ) {
+		$args['member_type__in'] = $args['scope'];
+	}
+
+	return $args;
+} );
 ?>
 
 <?php do_action( 'bp_before_members_loop' ); ?>
