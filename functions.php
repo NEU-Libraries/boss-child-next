@@ -62,8 +62,11 @@ function boss_child_theme_enqueue_style() {
 		! empty( Humanities_Commons::$society_id ) &&
 		file_exists( get_stylesheet_directory() . '/css/' . Humanities_Commons::$society_id . '.css' )
 	) {
-                $ctime =  filemtime( get_theme_file_path() . '/css/' . Humanities_Commons::$society_id . '.css' );
+		$ctime = filemtime( get_theme_file_path() . '/css/' . Humanities_Commons::$society_id . '.css' );
 		wp_enqueue_style( 'boss-child-custom', get_stylesheet_directory_uri() . '/css/' . Humanities_Commons::$society_id . '.css', [], $ctime );
+	} else {
+		$ctime = filemtime( get_theme_file_path() . '/css/nc.css' );
+		wp_enqueue_style( 'boss-child-custom', get_stylesheet_directory_uri() . '/css/nc.css', [], $ctime );
 	}
 
 }
