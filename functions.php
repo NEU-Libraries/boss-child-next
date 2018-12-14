@@ -632,3 +632,21 @@ function mla_search_results_pagination( $args ) {
 
 add_filter('bbp_search_results_pagination', 'mla_search_results_pagination');
 
+
+/**
+ * Temporarily force BuddyPress to use wp_mail
+ */
+ add_filter( 'bp_email_use_wp_mail', __return_true() );
+
+/**
+ * Filter the wp_mail arguments to statically set the to address.
+ *
+ * @param $atts
+ *
+ * @return mixed
+ */
+function northeastern_redirect_emails( $atts ) {
+	$atts['to'] = array( 'dusty@dustyf.com', 'p.yott@northeastern.edu' );
+	return $atts;
+}
+add_filter( 'wp_mail', 'northeastern_redirect_emails' );
