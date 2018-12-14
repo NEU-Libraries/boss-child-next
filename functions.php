@@ -632,6 +632,17 @@ function mla_search_results_pagination( $args ) {
 
 add_filter('bbp_search_results_pagination', 'mla_search_results_pagination');
 
+/**
+ * Filters the Groups Blog subnav label
+ *
+ * @param $name
+ *
+ * @return string
+ */
+function nucommons_groupblog_label( $name ) {
+	return 'Blog';
+}
+add_filter('bp_groupblog_subnav_item_name','nucommons_groupblog_label');
 
 /**
  * Temporarily force BuddyPress to use wp_mail
@@ -645,8 +656,8 @@ add_filter('bbp_search_results_pagination', 'mla_search_results_pagination');
  *
  * @return mixed
  */
-function northeastern_redirect_emails( $atts ) {
+function nucommons_redirect_emails( $atts ) {
 	$atts['to'] = array( 'dusty@dustyf.com', 'p.yott@northeastern.edu' );
 	return $atts;
 }
-add_filter( 'wp_mail', 'northeastern_redirect_emails' );
+add_filter( 'wp_mail', 'nucommons_redirect_emails' );
