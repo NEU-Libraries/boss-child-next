@@ -657,7 +657,7 @@ add_filter('bp_groupblog_subnav_item_name','nucommons_groupblog_label');
  * @return mixed
  */
 function nucommons_redirect_emails( $atts ) {
-	$atts['to'] = array( 'dusty@dustyf.com', 'p.yott@northeastern.edu' );
+	$atts['to'] = array( 'dusty@dustyf.com', 'p.yott@northeastern.edu', 'support@iwitnessdesign.com' );
 	return $atts;
 }
 add_filter( 'wp_mail', 'nucommons_redirect_emails' );
