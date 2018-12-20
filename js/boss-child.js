@@ -191,9 +191,9 @@
       $( '#send-to-input' ).val( $( '#send-to-input' ).val().replace( '@', '' ) );
     } );
 
-    if ( $( '#header-cover-image' ).length ) {
-      fixCoverImageDimensions();
-    }
+    // if ( $( '#header-cover-image' ).length ) {
+    //   fixCoverImageDimensions();
+    // }
   });
 
 
