@@ -661,3 +661,19 @@ function nucommons_redirect_emails( $atts ) {
 	return $atts;
 }
 add_filter( 'wp_mail', 'nucommons_redirect_emails' );
+
+
+/**
+ * Add @handle to forum replies
+ *
+ * @since Boss 1.0.0
+ *
+ */
+function nucommons_add_handle() {
+	if ( bbp_get_reply_id() ) {
+		$bb_username = get_userdata( bbp_get_reply_author_id( bbp_get_reply_id() ) );
+		echo '<span class="bbp-user-nicename"><span class="handle-sign">@</span>' . $bb_username->user_nicename . '</span>';
+	}
+}
+remove_action( 'bbp_theme_after_reply_author_details', 'buddyboss_add_handle' );
+add_action( 'bbp_theme_after_reply_author_details', 'nucommons_add_handle' );
