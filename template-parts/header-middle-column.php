@@ -49,7 +49,7 @@ if ( class_exists( 'Humanities_Commons' ) && ! empty( (new Humanities_Commons)->
 		'fallback_cb'	 => '',
 		'echo'			 => false,
 		'container'		 => false,
-		'walker'		 => new BuddybossWalker
+		'walker'		 => new NEUHeaderWalker
 	) );
 
 	if ( !empty( $buddypanel_menu ) || !empty( $titlebar_menu ) ): ?>
